@@ -30,7 +30,7 @@ class Authenticate {
 	 * @param  \Closure  $next
 	 * @return mixed
 	 */
-	public function handle($request, Closure $next)
+	public function handle($request, \Closure $next)
 	{
 		if ($this->auth->guest())
 		{
@@ -40,7 +40,7 @@ class Authenticate {
 			}
 			else
 			{
-				return redirect()->guest('auth/login');
+				return view('auth.login');
 			}
 		}
 
