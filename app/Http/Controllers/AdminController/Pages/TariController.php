@@ -62,7 +62,7 @@ class TariController extends Controller {
             'ContinentID' => $request->ContinentID,
             'nume' => $request->nume,
             'descriere' => $request->descriere,
-            'poza' => \URL::asset('images/').$fileName,
+            'poza' => \URL::asset('images')."/".$fileName,
             'Latitudine'=>$request->Latitudine,
             'Longitudine' => $request->Longitudine,
         );
