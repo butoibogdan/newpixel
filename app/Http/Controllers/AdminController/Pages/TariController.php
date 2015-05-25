@@ -56,7 +56,7 @@ class TariController extends Controller {
                 $extension = Input::file('poza')->getClientOriginalExtension(); // getting image extension
                 $fileName = rand(11111, 99999) . '.' . $extension; // renameing image
                 Input::file('poza')->move($destinationPath, $fileName);
-                Image::make(\URL::asset('images')."/".$fileName)->resize(120, 120)->save('images/'.$fileName);
+                Image::make(\URL::asset('images')."/".$fileName)->resize(\Config::get('newpixel.width'),\Config::get('newpixel.height'))->save('images/'.$fileName);
             } 
         }
 
