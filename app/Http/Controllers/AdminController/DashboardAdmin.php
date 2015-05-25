@@ -16,9 +16,8 @@ class DashboardAdmin extends Controller {
 	public function index()
 	{
                 if(\Session::get('name')){
-                    $name=\session::get('name');
-                    return \View::make('administrare.dashboard_firstpage')
-                            ->with('nume',$name);
+                    
+                    return \View::make('administrare.dashboard_content');
                 } else {
                     return \Redirect::to('login');
                 }
