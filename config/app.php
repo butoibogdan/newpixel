@@ -147,6 +147,7 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
                 'Appzcoder\CrudGenerator\CrudGeneratorServiceProvider',
+                'Intervention\Image\ImageServiceProvider'
 
 	],
 
@@ -197,6 +198,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
                 'Form'      => 'Collective\Html\FormFacade',
                 'Html'      => 'Collective\Html\HtmlFacade',
+                'Image' => 'Intervention\Image\Facades\Image'
 
 	],
 
