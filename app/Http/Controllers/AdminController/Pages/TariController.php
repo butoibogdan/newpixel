@@ -40,7 +40,7 @@ class TariController extends Controller {
      * @return Response
      */
     public function store(Request $request) {
-        
+
         //$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
 
         $file = array('image' => Input::file('poza'));
@@ -56,16 +56,16 @@ class TariController extends Controller {
                 $extension = Input::file('poza')->getClientOriginalExtension(); // getting image extension
                 $fileName = rand(11111, 99999) . '.' . $extension; // renameing image
                 Input::file('poza')->move($destinationPath, $fileName);
-                Image::make(\URL::asset('images')."/".$fileName)->resize(\Config::get('newpixel.width'),\Config::get('newpixel.height'))->save('images/'.$fileName);
-            } 
+                Image::make(\URL::asset('images') . "/" . $fileName)->resize(\Config::get('newpixel.width'), \Config::get('newpixel.height'))->save('images/' . $fileName);
+            }
         }
 
         $valori = array(
             'ContinentID' => $request->ContinentID,
             'nume' => $request->nume,
             'descriere' => $request->descriere,
-            'poza' => \URL::asset('images')."/".$fileName,
-            'Latitudine'=>$request->Latitudine,
+            'poza' => \URL::asset('images') . "/" . $fileName,
+            'Latitudine' => $request->Latitudine,
             'Longitudine' => $request->Longitudine,
         );
 //        dd($request->all());

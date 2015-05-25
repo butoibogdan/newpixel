@@ -11,7 +11,7 @@
                         <h1>Edit regiuni</h1>
                         <hr/>
 
-                        {!! Form::model($regiuni, ['method' => 'PATCH', 'action' => ['RegiuniController@update', $regiuni->id]]) !!}
+                        {!! Form::model($regiuni, ['method' => 'PATCH', 'action' => ['AdminController\Pages\RegiuniController@update', $regiuni->id]]) !!}
 
                         <div class="form-group">
                         {!! Form::label('TaraID', 'Taraid: ') !!}

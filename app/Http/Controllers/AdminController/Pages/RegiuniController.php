@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\AdminController\Pages;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -17,7 +17,7 @@ class RegiuniController extends Controller {
 	public function index()
 	{
 		$regiunis = Regiunis::latest()->get();
-		return view('regiuni.index', compact('regiunis'));
+		return view('administrare.pages.regiuni.index', compact('regiunis'));
 	}
 
 	/**
@@ -27,7 +27,7 @@ class RegiuniController extends Controller {
 	 */
 	public function create()
 	{
-		return view('regiuni.create');
+		return view('administrare.pages.regiuni.create');
 	}
 
 	/**
@@ -51,7 +51,7 @@ class RegiuniController extends Controller {
 	public function show($id)
 	{
 		$regiuni = Regiunis::findOrFail($id);
-		return view('regiuni.show', compact('regiuni'));
+		return view('administrare.pages.regiuni.show', compact('regiuni'));
 	}
 
 	/**
@@ -63,7 +63,7 @@ class RegiuniController extends Controller {
 	public function edit($id)
 	{
 		$regiuni = Regiunis::findOrFail($id);
-		return view('regiuni.edit', compact('regiuni'));
+		return view('administrare.pages.regiuni.edit', compact('regiuni'));
 	}
 
 	/**

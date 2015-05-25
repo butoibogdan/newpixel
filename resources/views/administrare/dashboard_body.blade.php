@@ -209,6 +209,7 @@
                         <ul class="treeview-menu">
                             <li><a href="{{URL::asset('continente')}}"><i class="fa fa-circle-o"></i>Continente</a></li>
                             <li><a href="{{URL::asset('tari')}}"><i class="fa fa-circle-o"></i>Tari</a></li>
+                            <li><a href="{{URL::asset('regiuni')}}"><i class="fa fa-circle-o"></i>Regiuni</a></li>
                             <li><a href="layout/fixed.html"><i class="fa fa-circle-o"></i>Regiuni</a></li>
                             <li><a href="collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Orase</a></li>
                             <li><a href="collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Locatii</a></li>
@@ -252,6 +253,8 @@
                             @yield('continente')
             @elseif (Request::path()=='tari' || Request::is('tari/*'))
                             @yield('tari')
+            @elseif (Request::path()=='regiuni' || Request::is('regiuni/*'))
+                            @yield('regiuni')
                                                    
             @endif
 
