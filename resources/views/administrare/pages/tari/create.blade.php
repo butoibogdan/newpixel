@@ -11,7 +11,7 @@
                         <h1>Create a new tari</h1>
                         <hr/>
 
-                        {!! Form::open(['url' => 'tari']) !!}
+                        {!! Form::open(['url' => 'tari','files'=>'true']) !!}
                         
                         <div class="form-group">
                         {!! Form::label('ContinentID', 'Continentid: ') !!}
@@ -24,7 +24,7 @@
                         {!! Form::text('descriere', null, ['class' => 'form-control']) !!}
                     </div><div class="form-group">
                         {!! Form::label('poza', 'Poza: ') !!}
-                        {!! Form::textarea('poza', null, ['class' => 'form-control']) !!}
+                        {!! Form::file('poza', null, ['class' => 'form-control']) !!}
                     </div><div class="form-group">
                         {!! Form::label('Latitudine', 'Latitudine: ') !!}
                         {!! Form::text('Latitudine', null, ['class' => 'form-control']) !!}
