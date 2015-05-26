@@ -9,7 +9,7 @@
                     
                     <div class="panel-body">
                         <h1>regiunis</h1>
-                        <h2><a href="{{ url('/regiuni/create') }}">Adauga</a></h2>
+                        <h2><a href="{{ url('admin/regiuni/create') }}">Adauga</a></h2>
                         <div class="table-responsive">
                             <table class="table">
                                 <tr>
@@ -20,8 +20,8 @@
                                     {{-- */$x++;/* --}}
                                     <tr>
                                         <td>{{ $x }}</td>
-                                        <td><a href="{{ url('/regiuni', $item->id) }}">{{ $item->name }}</a></td>
-                                        <td><a href="{{ url('/regiuni/'.$item->id.'/edit') }}">Edit</a> / <a href="{{ url('/regiuni/destroy/'.$item->id) }}">Delete</a></td>
+                                        <td><a href="{{ url('admin/regiuni', $item->id) }}">{{ $item->name }}</a></td>
+                                        <td><a href="{{ url('admin/regiuni/'.$item->id.'admin/edit') }}">Edit</a> / <a href="{{ url('admin/regiuni/destroy/'.$item->id) }}">Delete</a></td>
                                     </tr>
                                 @endforeach
                             </table>

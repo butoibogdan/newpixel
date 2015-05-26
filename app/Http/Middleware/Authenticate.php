@@ -40,7 +40,7 @@ class Authenticate {
 			}
 			else
 			{
-				return view('auth.login');
+				return \Redirect::to('login');
 			}
 		}
 

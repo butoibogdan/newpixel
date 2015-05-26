@@ -15,7 +15,7 @@ class DashboardAdmin extends Controller {
 	 */
 	public function index()
 	{
-                if(\Session::get('name')){
+                if(\Session::get('name') && \Auth::check()){
                     
                     return \View::make('administrare.dashboard_content');
                 } else {

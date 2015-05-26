@@ -9,7 +9,7 @@
                     
                     <div class="panel-body">
                         <h1>taris</h1>
-                        <h2><a href="{{ url('/tari/create') }}">Create</a></h2>
+                        <h2><a href="{{ url('admin/tari/create') }}">Create</a></h2>
                         <div class="table-responsive">
                             <table class="table">
                                 <tr>
@@ -19,7 +19,7 @@
                                 @foreach($taris as $item)
                                     {{-- */$x++;/* --}}
                                     <tr>
-                                        <td>{{ $x }}</td><td><a href="{{ url('/tari', $item->id) }}">{{ $item->Denumire }}</a></td><td><a href="{{ url('/tari/'.$item->id.'/edit') }}">Edit</a> / <a href="{{ url('/tari/destroy/'.$item->id) }}">Delete</a> </td>
+                                        <td>{{ $x }}</td><td><a href="{{ url('admin/tari', $item->id) }}">{{ $item->Denumire }}</a></td><td><a href="{{ url('admin/tari/'.$item->id.'/edit') }}">Edit</a> / <a href="{{ url('admin/tari/destroy/'.$item->id) }}">Delete</a> </td>
                                     </tr>
                                 @endforeach
                             </table>

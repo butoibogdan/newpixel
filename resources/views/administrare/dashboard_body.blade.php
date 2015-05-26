@@ -207,9 +207,9 @@
                         </a>
 
                         <ul class="treeview-menu">
-                            <li><a href="{{URL::asset('continente')}}"><i class="fa fa-circle-o"></i>Continente</a></li>
-                            <li><a href="{{URL::asset('tari')}}"><i class="fa fa-circle-o"></i>Tari</a></li>
-                            <li><a href="{{URL::asset('regiuni')}}"><i class="fa fa-circle-o"></i>Regiuni</a></li>
+                            <li><a href="{{URL::asset('admin/continente')}}"><i class="fa fa-circle-o"></i>Continente</a></li>
+                            <li><a href="{{URL::asset('admin/tari')}}"><i class="fa fa-circle-o"></i>Tari</a></li>
+                            <li><a href="{{URL::asset('admin/regiuni')}}"><i class="fa fa-circle-o"></i>Regiuni</a></li>
                             <li><a href="layout/fixed.html"><i class="fa fa-circle-o"></i>Regiuni</a></li>
                             <li><a href="collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Orase</a></li>
                             <li><a href="collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Locatii</a></li>
@@ -249,11 +249,11 @@
             
             @if (Request::path() == 'admin')
                             @yield('content')
-            @elseif (Request::path()=='continente' || Request::is('continente/*'))
+            @elseif (Request::path()=='admin/continente' || Request::is('admin/continente/*'))
                             @yield('continente')
-            @elseif (Request::path()=='tari' || Request::is('tari/*'))
+            @elseif (Request::path()=='admin/tari' || Request::is('admin/tari/*'))
                             @yield('tari')
-            @elseif (Request::path()=='regiuni' || Request::is('regiuni/*'))
+            @elseif (Request::path()=='admin/regiuni' || Request::is('admin/regiuni/*'))
                             @yield('regiuni')
                                                    
             @endif
