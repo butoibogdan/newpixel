@@ -11,6 +11,7 @@
   |
  */
 //--------------------Sectiune Admin--------------------//
+
 //--------------------Sectiune Login--------------------//
 Route::get('login', 'AdminController\HomeAdmin@getLogin');
 Route::post('login', 'AdminController\HomeAdmin@postLogin');

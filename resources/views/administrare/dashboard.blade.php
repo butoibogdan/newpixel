@@ -19,10 +19,8 @@
         <script src='{{URL::asset("plugins/jQuery/jQuery-2.1.4.min.js")}}'></script>
         <!-- Bootstrap 3.3.2 JS -->
         <script src='{{URL::asset("bootstrap/js/bootstrap.min.js")}}' type="text/javascript"></script>
-        <script src="{{URL::asset('js/fileinput.min.js')}}"></script>
-        <script>
-            $("#input-1").fileinput();
-        </script>
+        <script src="{{URL::asset('js/fileinput.js')}}"></script>
+        
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>

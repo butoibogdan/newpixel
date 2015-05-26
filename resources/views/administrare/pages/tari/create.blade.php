@@ -23,9 +23,10 @@
                         {!! Form::label('descriere', 'Descriere: ') !!}
                         {!! Form::text('descriere', null, ['class' => 'form-control']) !!}
                     </div><div class="form-group">
+                        
                         {!!Form::label('poza', 'Poza: ')!!}
-                        {!! Form::file('poza',['id'=>'input-1','class' => 'file']) !!}
-                      
+                        {!! Form::file('poza',['id'=>'pozatari','class'=>'file','data-show-upload'=>'false']) !!}
+
                     </div><div class="form-group">
                         {!! Form::label('Latitudine', 'Latitudine: ') !!}
                         {!! Form::text('Latitudine', null, ['class' => 'form-control']) !!}
