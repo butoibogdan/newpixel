@@ -11,7 +11,7 @@
                         <h1>Create a new continente</h1>
                         <hr/>
 
-                        {!! Form::open(['url' => 'continente']) !!}
+                        {!! Form::open(['url' => 'admin/continente']) !!}
                         
                         <div class="form-group">
                         {!! Form::label('Denumire', 'Denumire: ') !!}

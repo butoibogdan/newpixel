@@ -72,7 +72,7 @@ class TariController extends Controller {
 
 
         Taris::create($valori);
-        return redirect('tari');
+        return redirect('admin/tari');
     }
 
     /**
@@ -107,7 +107,7 @@ class TariController extends Controller {
         //$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
         $tari = Taris::findOrFail($id);
         $tari->update($request->all());
-        return redirect('tari');
+        return redirect('admin/tari');
     }
 
     /**
@@ -118,7 +118,7 @@ class TariController extends Controller {
      */
     public function destroy($id) {
         Taris::destroy($id);
-        return redirect('tari');
+        return redirect('admin/tari');
     }
 
 }

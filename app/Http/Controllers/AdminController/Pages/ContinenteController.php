@@ -40,7 +40,7 @@ class ContinenteController extends Controller {
 	{
 		//$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
 		Continentes::create($request->all());
-		return redirect('continente');
+		return redirect('admin/continente');
 	}
 
 	/**
@@ -78,7 +78,7 @@ class ContinenteController extends Controller {
 		//$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
 		$continente = Continentes::findOrFail($id);
 		$continente->update($request->all());
-		return redirect('continente');
+		return redirect('admin/continente');
 	}
 
 	/**
@@ -90,7 +90,7 @@ class ContinenteController extends Controller {
 	public function destroy($id)
 	{
 		Continentes::destroy($id);
-		return redirect('continente');
+		return redirect('admin/continente');
 	}
 
 }

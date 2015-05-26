@@ -11,7 +11,7 @@
                         <h1>Create a new regiuni</h1>
                         <hr/>
 
-                        {!! Form::open(['url' => 'regiuni']) !!}
+                        {!! Form::open(['url' => 'admin/regiuni']) !!}
                         
                         <div class="form-group">
                         {!! Form::label('TaraID', 'Taraid: ') !!}

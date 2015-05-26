@@ -11,7 +11,7 @@
                     <h1>Create a new tari</h1>
                     <hr/>
 
-                    {!! Form::open(['url' => 'tari','files'=>'true']) !!}
+                    {!! Form::open(['url' => 'admin/tari','files'=>'true']) !!}
 
                     <div class="form-group">
                         {!! Form::label('ContinentID', 'Continentid: ') !!}

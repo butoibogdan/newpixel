@@ -39,7 +39,7 @@ class RegiuniController extends Controller {
 	{
 		//$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
 		Regiunis::create($request->all());
-		return redirect('regiuni');
+		return redirect('admin/regiuni');
 	}
 
 	/**
@@ -77,7 +77,7 @@ class RegiuniController extends Controller {
 		//$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
 		$regiuni = Regiunis::findOrFail($id);
 		$regiuni->update($request->all());
-		return redirect('regiuni');
+		return redirect('admin/regiuni');
 	}
 
 	/**
@@ -89,7 +89,7 @@ class RegiuniController extends Controller {
 	public function destroy($id)
 	{
 		Regiunis::destroy($id);
-		return redirect('regiuni');
+		return redirect('admin/regiuni');
 	}
 
 }
