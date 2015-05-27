@@ -27,24 +27,18 @@
             <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
         </div>
         <div class="row">
-            <div class="col-xs-8">    
+            <div class="col-xs-8">
                 <div class="checkbox icheck">
                     <label>
                         <input type="checkbox"> I agree to the <a href="#">terms</a>
                     </label>
-                </div>                        
+                </div>
             </div><!-- /.col -->
             <div class="col-xs-4">
                 <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
             </div><!-- /.col -->
         </div>
-        {!! Form::close() !!}      
-
-        <div class="social-auth-links text-center">
-            <p>- OR -</p>
-            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using Facebook</a>
-            <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign up using Google+</a>
-        </div>
+        {!! Form::close() !!}
 
         <a href="login.html" class="text-center">I already have a membership</a>
     </div><!-- /.form-box -->
