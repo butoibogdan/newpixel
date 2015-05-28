@@ -12,6 +12,7 @@ use Validator;
 use Session;
 use Redirect;
 use Intervention\Image\Facades\Image;
+use App\TariImg;
 
 class TariController extends Controller {
 
@@ -41,38 +42,51 @@ class TariController extends Controller {
      */
     public function store(Request $request) {
 
+
         //$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
 
-        $file = array('image' => Input::file('poza'));
-        $rules = array('image' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
-        // doing the validation, passing post data, rules and the messages
-        $validator = Validator::make($file, $rules);
-        if ($validator->fails()) {
-            // send back to the page with the input data and errors
-            return Redirect::to('tari')->withInput()->withErrors($validator);
-        } else {
-            if (Input::file('poza')->isValid()) {
-                $destinationPath = 'images'; // upload path
-                $extension = Input::file('poza')->getClientOriginalExtension(); // getting image extension
-                $fileName = rand(11111, 99999) . '.' . $extension; // renameing image
-                Input::file('poza')->move($destinationPath, $fileName);
-                Image::make(\URL::asset('images') . "/" . $fileName)->resize(\Config::get('newpixel.width'), \Config::get('newpixel.height'))->save('images/' . $fileName);
-            }
-        }
-
-        $valori = array(
+        $valoriformular = array(
             'ContinentID' => $request->ContinentID,
             'nume' => $request->nume,
             'descriere' => $request->descriere,
-            'poza' => \URL::asset('images') . "/" . $fileName,
             'Latitudine' => $request->Latitudine,
             'Longitudine' => $request->Longitudine,
         );
+
+        $insertformular = Taris::create($valoriformular);
+        $id = $insertformular->id;
+
+        $files = Input::file('poza');
+        $file_count = count($files);
+        $uploadcount = 0;
+
+        foreach ($files as $file) {
+            $rules = array('file' => 'required');
+            $validare = Validator::make(array('file' => $file), $rules);
+            if ($validare->passes()) {
+                $destinationPath = 'images'; // upload path
+                $extension = $file->getClientOriginalExtension(); // getting image extension
+                $fileName = rand(11111, 99999) . '.' . $extension; // renameing image
+                $upload = $file->move($destinationPath, $fileName);
+                Image::make(\URL::asset('images') . "/" . $fileName)->resize(\Config::get('newpixel.width'), \Config::get('newpixel.height'))->save('images/' . $fileName);
+
+                $valoripoze = array(
+                    'TaraID' => $id,
+                    'status' => 0,
+                    'url' => \URL::asset('images') . "/" . $fileName
+                );
+
+                TariImg::create($valoripoze);
+
+                $uploadcount++;
+            }
+        }
+
+        if ($uploadcount == $file_count) {
+            return redirect('admin/tari');
+        }
+
 //        dd($request->all());
-
-
-        Taris::create($valori);
-        return redirect('admin/tari');
     }
 
     /**
