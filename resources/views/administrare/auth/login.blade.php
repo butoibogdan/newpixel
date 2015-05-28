@@ -5,7 +5,7 @@
         <a href="../../index2.html"><b>Travel</b>CMS</a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">Bine ai venit</p>
+        <p class="login-box-msg">Bine ai venit 2015</p>
 
         {!!Form::open(array())!!}
           <div class="form-group has-feedback">
