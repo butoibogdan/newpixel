@@ -25,7 +25,7 @@
                     </div><div class="form-group">
                         
                         {!!Form::label('poza', 'Poza: ')!!}
-                        {!! Form::file('poza',['id'=>'pozatari','class'=>'file','data-show-upload'=>'false']) !!}
+                        {!! Form::file('poza[]',['multiple'=>true, 'id'=>'pozatari','class'=>'file','data-show-upload'=>'false']) !!}
 
                     </div><div class="form-group">
                         {!! Form::label('Latitudine', 'Latitudine: ') !!}
