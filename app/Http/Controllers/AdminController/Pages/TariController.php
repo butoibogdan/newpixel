@@ -44,7 +44,7 @@ class TariController extends Controller {
 
 
         //$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
-
+        //dd($request->all());
         $valoriformular = array(
             'ContinentID' => $request->ContinentID,
             'nume' => $request->nume,
@@ -60,33 +60,31 @@ class TariController extends Controller {
         $file_count = count($files);
         $uploadcount = 0;
 
+
         foreach ($files as $file) {
-            $rules = array('file' => 'required');
-            $validare = Validator::make(array('file' => $file), $rules);
-            if ($validare->passes()) {
-                $destinationPath = 'images'; // upload path
-                $extension = $file->getClientOriginalExtension(); // getting image extension
-                $fileName = rand(11111, 99999) . '.' . $extension; // renameing image
-                $upload = $file->move($destinationPath, $fileName);
-                Image::make(\URL::asset('images') . "/" . $fileName)->resize(\Config::get('newpixel.width'), \Config::get('newpixel.height'))->save('images/' . $fileName);
+                $rules = array('file' => 'required');
+                $validare = Validator::make(array('file' => $file), $rules);
+                if ($validare->passes()) {
+                    $destinationPath = 'images'; // upload path
+                    $extension = $file->getClientOriginalExtension(); // getting image extension
+                    $fileName = rand(11111, 99999) . '.' . $extension; // renameing image
+                    $upload = $file->move($destinationPath, $fileName);
+                    Image::make(\URL::asset('images') . "/" . $fileName)->resize(\Config::get('newpixel.width'), \Config::get('newpixel.height'))->save('images/' . $fileName);
+                    $valoripoze = array(
+                        'TaraID' => $id,
+                        'status' => 0,
+                        'url' => \URL::asset('images') . "/" . $fileName
+                    );
 
-                $valoripoze = array(
-                    'TaraID' => $id,
-                    'status' => 0,
-                    'url' => \URL::asset('images') . "/" . $fileName
-                );
+                    TariImg::create($valoripoze);
 
-                TariImg::create($valoripoze);
-
-                $uploadcount++;
-            }
+                    $uploadcount++;
+                }
         }
 
         if ($uploadcount == $file_count) {
             return redirect('admin/tari');
         }
-
-//        dd($request->all());
     }
 
     /**
