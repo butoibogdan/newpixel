@@ -289,7 +289,7 @@
             '   {footer}\n' +
             '</div>',
         tImage = '<div class="file-preview-frame{frameClass}" id="{previewId}" data-fileindex="{fileindex}">\n' +
-            '   <input id="butonradio" type="radio" name="status[]" value=1><br/>\n' +    
+            '   <input id="butonradio" type="radio" name="status" value=1><br/>\n' +    
             '   <img src="{data}" class="file-preview-image" title="{caption}" alt="{caption}" ' + STYLE_SETTING + '>\n' +
             '   {footer}\n' +
             '</div>\n',
