@@ -76,7 +76,7 @@ class TariController extends Controller {
 
                 $valoripoze = array(
                     'TaraID' => $id,
-                    'status' => $request->status,
+                    'status' => 0,
                     'url' => 'images/' . $fileName
                 );
 
@@ -110,7 +110,9 @@ class TariController extends Controller {
      */
     public function edit($id) {
         $tari = Taris::findOrFail($id);
-        return view('administrare.pages.tari.edit', compact('tari'));
+        $url = TariImg::where('TaraID', $id)->get();
+        return view('administrare.pages.tari.edit', compact('tari'))
+                        ->with('img', $url);
     }
 
     /**
@@ -136,7 +138,7 @@ class TariController extends Controller {
 
         TariImg::DeleteImg($id);
         Taris::destroy($id);
-        
+
         return redirect('admin/tari');
     }
 

@@ -135,12 +135,13 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
-                'Collective\Html\HtmlServiceProvider',
+                
             
 
 		/*
 		 * Application Service Providers...
 		 */
+                'Collective\Html\HtmlServiceProvider',
 		'App\Providers\AppServiceProvider',
 		'App\Providers\BusServiceProvider',
 		'App\Providers\ConfigServiceProvider',

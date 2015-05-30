@@ -13,13 +13,17 @@
                         <div class="table-responsive">
                             <table class="table">
                                 <tr>
-                                    <th>SL.</th><th>Name</th><th>Actions</th>
+                                    <th>SL.</th>
+                                    <th>Nume</th>
+                                    <th>Actions</th>
                                 </tr>
                                 {{-- */$x=0;/* --}}
                                 @foreach($taris as $item)
                                     {{-- */$x++;/* --}}
                                     <tr>
-                                        <td>{{ $x }}</td><td><a href="{{ url('admin/tari', $item->id) }}">{{ $item->Denumire }}</a></td><td><a href="{{ url('admin/tari/'.$item->id.'/edit') }}">Edit</a> / <a href="{{ url('admin/tari/destroy/'.$item->id) }}">Delete</a> </td>
+                                        <td>{{ $x }}</td>
+                                        <td><a href="{{ url('admin/tari', $item->id) }}">{{ $item->nume }}</a></td>
+                                        <td><a href="{{ url('admin/tari/'.$item->id.'/edit') }}">Edit</a> / <a href="{{ url('admin/tari/destroy/'.$item->id) }}">Delete</a> </td>
                                     </tr>
                                 @endforeach
                             </table>
