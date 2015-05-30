@@ -134,13 +134,9 @@ class TariController extends Controller {
      */
     public function destroy($id) {
 
-        $urlpoza = \DB::table('mp_tari_img')->where('TaraID', $id)->get();
-        foreach ($urlpoza as $url) {
-            \File::delete($url->url);
-        }
-
-        \DB::table('mp_tari_img')->where('TaraID', $id)->delete();
+        TariImg::DeleteImg($id);
         Taris::destroy($id);
+        
         return redirect('admin/tari');
     }
 

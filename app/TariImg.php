@@ -17,5 +17,17 @@ class TariImg extends Model  {
      * @var array
      */
     protected $fillable = ['TaraID','status','url'];
+    
+    public static function DeleteImg($id){
+        
+        $urlpoza = self::where('TaraID', $id)->get();
+        
+        foreach ($urlpoza as $url) {
+            \File::delete($url->url);
+        }
+
+        self::where('TaraID', $id)->delete();
+        return TRUE;
+    }
 
 }
