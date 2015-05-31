@@ -88,7 +88,7 @@ class TariController extends Controller {
         }
 
         if ($uploadcount == $file_count) {
-            return redirect("admin/tari/".$id."/edit");
+            return redirect("admin/tari");
         }
     }
 
@@ -126,12 +126,12 @@ class TariController extends Controller {
      */
     public function update($id, Request $request) {
         //$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
+        if (Input::file('poza')[0] != Null) {
 
-        if ($request->file != Null) {
             $files = Input::file('poza');
             $file_count = count($files);
             $uploadcount = 0;
-
+            
             foreach ($files as $file) {
                 $destinationPath = 'images'; // upload path
                 $extension = $file->getClientOriginalExtension(); // getting image extension
