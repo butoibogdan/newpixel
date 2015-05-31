@@ -124,10 +124,12 @@ class TariController extends Controller {
      * @param  int  $id
      * @return Response
      */
+    
     public function update($id, Request $request) {
         //$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
-        if (Input::file('poza')[0] != Null) {
 
+        if (Input::file('poza')[0] != Null) {
+            
             $files = Input::file('poza');
             $file_count = count($files);
             $uploadcount = 0;
