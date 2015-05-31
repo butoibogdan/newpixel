@@ -13,6 +13,7 @@ use Session;
 use Redirect;
 use Intervention\Image\Facades\Image;
 use App\TariImg;
+use Illuminate\Support\Facades\File;
 
 class TariController extends Controller {
 
@@ -87,7 +88,7 @@ class TariController extends Controller {
         }
 
         if ($uploadcount == $file_count) {
-            return redirect('admin/tari');
+            return redirect("admin/tari/".$id."/edit");
         }
     }
 
@@ -109,10 +110,12 @@ class TariController extends Controller {
      * @return Response
      */
     public function edit($id) {
+        $segment_tara = \Request::segment(3);
         $tari = Taris::findOrFail($id);
         $url = TariImg::where('TaraID', $id)->get();
         return view('administrare.pages.tari.edit', compact('tari'))
-                        ->with('img', $url);
+                        ->with('img', $url)
+                        ->with('idtara', $segment_tara);
     }
 
     /**
@@ -123,9 +126,42 @@ class TariController extends Controller {
      */
     public function update($id, Request $request) {
         //$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
+
+        if ($request->file != Null) {
+            $files = Input::file('poza');
+            $file_count = count($files);
+            $uploadcount = 0;
+
+            foreach ($files as $file) {
+                $destinationPath = 'images'; // upload path
+                $extension = $file->getClientOriginalExtension(); // getting image extension
+                $fileName = rand(11111, 99999) . '.' . $extension; // renameing image
+                $upload = $file->move($destinationPath, $fileName);
+
+                Image::make(\URL::asset('images') . "/" . $fileName)->resize(\Config::get('newpixel.width'), \Config::get('newpixel.height'))->save('images/' . $fileName);
+
+                $valoripoze = array(
+                    'TaraID' => $id,
+                    'status' => 0,
+                    'url' => 'images/' . $fileName
+                );
+
+                TariImg::create($valoripoze);
+
+                $uploadcount++;
+            }
+        }
+        $valoriformular = array(
+            'ContinentID' => $request->ContinentID,
+            'nume' => $request->nume,
+            'descriere' => $request->descriere,
+            'Latitudine' => $request->Latitudine,
+            'Longitudine' => $request->Longitudine,
+        );
+
         $tari = Taris::findOrFail($id);
-        $tari->update($request->all());
-        return redirect('admin/tari');
+        $tari->update($valoriformular);
+        return \Redirect::back();
     }
 
     /**
@@ -140,6 +176,19 @@ class TariController extends Controller {
         Taris::destroy($id);
 
         return redirect('admin/tari');
+    }
+
+    public function deleteimg($id) {
+        $url = TariImg::find($id);
+        \File::delete($url->url);
+        TariImg::destroy($id);
+        return \Redirect::back();
+    }
+
+    public function status($idtara, $id) {
+        TariImg::where('TaraID', $idtara)->update(['status' => 0]);
+        TariImg::where('TaraId', $idtara)->where('id', $id)->update(['status' => 1]);
+        return \Redirect::back();
     }
 
 }

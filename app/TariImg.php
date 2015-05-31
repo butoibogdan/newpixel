@@ -29,5 +29,6 @@ class TariImg extends Model  {
         self::where('TaraID', $id)->delete();
         return TRUE;
     }
+    
 
 }

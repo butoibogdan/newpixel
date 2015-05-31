@@ -57,6 +57,9 @@ Route::group(array('middleware' => 'auth'), function() {
 
     Route::get('admin/tari/destroy/{id}', 'AdminController\Pages\TariController@destroy');
     Route::get('admin/tari/{id}', 'AdminController\Pages\TariController@show');
+    
+    Route::get('admin/delimgid/{id}','AdminController\Pages\TariController@deleteimg');
+    Route::get('admin/setimgid/{idt}/{id}','AdminController\Pages\TariController@status');
 
 //--------------------Sectiune Pagini Regiuni--------------------//
     Route::get('admin/regiuni', 'AdminController\Pages\RegiuniController@index');
