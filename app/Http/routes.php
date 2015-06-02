@@ -83,6 +83,32 @@ Route::group(array('middleware' => 'auth'), function() {
 
     Route::get('admin/regiuni/destroy/{id}', 'AdminController\Pages\RegiuniController@destroy');
     Route::get('admin/regiuni/{id}', 'AdminController\Pages\RegiuniController@show');
+    
+    //--------------------Sectiune Pagini Localitati--------------------//
+    Route::get('admin/localitati', 'AdminController\Pages\LocalitatiController@index');
+    Route::get('admin/localitati/create', 'AdminController\Pages\LocalitatiController@create');
+    Route::post('admin/localitati', 'AdminController\Pages\LocalitatiController@store');
+
+    Route::get('admin/localitati/{id}/edit', 'AdminController\Pages\LocalitatiController@edit');
+    Route::PATCH('admin/localitati/{id}/edit', 'AdminController\Pages\LocalitatiController@update');
+    Route::post('admin/localitati/{id}/edit', 'AdminController\Pages\LocalitatiController@update');
+
+    Route::get('admin/localitati/destroy/{id}', 'AdminController\Pages\LocalitatiController@destroy');
+    Route::get('admin/localitati/{id}', 'AdminController\Pages\LocalitatiController@show');
+
+    Route::get('admin/localitati', 'AdminController\Pages\LocalitatiController@index');
+    Route::get('admin/localitati/create', 'AdminController\Pages\LocalitatiController@create');
+    Route::post('admin/localitati', 'AdminController\Pages\LocalitatiController@store');
+
+    Route::get('admin/localitati/{id}/edit', 'AdminController\Pages\LocalitatiController@edit');
+    Route::PATCH('admin/localitati/{id}/edit', 'AdminController\Pages\LocalitatiController@update');
+    Route::post('admin/localitati/{id}/edit', 'AdminController\Pages\LocalitatiController@update');
+
+    Route::get('admin/localitati/destroy/{id}', 'AdminController\Pages\LocalitatiController@destroy');
+    Route::get('admin/localitati/{id}', 'AdminController\Pages\LocalitatiController@show');
+    
+    Route::get('admin/delimglocid/{id}','AdminController\Pages\LocalitatiController@deleteimg');
+    Route::get('admin/setimglocid/{idt}/{id}','AdminController\Pages\LocalitatiController@status');
 });
 //--------------------Sectiune Logout--------------------//
 Route::get('logout', 'AdminController\HomeAdmin@logout');

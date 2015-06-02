@@ -16,21 +16,24 @@
                     <div class="form-group">
                         {!! Form::label('ContinentID', 'Continentid: ') !!}
                         {!! Form::text('ContinentID', null, ['class' => 'form-control']) !!}
-                    </div><div class="form-group">
+                    </div>
+                    <div class="form-group">
                         {!! Form::label('nume', 'Nume: ') !!}
                         {!! Form::text('nume', null, ['class' => 'form-control']) !!}
-                    </div><div class="form-group">
+                    </div>
+                    <div class="form-group">
                         {!! Form::label('descriere', 'Descriere: ') !!}
                         {!! Form::text('descriere', null, ['class' => 'form-control']) !!}
-                    </div><div class="form-group">
-                        
+                    </div>
+                    <div class="form-group">
                         {!!Form::label('poza', 'Poza: ')!!}
                         {!! Form::file('poza[]',['multiple'=>true, 'id'=>'pozatari','class'=>'file','data-show-upload'=>'false']) !!}
-
-                    </div><div class="form-group">
+                    </div>
+                    <div class="form-group">
                         {!! Form::label('Latitudine', 'Latitudine: ') !!}
                         {!! Form::text('Latitudine', null, ['class' => 'form-control']) !!}
-                    </div><div class="form-group">
+                    </div>
+                    <div class="form-group">
                         {!! Form::label('Longitudine', 'Longitudine: ') !!}
                         {!! Form::text('Longitudine', null, ['class' => 'form-control']) !!}
                     </div>

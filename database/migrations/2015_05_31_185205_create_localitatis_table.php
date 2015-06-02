@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTarisTable extends Migration
+class CreateLocalitatisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateTarisTable extends Migration
     public function up()
     {
         
-        Schema::create('taris', function(Blueprint $table)
+        Schema::create('localitatis', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('ContinentID');
+            $table->integer('TaraID');
+            $table->integer('RegiuneID')->nullable();
             $table->string('nume');
-            $table->string('descriere');
-            $table->text('poza');
+            $table->string('tip');
+            $table->text('descriere');
             $table->string('Latitudine')->default(0);
             $table->string('Longitudine')->default(0);
             $table->timestamps();
@@ -34,6 +35,6 @@ class CreateTarisTable extends Migration
      */
     public function down()
     {
-        Schema::drop('taris');
+        Schema::drop('localitatis');
     }
 }

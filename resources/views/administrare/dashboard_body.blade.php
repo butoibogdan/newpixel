@@ -210,9 +210,7 @@
                             <li><a href="{{URL::asset('admin/continente')}}"><i class="fa fa-circle-o"></i>Continente</a></li>
                             <li><a href="{{URL::asset('admin/tari')}}"><i class="fa fa-circle-o"></i>Tari</a></li>
                             <li><a href="{{URL::asset('admin/regiuni')}}"><i class="fa fa-circle-o"></i>Regiuni</a></li>
-                            <li><a href="layout/fixed.html"><i class="fa fa-circle-o"></i>Regiuni</a></li>
-                            <li><a href="collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Orase</a></li>
-                            <li><a href="collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Locatii</a></li>
+                            <li><a href="{{URL::asset('admin/localitati')}}"><i class="fa fa-circle-o"></i>Localitati</a></li>
                         </ul>
 
                     </li>
@@ -255,6 +253,9 @@
                             @yield('tari')
             @elseif (Request::path()=='admin/regiuni' || Request::is('admin/regiuni/*'))
                             @yield('regiuni')
+            @elseif (Request::path()=='admin/localitati' || Request::is('admin/localitati/*'))
+                            @yield('localitati')
+                            
                                                    
             @endif
 

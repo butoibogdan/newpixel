@@ -16,7 +16,12 @@ class CreateRegiunisTable extends Migration
         Schema::create('regiunis', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('TaraID');$table->string('nume');$table->string('descriere');$table->text('poza');$table->string('Latitudine');$table->string('Longitudine');
+            $table->integer('TaraID');
+            $table->string('nume');
+            $table->string('descriere');
+            $table->text('poza');
+            $table->string('Latitudine')->default(0);
+            $table->string('Longitudine')->default(0);
             $table->timestamps();
         });
         
