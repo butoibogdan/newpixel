@@ -1,2 +1,3 @@
 uploadat fisier
 l-am clonat
+De clonat
