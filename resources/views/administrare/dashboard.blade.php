@@ -20,6 +20,8 @@
         <!-- Bootstrap 3.3.2 JS -->
         <script src='{{URL::asset("bootstrap/js/bootstrap.min.js")}}' type="text/javascript"></script>
         <script src="{{URL::asset('js/fileinput.js')}}"></script>
+        <script src='{{URL::asset("js/ckeditor/ckeditor.js")}}'></script>
+
         
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

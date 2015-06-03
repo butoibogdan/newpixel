@@ -200,7 +200,7 @@
                     </li>
 
                     <li class="treeview">
-                        
+
                         <a href="#">
                             <i class="fa fa-files-o"></i>
                             <span>Mapamond</span>
@@ -211,11 +211,12 @@
                             <li><a href="{{URL::asset('admin/tari')}}"><i class="fa fa-circle-o"></i>Tari</a></li>
                             <li><a href="{{URL::asset('admin/regiuni')}}"><i class="fa fa-circle-o"></i>Regiuni</a></li>
                             <li><a href="{{URL::asset('admin/localitati')}}"><i class="fa fa-circle-o"></i>Localitati</a></li>
+                            <li><a href="{{URL::asset('admin/hoteluri')}}"><i class="fa fa-circle-o"></i>Hoteluri</a></li>
                         </ul>
 
                     </li>
-                    
-                                       
+
+
                     <li><a href="../../documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
                     <li class="header">LABELS</li>
                     <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
@@ -244,22 +245,24 @@
             </section>
 
             <!-- Main content -->
-            
+
             @if (Request::path() == 'admin')
-                            @yield('content')
+            @yield('content')
             @elseif (Request::path()=='admin/continente' || Request::is('admin/continente/*'))
-                            @yield('continente')
+            @yield('continente')
             @elseif (Request::path()=='admin/tari' || Request::is('admin/tari/*'))
-                            @yield('tari')
+            @yield('tari')
             @elseif (Request::path()=='admin/regiuni' || Request::is('admin/regiuni/*'))
-                            @yield('regiuni')
+            @yield('regiuni')
             @elseif (Request::path()=='admin/localitati' || Request::is('admin/localitati/*'))
-                            @yield('localitati')
-                            
-                                                   
+            @yield('localitati')
+            @elseif (Request::path()=='admin/hoteluri' || Request::is('admin/hoteluri/*'))
+            @yield('hoteluri')
+
+
             @endif
 
-           
+
 
             <footer class="panel-footer navbar-fixed-bottom">
                 <div class="pull-right hidden-xs">
@@ -434,8 +437,11 @@
             <!-- Add the sidebar's background. This div must be placed
                  immediately after the control sidebar -->
             <div class='control-sidebar-bg'></div>
+            
+            
         </div><!-- ./wrapper -->
-
+        
+        <script>CKEDITOR.replace('editorck');</script>
         <script src='{{URL::asset("plugins/jQuery/jQuery-2.1.4.min.js")}}'></script>
         <!-- Bootstrap 3.3.2 JS -->
         <script src='{{URL::asset("bootstrap/js/bootstrap.min.js")}}' type="text/javascript"></script>
@@ -447,6 +453,6 @@
         <script src='{{URL::asset("dist/js/app.min.js")}}' type="text/javascript"></script>
         <!-- AdminLTE for demo purposes -->
         <script src='{{URL::asset("dist/js/demo.js")}}' type="text/javascript"></script>
-    </body>
-        
-        @endsection
+</body>
+
+@endsection

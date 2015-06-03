@@ -109,7 +109,34 @@ Route::group(array('middleware' => 'auth'), function() {
     
     Route::get('admin/delimglocid/{id}','AdminController\Pages\LocalitatiController@deleteimg');
     Route::get('admin/setimglocid/{idt}/{id}','AdminController\Pages\LocalitatiController@status');
+    
+    //--------------------Sectiune Pagini Hoteluri--------------------//
+    Route::get('admin/hoteluri', 'AdminController\Pages\HoteluriController@index');
+    Route::get('admin/hoteluri/create', 'AdminController\Pages\HoteluriController@create');
+    Route::post('admin/hoteluri', 'AdminController\Pages\HoteluriController@store');
+
+    Route::get('admin/hoteluri/{id}/edit', 'AdminController\Pages\HoteluriController@edit');
+    Route::PATCH('admin/hoteluri/{id}/edit', 'AdminController\Pages\HoteluriController@update');
+    Route::post('admin/hoteluri/{id}/edit', 'AdminController\Pages\HoteluriController@update');
+
+    Route::get('admin/hoteluri/destroy/{id}', 'AdminController\Pages\HoteluriController@destroy');
+    Route::get('admin/hoteluri/{id}', 'AdminController\Pages\HoteluriController@show');
+
+    Route::get('admin/hoteluri', 'AdminController\Pages\HoteluriController@index');
+    Route::get('admin/hoteluri/create', 'AdminController\Pages\HoteluriController@create');
+    Route::post('admin/hoteluri', 'AdminController\Pages\HoteluriController@store');
+
+    Route::get('admin/hoteluri/{id}/edit', 'AdminController\Pages\HoteluriController@edit');
+    Route::PATCH('admin/hoteluri/{id}/edit', 'AdminController\Pages\HoteluriController@update');
+    Route::post('admin/hoteluri/{id}/edit', 'AdminController\Pages\HoteluriController@update');
+
+    Route::get('admin/hoteluri/destroy/{id}', 'AdminController\Pages\HoteluriController@destroy');
+    Route::get('admin/hoteluri/{id}', 'AdminController\Pages\HoteluriController@show');
+    
+    Route::get('admin/delimghotelid/{id}','AdminController\Pages\HoteluriController@deleteimg');
+    Route::get('admin/setimghotelid/{idt}/{id}','AdminController\Pages\HoteluriController@status');
 });
+
 //--------------------Sectiune Logout--------------------//
 Route::get('logout', 'AdminController\HomeAdmin@logout');
 

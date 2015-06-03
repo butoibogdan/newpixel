@@ -8,11 +8,11 @@ CKEDITOR.editorConfig = function (config) {
     config.language = 'ro';
     // config.uiColor = '#AADC6E';
     // ...
-    config.filebrowserBrowseUrl = 'js/kcfinder/browse.php?opener=ckeditor&type=files&dir=images&lang=ro';
-    config.filebrowserImageBrowseUrl = 'js/kcfinder/browse.php?opener=ckeditor&type=images&dir=images&lang=ro';
-    config.filebrowserFlashBrowseUrl = 'js/kcfinder/browse.php?opener=ckeditor&type=flash&dir=images&lang=ro';
-    config.filebrowserUploadUrl = 'js/kcfinder/upload.php?opener=ckeditor&type=files&dir=images&lang=ro';
-    config.filebrowserImageUploadUrl = 'js/kcfinder/upload.php?opener=ckeditor&type=images&dir=images&lang=ro';
-    config.filebrowserFlashUploadUrl = 'js/kcfinder/upload.php?opener=ckeditor&type=flash&dir=images&lang=ro';
+    config.filebrowserBrowseUrl = "../../js/kcfinder/browse.php?opener=ckeditor&type=files&dir=images&lang=ro";
+    config.filebrowserImageBrowseUrl = "../../js/kcfinder/browse.php?opener=ckeditor&type=images&dir=images&lang=ro";
+    config.filebrowserFlashBrowseUrl = "../../js/kcfinder/browse.php?opener=ckeditor&type=flash&dir=images&lang=ro";
+    config.filebrowserUploadUrl = "../../js/kcfinder/upload.php?opener=ckeditor&type=files&dir=images&lang=ro";
+    config.filebrowserImageUploadUrl = "../../js/kcfinder/upload.php?opener=ckeditor&type=images&dir=images&lang=ro";
+    config.filebrowserFlashUploadUrl = "../../js/kcfinder/upload.php?opener=ckeditor&type=flash&dir=images&lang=ro";
 // ...
 };
