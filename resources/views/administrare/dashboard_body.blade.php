@@ -185,16 +185,11 @@
                 <ul class="sidebar-menu">
                     <li class="header">Meniu principal</li>
                     <li class="treeview">
-<<<<<<< HEAD
-
                         <a href="#">
                             <i class="fa fa-files-o"></i>
                             <span>Mapamond</span>
                         </a>
-
-=======
                         <a href="#"><i class="fa fa-files-o"></i><span>Mapamond</span> <i class="fa fa-angle-left pull-right"></i></a>
->>>>>>> 0f13027484bfc38992dfa4818c93006ad56c4568
                         <ul class="treeview-menu">
                             <li><a href="{{URL::asset('admin/continente')}}"><i class="fa fa-circle-o"></i>Continente</a></li>
                             <li><a href="{{URL::asset('admin/tari')}}"><i class="fa fa-circle-o"></i>Tari</a></li>
@@ -204,16 +199,13 @@
                         </ul>
                     </li>
 
-<<<<<<< HEAD
 
                     <li><a href="../../documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
                     <li class="header">LABELS</li>
                     <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
                     <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
                     <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
-=======
                     <li><a href="#"><i class="fa fa-book"></i> <span>Documentatie</span></a></li>
->>>>>>> 0f13027484bfc38992dfa4818c93006ad56c4568
                 </ul>
             </section>
             <!-- /.sidebar -->
@@ -247,14 +239,9 @@
             @elseif (Request::path()=='admin/regiuni' || Request::is('admin/regiuni/*'))
             @yield('regiuni')
             @elseif (Request::path()=='admin/localitati' || Request::is('admin/localitati/*'))
-<<<<<<< HEAD
             @yield('localitati')
             @elseif (Request::path()=='admin/hoteluri' || Request::is('admin/hoteluri/*'))
             @yield('hoteluri')
-=======
-                            @yield('localitati')
->>>>>>> 0f13027484bfc38992dfa4818c93006ad56c4568
-
 
             @endif
 
@@ -272,14 +259,9 @@
             
             
         </div><!-- ./wrapper -->
-<<<<<<< HEAD
-        
         <script>CKEDITOR.replace('editorck');</script>
         <script src='{{URL::asset("plugins/jQuery/jQuery-2.1.4.min.js")}}'></script>
-=======
-
         <script src='{{URL::asset("backend/plugins/jQuery/jQuery-2.1.4.min.js")}}'></script>
->>>>>>> 0f13027484bfc38992dfa4818c93006ad56c4568
         <!-- Bootstrap 3.3.2 JS -->
         <script src='{{URL::asset("backend/bootstrap/js/bootstrap.min.js")}}' type="text/javascript"></script>
         <!-- SlimScroll -->
@@ -289,14 +271,6 @@
         <!-- AdminLTE App -->
         <script src='{{URL::asset("backend/dist/js/app.min.js")}}' type="text/javascript"></script>
         <!-- AdminLTE for demo purposes -->
-<<<<<<< HEAD
-        <script src='{{URL::asset("dist/js/demo.js")}}' type="text/javascript"></script>
-</body>
-
-@endsection
-=======
         <script src='{{URL::asset("backend/dist/js/demo.js")}}' type="text/javascript"></script>
     </body>
-
         @endsection
->>>>>>> 0f13027484bfc38992dfa4818c93006ad56c4568
