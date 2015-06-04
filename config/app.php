@@ -148,7 +148,8 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
                 'Appzcoder\CrudGenerator\CrudGeneratorServiceProvider',
-                'Intervention\Image\ImageServiceProvider'
+                'Intervention\Image\ImageServiceProvider',
+                'DaveJamesMiller\Breadcrumbs\ServiceProvider'
 
 	],
 
@@ -199,7 +200,8 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
                 'Form'      => 'Collective\Html\FormFacade',
                 'Html'      => 'Collective\Html\HtmlFacade',
-                'Image' => 'Intervention\Image\Facades\Image'
+                'Image' => 'Intervention\Image\Facades\Image',
+                'Breadcrumbs' => 'DaveJamesMiller\Breadcrumbs\Facade',
 
 	],
 
