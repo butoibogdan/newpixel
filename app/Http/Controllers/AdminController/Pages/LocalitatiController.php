@@ -106,7 +106,7 @@ class LocalitatiController extends Controller {
      * @return Response
      */
     public function edit($id) {
-        $segment_tara = \Request::segment(3);
+        $segment_tara = \Request::segment(4);
         $localitati = Localitatis::findOrFail($id);
         $url = LocalitatiImg::where('LocalitateID', $id)->get();
         return view('administrare.pages.localitati.edit', compact('localitati'))

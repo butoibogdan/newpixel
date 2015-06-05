@@ -24,7 +24,7 @@
                                     <tr>
                                         <td>{{ $x }}</td>
                                         <td><a href="{{ url('admin/tari', $item->id) }}">{{ $item->nume }}</a></td>
-                                        <td><a href="{{ url('admin/tari/'.$item->id.'/edit') }}">Edit</a> / <a href="{{ url('admin/tari/destroy/'.$item->id) }}">Delete</a> </td>
+                                        <td><a href="{{ url('admin/tari/edit/'.$item->id) }}">Edit</a> / <a href="{{ url('admin/tari/destroy/'.$item->id) }}">Delete</a> </td>
                                     </tr>
                                 @endforeach
                             </table>

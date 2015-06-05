@@ -1,6 +1,7 @@
 @extends('administrare.dashboard_body')
 
 @section('regiuni')
+{!! Breadcrumbs::render('regiuni') !!}
     <div class="content">
         <div class="row">
             <div class="col-md-12">
@@ -21,7 +22,7 @@
                                     <tr>
                                         <td>{{ $x }}</td>
                                         <td><a href="{{ url('admin/regiuni', $item->id) }}">{{ $item->name }}</a></td>
-                                        <td><a href="{{ url('admin/regiuni/'.$item->id.'admin/edit') }}">Edit</a> / <a href="{{ url('admin/regiuni/destroy/'.$item->id) }}">Delete</a></td>
+                                        <td><a href="{{ url('admin/regiuni/edit/'.$item->id) }}">Edit</a> / <a href="{{ url('admin/regiuni/destroy/'.$item->id) }}">Delete</a></td>
                                     </tr>
                                 @endforeach
                             </table>
