@@ -147,9 +147,15 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
+                
                 'Appzcoder\CrudGenerator\CrudGeneratorServiceProvider',
                 'Intervention\Image\ImageServiceProvider',
-                'DaveJamesMiller\Breadcrumbs\ServiceProvider'
+                'DaveJamesMiller\Breadcrumbs\ServiceProvider',
+                
+                'Laracasts\Generators\GeneratorsServiceProvider', //De scos in productie
+                'Barryvdh\Debugbar\ServiceProvider',
+                'TwigBridge\ServiceProvider'
+            
 
 	],
 
@@ -202,6 +208,9 @@ return [
                 'Html'      => 'Collective\Html\HtmlFacade',
                 'Image' => 'Intervention\Image\Facades\Image',
                 'Breadcrumbs' => 'DaveJamesMiller\Breadcrumbs\Facade',
+                
+                'Debugbar' => 'Barryvdh\Debugbar\Facade',
+                'Twig' => 'TwigBridge\Facade\Twig',
 
 	],
 

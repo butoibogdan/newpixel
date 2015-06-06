@@ -42,7 +42,7 @@
                             <li style="list-style-type: none;float: left;padding-right: 10px">
                                 <div align='center'>
                                     @if($poza->status==0)
-                                    <a href='{{URL::asset('admin/setimghotelid/'.$idloc.'/'.$poza->id)}}'>Set</a>
+                                    <a href='{{URL::asset('admin/hoteluri/setimghotelid/'.$idloc.'/'.$poza->id)}}'>Set</a>
                                     @else
                                     <div align='center' style="color:red;font-weight: bold;">Primary</div>
                                     @endif
@@ -50,7 +50,7 @@
                                 {!! Html::image($poza->url,'Img',['width'=>'100','height'=>'100']) !!}
                                 <br/>
                                 <div align='center'>
-                                    <a href='{{URL::asset('admin/delimghotelid/'.$poza->id)}}'>Delete</a>
+                                    <a href='{{URL::asset('admin/hoteluri/delimghotelid/'.$poza->id)}}'>Delete</a>
                                 </div>
                             </li>
                             @endforeach
