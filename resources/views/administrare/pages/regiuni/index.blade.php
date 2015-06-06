@@ -1,9 +1,10 @@
 @extends('administrare.dashboard_body')
 
 @section('regiuni')
-    <div class="content">
+{!! Breadcrumbs::render('regiuni') !!}
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">Dashboard</div>
                     
@@ -20,8 +21,8 @@
                                     {{-- */$x++;/* --}}
                                     <tr>
                                         <td>{{ $x }}</td>
-                                        <td><a href="{{ url('admin/regiuni', $item->id) }}">{{ $item->name }}</a></td>
-                                        <td><a href="{{ url('admin/regiuni/'.$item->id.'admin/edit') }}">Edit</a> / <a href="{{ url('admin/regiuni/destroy/'.$item->id) }}">Delete</a></td>
+                                        <td><a href="{{ url('admin/regiuni', $item->id) }}">{{ $item->nume }}</a></td>
+                                        <td><a href="{{ url('admin/regiuni/edit/'.$item->id) }}">Edit</a> / <a href="{{ url('admin/regiuni/destroy/'.$item->id) }}">Delete</a></td>
                                     </tr>
                                 @endforeach
                             </table>

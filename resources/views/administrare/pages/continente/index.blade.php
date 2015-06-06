@@ -19,7 +19,7 @@
                                 @foreach($continentes as $item)
                                     {{-- */$x++;/* --}}
                                     <tr>
-                                        <td>{{ $x }}</td><td><a href="{{ url('admin/continente', $item->id) }}">{{ $item->Denumire }}</a></td><td><a href="{{ url('admin/continente/'.$item->id.'/edit') }}">Edit</a> / <a href="{{ url('admin/continente/destroy/'.$item->id) }}">Delete</a> </td>
+                                        <td>{{ $x }}</td><td><a href="{{ url('admin/continente', $item->id) }}">{{ $item->Denumire }}</a></td><td><a href="{{ url('admin/continente/edit/'.$item->id) }}">Edit</a> / <a href="{{ url('admin/continente/destroy/'.$item->id) }}">Delete</a> </td>
                                     </tr>
                                 @endforeach
                             </table>

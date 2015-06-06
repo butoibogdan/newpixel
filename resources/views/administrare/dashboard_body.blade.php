@@ -11,9 +11,9 @@
             <!-- Logo -->
             <a href="../../index2.html" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>A</b>LT</span>
+                <span class="logo-mini">Cms</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Admin</b>LTE</span>
+                <span class="logo-lg"><b>Tralel</b> CMS</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -40,7 +40,7 @@
                                         <li><!-- start message -->
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="{{URL::asset('dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image"/>
+                                                    <img src="{{URL::asset('backend/images/userPic.png')}}" class="img-circle" alt="User Image"/>
                                                 </div>
                                                 <h4>
                                                     Support Team
@@ -109,15 +109,13 @@
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="{{URL::asset('dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image"/>
-                                <span class="hidden-xs">
-                                    {!! Session::get('name') !!}
-                                </span>
+                                <img src="{{URL::asset('backend/images/userPic.png')}}" class="user-image" alt="User Image"/>
+                                <span class="hidden-xs">{!! Session::get('name') !!}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <img src="{{URL::asset('dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image" />
+                                    <img src="{{URL::asset('backend/images/userPic.png')}}" class="img-circle" alt="User Image" />
                                     <p>
                                         {!! Session::get('name') !!}
                                         <small>Member since Nov. 2012</small>
@@ -164,20 +162,17 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="{{URL::asset('dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image" />
+                        <img src="{{URL::asset('backend/images/userPic.png')}}" class="img-circle" alt="User Image" />
                     </div>
                     <div class="pull-left info">
-                        <p>
-                            {!! Session::get('name') !!}
-                        </p>
-
+                        <p>{!! Session::get('name') !!}</p>
                         <a href="{{URL::asset('logout')}}"><i class="fa fa-circle text-success"></i> Logout</a>
                     </div>
                 </div>
                 <!-- search form -->
                 <form action="#" method="get" class="sidebar-form">
                     <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search..."/>
+                        <input type="text" name="q" class="form-control" placeholder="Cautare..."/>
                         <span class="input-group-btn">
                             <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
                         </span>
@@ -188,24 +183,13 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
 
                 <ul class="sidebar-menu">
-                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="header">Meniu principal</li>
                     <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="treeview">
-
                         <a href="#">
                             <i class="fa fa-files-o"></i>
                             <span>Mapamond</span>
                         </a>
-
+                        <a href="#"><i class="fa fa-files-o"></i><span>Mapamond</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
                             <li><a href="{{URL::asset('admin/continente')}}"><i class="fa fa-circle-o"></i>Continente</a></li>
                             <li><a href="{{URL::asset('admin/tari')}}"><i class="fa fa-circle-o"></i>Tari</a></li>
@@ -213,7 +197,6 @@
                             <li><a href="{{URL::asset('admin/localitati')}}"><i class="fa fa-circle-o"></i>Localitati</a></li>
                             <li><a href="{{URL::asset('admin/hoteluri')}}"><i class="fa fa-circle-o"></i>Hoteluri</a></li>
                         </ul>
-
                     </li>
 
 
@@ -222,6 +205,7 @@
                     <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
                     <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
                     <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+                    <li><a href="#"><i class="fa fa-book"></i> <span>Documentatie</span></a></li>
                 </ul>
             </section>
             <!-- /.sidebar -->
@@ -237,11 +221,9 @@
                     Fixed Layout
                     <small>Blank example to the fixed layout</small>
                 </h1>
-                <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="#">Examples</a></li>
-                    <li class="active">Blank page</li>
-                </ol>
+
+                <br/>
+                <br/>
             </section>
 
             <!-- Main content -->
@@ -259,200 +241,34 @@
             @elseif (Request::path()=='admin/hoteluri' || Request::is('admin/hoteluri/*'))
             @yield('hoteluri')
 
-
             @endif
 
 
 
             <footer class="panel-footer navbar-fixed-bottom">
-                <div class="pull-right hidden-xs">
-                    <b>Version</b> 1.0
-                </div>
+                <div class="pull-right hidden-xs"> <b>Versiunea</b> 1.0 </div>
                 <strong>Copyright &copy; {{date('Y')}} <a href="http://almsaeedstudio.com">Newpixel</a>.</strong> All rights reserved.
             </footer>
 
-            <!-- Control Sidebar -->      
-            <aside class="control-sidebar control-sidebar-dark">                
-                <!-- Create the tabs -->
-                <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-                    <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
 
-                    <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-                </ul>
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <!-- Home tab content -->
-                    <div class="tab-pane" id="control-sidebar-home-tab">
-                        <h3 class="control-sidebar-heading">Recent Activity</h3>
-                        <ul class='control-sidebar-menu'>
-                            <li>
-                                <a href='javascript::;'>
-                                    <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-                                    <div class="menu-info">
-                                        <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-                                        <p>Will be 23 on April 24th</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href='javascript::;'>
-                                    <i class="menu-icon fa fa-user bg-yellow"></i>
-                                    <div class="menu-info">
-                                        <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-                                        <p>New phone +1(800)555-1234</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href='javascript::;'>
-                                    <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-                                    <div class="menu-info">
-                                        <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-                                        <p>nora@example.com</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href='javascript::;'>
-                                    <i class="menu-icon fa fa-file-code-o bg-green"></i>
-                                    <div class="menu-info">
-                                        <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-                                        <p>Execution time 5 seconds</p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul><!-- /.control-sidebar-menu -->
-
-                        <h3 class="control-sidebar-heading">Tasks Progress</h3> 
-                        <ul class='control-sidebar-menu'>
-                            <li>
-                                <a href='javascript::;'>               
-                                    <h4 class="control-sidebar-subheading">
-                                        Custom Template Design
-                                        <span class="label label-danger pull-right">70%</span>
-                                    </h4>
-                                    <div class="progress progress-xxs">
-                                        <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                                    </div>                                    
-                                </a>
-                            </li> 
-                            <li>
-                                <a href='javascript::;'>               
-                                    <h4 class="control-sidebar-subheading">
-                                        Update Resume
-                                        <span class="label label-success pull-right">95%</span>
-                                    </h4>
-                                    <div class="progress progress-xxs">
-                                        <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-                                    </div>                                    
-                                </a>
-                            </li> 
-                            <li>
-                                <a href='javascript::;'>               
-                                    <h4 class="control-sidebar-subheading">
-                                        Laravel Integration
-                                        <span class="label label-waring pull-right">50%</span>
-                                    </h4>
-                                    <div class="progress progress-xxs">
-                                        <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-                                    </div>                                    
-                                </a>
-                            </li> 
-                            <li>
-                                <a href='javascript::;'>               
-                                    <h4 class="control-sidebar-subheading">
-                                        Back End Framework
-                                        <span class="label label-primary pull-right">68%</span>
-                                    </h4>
-                                    <div class="progress progress-xxs">
-                                        <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-                                    </div>                                    
-                                </a>
-                            </li>               
-                        </ul><!-- /.control-sidebar-menu -->         
-
-                    </div><!-- /.tab-pane -->
-                    <!-- Stats tab content -->
-                    <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
-                    <!-- Settings tab content -->
-                    <div class="tab-pane" id="control-sidebar-settings-tab">            
-                        <form method="post">
-                            <h3 class="control-sidebar-heading">General Settings</h3>
-                            <div class="form-group">
-                                <label class="control-sidebar-subheading">
-                                    Report panel usage
-                                    <input type="checkbox" class="pull-right" checked />
-                                </label>
-                                <p>
-                                    Some information about this general settings option
-                                </p>
-                            </div><!-- /.form-group -->
-
-                            <div class="form-group">
-                                <label class="control-sidebar-subheading">
-                                    Allow mail redirect
-                                    <input type="checkbox" class="pull-right" checked />
-                                </label>
-                                <p>
-                                    Other sets of options are available
-                                </p>
-                            </div><!-- /.form-group -->
-
-                            <div class="form-group">
-                                <label class="control-sidebar-subheading">
-                                    Expose author name in posts
-                                    <input type="checkbox" class="pull-right" checked />
-                                </label>
-                                <p>
-                                    Allow the user to show his name in blog posts
-                                </p>
-                            </div><!-- /.form-group -->
-
-                            <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-                            <div class="form-group">
-                                <label class="control-sidebar-subheading">
-                                    Show me as online
-                                    <input type="checkbox" class="pull-right" checked />
-                                </label>                
-                            </div><!-- /.form-group -->
-
-                            <div class="form-group">
-                                <label class="control-sidebar-subheading">
-                                    Turn off notifications
-                                    <input type="checkbox" class="pull-right" />
-                                </label>                
-                            </div><!-- /.form-group -->
-
-                            <div class="form-group">
-                                <label class="control-sidebar-subheading">
-                                    Delete chat history
-                                    <a href="javascript::;" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                                </label>                
-                            </div><!-- /.form-group -->
-                        </form>
-                    </div><!-- /.tab-pane -->
-                </div>
-            </aside><!-- /.control-sidebar -->
             <!-- Add the sidebar's background. This div must be placed
                  immediately after the control sidebar -->
             <div class='control-sidebar-bg'></div>
             
             
         </div><!-- ./wrapper -->
-        
         <script>CKEDITOR.replace('editorck');</script>
-        <script src='{{URL::asset("plugins/jQuery/jQuery-2.1.4.min.js")}}'></script>
+        <script src='{{URL::asset("backend/plugins/jQuery/jQuery-2.1.4.min.js")}}'></script>
+        <script src='{{URL::asset("backend/plugins/jQuery/jQuery-2.1.4.min.js")}}'></script>
         <!-- Bootstrap 3.3.2 JS -->
-        <script src='{{URL::asset("bootstrap/js/bootstrap.min.js")}}' type="text/javascript"></script>
+        <script src='{{URL::asset("backend/bootstrap/js/bootstrap.min.js")}}' type="text/javascript"></script>
         <!-- SlimScroll -->
-        <script src='{{URL::asset("plugins/slimScroll/jquery.slimscroll.min.js")}}' type="text/javascript"></script>
+        <script src='{{URL::asset("backend/plugins/slimScroll/jquery.slimscroll.min.js")}}' type="text/javascript"></script>
         <!-- FastClick -->
-        <script src='{{URL::asset("plugins/fastclick/fastclick.min.js")}}'></script>
+        <script src='{{URL::asset("backend/plugins/fastclick/fastclick.min.js")}}'></script>
         <!-- AdminLTE App -->
-        <script src='{{URL::asset("dist/js/app.min.js")}}' type="text/javascript"></script>
+        <script src='{{URL::asset("backend/dist/js/app.min.js")}}' type="text/javascript"></script>
         <!-- AdminLTE for demo purposes -->
-        <script src='{{URL::asset("dist/js/demo.js")}}' type="text/javascript"></script>
-</body>
-
-@endsection
+        <script src='{{URL::asset("backend/dist/js/demo.js")}}' type="text/javascript"></script>
+    </body>
+        @endsection

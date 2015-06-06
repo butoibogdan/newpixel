@@ -1,6 +1,7 @@
 @extends('administrare.dashboard_body')
 
 @section('regiuni')
+{!! Breadcrumbs::render('detaliireg',$regiuni) !!}
     <div class="content">
         <div class="row">
             <div class="col-md-12">
@@ -15,7 +16,7 @@
                                     <th>ID.</th><th>Name</th>
                                 </tr>
                                 <tr>
-                                    <td>{{ $regiuni->id }}</td><td>{{ $regiuni->name }}</td>
+                                    <td>{{ $regiuni->id }}</td><td>{{ $regiuni->nume }}</td>
                                 </tr>
                             </table>
                         </div>

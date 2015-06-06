@@ -1,21 +1,22 @@
 @extends('administrare.dashboard_body')
 
 @section('tari')
-    <div class="container">
+    <div class="content">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Dashboard</div>
-                    
+                    <div class="panel-heading">Administrare tari</div>
+
                     <div class="panel-body">
-                        <h1>taris</h1>
-                        <h2><a href="{{ url('admin/tari/create') }}">Create</a></h2>
+                        <h1>Tari</h1>
+                        <a href="{{ url('admin/tari/create') }}" class="btn btn-primary pull-right">Adauga tara</a>
+                        <div class="clearfix"></div>
                         <div class="table-responsive">
                             <table class="table">
                                 <tr>
-                                    <th>SL.</th>
-                                    <th>Nume</th>
-                                    <th>Actions</th>
+                                    <th>Nr.</th>
+                                    <th>Denumire</th>
+                                    <th>Actiuni</th>
                                 </tr>
                                 {{-- */$x=0;/* --}}
                                 @foreach($taris as $item)
@@ -23,7 +24,7 @@
                                     <tr>
                                         <td>{{ $x }}</td>
                                         <td><a href="{{ url('admin/tari', $item->id) }}">{{ $item->nume }}</a></td>
-                                        <td><a href="{{ url('admin/tari/'.$item->id.'/edit') }}">Edit</a> / <a href="{{ url('admin/tari/destroy/'.$item->id) }}">Delete</a> </td>
+                                        <td><a href="{{ url('admin/tari/edit/'.$item->id) }}">Edit</a> / <a href="{{ url('admin/tari/destroy/'.$item->id) }}">Delete</a> </td>
                                     </tr>
                                 @endforeach
                             </table>

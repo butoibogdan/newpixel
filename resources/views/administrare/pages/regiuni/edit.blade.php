@@ -1,6 +1,7 @@
 @extends('administrare.dashboard_body')
 
 @section('regiuni')
+{!! Breadcrumbs::render('editreg',$regiuni) !!}
     <div class="content">
         <div class="row">
             <div class="col-md-12">
