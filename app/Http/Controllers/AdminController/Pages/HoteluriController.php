@@ -111,7 +111,7 @@ class HoteluriController extends Controller {
      * @return Response
      */
     public function edit($id) {
-        $segment_hotel = \Request::segment(3);
+        $segment_hotel = \Request::segment(4);
         $hoteluri = \Hoteluris::findOrFail($id);
         $url = HoteluriImg::where('HotelID', $id)->get();
         return view('administrare.pages.hoteluri.edit', compact('hoteluri'))

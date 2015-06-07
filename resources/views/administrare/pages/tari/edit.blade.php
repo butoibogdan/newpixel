@@ -32,7 +32,7 @@
                             <li style="list-style-type: none;float: left;padding-right: 10px">
                                 <div align='center'>
                                     @if($poza->status==0)
-                                    <a href='{{URL::asset('admin/setimgid/'.$idtara.'/'.$poza->id)}}'>Set</a>
+                                    <a href='{{URL::asset('admin/tari/setimgid/'.$idtara.'/'.$poza->id)}}'>Set</a>
                                     @else
                                     <div align='center' style="color:red;font-weight: bold;">Primary</div>
                                     @endif
@@ -40,7 +40,7 @@
                                 {!! Html::image($poza->url,'Img',['width'=>'100','height'=>'100']) !!}
                                 <br/>
                                 <div align='center'>
-                                    <a href='{{URL::asset('admin/delimgid/'.$poza->id)}}'>Delete</a>
+                                    <a href='{{URL::asset('admin/tari/delimgid/'.$poza->id)}}'>Delete</a>
                                 </div>
                             </li>
                             @endforeach

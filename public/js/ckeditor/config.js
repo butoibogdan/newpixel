@@ -6,7 +6,7 @@
 CKEDITOR.editorConfig = function (config) {
     // Define changes to default configuration here. For example:
     config.language = 'ro';
-    //config.uiColor = '#f5f5f5';
+    // config.uiColor = '#AADC6E';
     // ...
     config.filebrowserBrowseUrl = "../../js/kcfinder/browse.php?opener=ckeditor&type=files&dir=images&lang=ro";
     config.filebrowserImageBrowseUrl = "../../js/kcfinder/browse.php?opener=ckeditor&type=images&dir=images&lang=ro";
@@ -15,17 +15,4 @@ CKEDITOR.editorConfig = function (config) {
     config.filebrowserImageUploadUrl = "../../js/kcfinder/upload.php?opener=ckeditor&type=images&dir=images&lang=ro";
     config.filebrowserFlashUploadUrl = "../../js/kcfinder/upload.php?opener=ckeditor&type=flash&dir=images&lang=ro";
 // ...
-    config.toolbar = [
-        {name: 'document', items: ['Source','-', 'Templates']},
-        {name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
-        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
-        { name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ], items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] },
-        { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
-        '/',
-        { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
-	{ name: 'insert', items: [ 'Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak'] },
-	{ name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
-	{ name: 'colors', items: [ 'TextColor', 'BGColor' ] },
-	{ name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] }
-    ];
 };

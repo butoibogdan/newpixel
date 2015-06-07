@@ -11,7 +11,6 @@
   |
  */
 //--------------------Sectiune Admin--------------------//
-
 //--------------------Sectiune Login--------------------//
 Route::get('login', 'AdminController\HomeAdmin@getLogin');
 Route::post('login', 'AdminController\HomeAdmin@postLogin');
@@ -20,121 +19,101 @@ Route::get('register', 'AdminController\HomeAdmin@getRegister');
 Route::post('register', 'AdminController\HomeAdmin@postRegister');
 //--------------------Sectiune Dashboard After Login---------------//
 Route::group(array('middleware' => 'auth'), function() {
+
     Route::get('admin', 'AdminController\DashboardAdmin@index');
 
 
 //--------------------Sectiune Pagini Continente--------------------//
-    Route::get('admin/continente', 'AdminController\Pages\ContinenteController@index');
-    Route::get('admin/continente/create', 'AdminController\Pages\ContinenteController@create');
-    Route::post('admin/continente', 'AdminController\Pages\ContinenteController@store');
 
-    Route::get('admin/continente/{id}/edit', 'AdminController\Pages\ContinenteController@edit');
-    Route::PATCH('admin/continente/{id}/edit', 'AdminController\Pages\ContinenteController@update');
-    Route::post('admin/continente/{id}/edit', 'AdminController\Pages\ContinenteController@update');
+    Route::group(['prefix' => 'admin/continente'], function() {
 
-    Route::get('admin/continente/destroy/{id}', 'AdminController\Pages\ContinenteController@destroy');
-    Route::get('admin/continente/{id}', 'AdminController\Pages\ContinenteController@show');
+        Route::get('/', 'AdminController\Pages\ContinenteController@index');
+        Route::get('create', 'AdminController\Pages\ContinenteController@create');
+        Route::post('/', 'AdminController\Pages\ContinenteController@store');
+
+        Route::get('edit/{id}', 'AdminController\Pages\ContinenteController@edit');
+        Route::PATCH('edit/{id}', 'AdminController\Pages\ContinenteController@update');
+        Route::post('edit/{id}', 'AdminController\Pages\ContinenteController@update');
+
+        Route::get('destroy/{id}', 'AdminController\Pages\ContinenteController@destroy');
+        Route::get('/{id}', 'AdminController\Pages\ContinenteController@show');
+    });
 
 //--------------------Sectiune Pagini Tari--------------------//
-    Route::get('admin/tari', 'AdminController\Pages\TariController@index');
-    Route::get('admin/tari/create', 'AdminController\Pages\TariController@create');
-    Route::post('admin/tari', 'AdminController\Pages\TariController@store');
 
-    Route::get('admin/tari/{id}/edit', 'AdminController\Pages\TariController@edit');
-    Route::PATCH('admin/tari/{id}/edit', 'AdminController\Pages\TariController@update');
-    Route::post('admin/tari/{id}/edit', 'AdminController\Pages\TariController@update');
+    Route::group(['prefix' => 'admin/tari'], function() {
 
-    Route::get('admin/tari/destroy/{id}', 'AdminController\Pages\TariController@destroy');
-    Route::get('admin/tari/{id}', 'AdminController\Pages\TariController@show');
+        Route::get('/', 'AdminController\Pages\TariController@index');
+        Route::get('create', 'AdminController\Pages\TariController@create');
+        Route::post('/', 'AdminController\Pages\TariController@store');
 
-    Route::get('admin/tari', 'AdminController\Pages\TariController@index');
-    Route::get('admin/tari/create', 'AdminController\Pages\TariController@create');
-    Route::post('admin/tari', 'AdminController\Pages\TariController@store');
+        Route::get('edit/{id}', 'AdminController\Pages\TariController@edit');
+        Route::PATCH('edit/{id}', 'AdminController\Pages\TariController@update');
+        Route::post('edit/{id}', 'AdminController\Pages\TariController@update');
 
-    Route::get('admin/tari/{id}/edit', 'AdminController\Pages\TariController@edit');
-    Route::PATCH('admin/tari/{id}/edit', 'AdminController\Pages\TariController@update');
-    Route::post('admin/tari/{id}/edit', 'AdminController\Pages\TariController@update');
+        Route::get('destroy/{id}', 'AdminController\Pages\TariController@destroy');
+        Route::get('/{id}', 'AdminController\Pages\TariController@show');
 
-    Route::get('admin/tari/destroy/{id}', 'AdminController\Pages\TariController@destroy');
-    Route::get('admin/tari/{id}', 'AdminController\Pages\TariController@show');
-    
-    Route::get('admin/delimgid/{id}','AdminController\Pages\TariController@deleteimg');
-    Route::get('admin/setimgid/{idt}/{id}','AdminController\Pages\TariController@status');
+        Route::get('delimgid/{id}', 'AdminController\Pages\TariController@deleteimg');
+        Route::get('setimgid/{idt}/{id}', 'AdminController\Pages\TariController@status');
+    });
+
 
 //--------------------Sectiune Pagini Regiuni--------------------//
-    Route::get('admin/regiuni', 'AdminController\Pages\RegiuniController@index');
-    Route::get('admin/regiuni/create', 'AdminController\Pages\RegiuniController@create');
-    Route::post('admin/regiuni', 'AdminController\Pages\RegiuniController@store');
 
-    Route::get('admin/regiuni/{id}/edit', 'AdminController\Pages\RegiuniController@edit');
-    Route::PATCH('admin/regiuni/{id}/edit', 'AdminController\Pages\RegiuniController@update');
-    Route::post('admin/regiuni/{id}/edit', 'AdminController\Pages\RegiuniController@update');
+    Route::group(['prefix' => 'admin/regiuni'], function() {
 
-    Route::get('admin/regiuni/destroy/{id}', 'AdminController\Pages\RegiuniController@destroy');
-    Route::get('admin/regiuni/{id}', 'AdminController\Pages\RegiuniController@show');
+        Route::get('/', 'AdminController\Pages\RegiuniController@index');
+        Route::get('create', 'AdminController\Pages\RegiuniController@create');
+        Route::post('/', 'AdminController\Pages\RegiuniController@store');
 
-    Route::get('admin/regiuni', 'AdminController\Pages\RegiuniController@index');
-    Route::get('admin/regiuni/create', 'AdminController\Pages\RegiuniController@create');
-    Route::post('admin/regiuni', 'AdminController\Pages\RegiuniController@store');
+        Route::get('edit/{id}', ['as' => 'edit', 'uses' => 'AdminController\Pages\RegiuniController@edit']);
+        Route::PATCH('edit/{id}', 'AdminController\Pages\RegiuniController@update');
+        Route::post('edit/{id}', 'AdminController\Pages\RegiuniController@update');
 
-    Route::get('admin/regiuni/{id}/edit', 'AdminController\Pages\RegiuniController@edit');
-    Route::PATCH('admin/regiuni/{id}/edit', 'AdminController\Pages\RegiuniController@update');
-    Route::post('admin/regiuni/{id}/edit', 'AdminController\Pages\RegiuniController@update');
+        Route::get('destroy/{id}', 'AdminController\Pages\RegiuniController@destroy');
+        Route::get('/{id}', ['as' => 'showreg', 'uses' => 'AdminController\Pages\RegiuniController@show']);
+    });
 
-    Route::get('admin/regiuni/destroy/{id}', 'AdminController\Pages\RegiuniController@destroy');
-    Route::get('admin/regiuni/{id}', 'AdminController\Pages\RegiuniController@show');
-    
+
     //--------------------Sectiune Pagini Localitati--------------------//
-    Route::get('admin/localitati', 'AdminController\Pages\LocalitatiController@index');
-    Route::get('admin/localitati/create', 'AdminController\Pages\LocalitatiController@create');
-    Route::post('admin/localitati', 'AdminController\Pages\LocalitatiController@store');
 
-    Route::get('admin/localitati/{id}/edit', 'AdminController\Pages\LocalitatiController@edit');
-    Route::PATCH('admin/localitati/{id}/edit', 'AdminController\Pages\LocalitatiController@update');
-    Route::post('admin/localitati/{id}/edit', 'AdminController\Pages\LocalitatiController@update');
+    Route::group(['prefix' => 'admin/localitati'], function() {
 
-    Route::get('admin/localitati/destroy/{id}', 'AdminController\Pages\LocalitatiController@destroy');
-    Route::get('admin/localitati/{id}', 'AdminController\Pages\LocalitatiController@show');
+        Route::get('/', 'AdminController\Pages\LocalitatiController@index');
+        Route::get('create', 'AdminController\Pages\LocalitatiController@create');
+        Route::post('/', 'AdminController\Pages\LocalitatiController@store');
 
-    Route::get('admin/localitati', 'AdminController\Pages\LocalitatiController@index');
-    Route::get('admin/localitati/create', 'AdminController\Pages\LocalitatiController@create');
-    Route::post('admin/localitati', 'AdminController\Pages\LocalitatiController@store');
+        Route::get('edit/{id}', 'AdminController\Pages\LocalitatiController@edit');
+        Route::PATCH('edit/{id}', 'AdminController\Pages\LocalitatiController@update');
+        Route::post('edit/{id}', 'AdminController\Pages\LocalitatiController@update');
 
-    Route::get('admin/localitati/{id}/edit', 'AdminController\Pages\LocalitatiController@edit');
-    Route::PATCH('admin/localitati/{id}/edit', 'AdminController\Pages\LocalitatiController@update');
-    Route::post('admin/localitati/{id}/edit', 'AdminController\Pages\LocalitatiController@update');
+        Route::get('destroy/{id}', 'AdminController\Pages\LocalitatiController@destroy');
+        Route::get('/{id}', 'AdminController\Pages\LocalitatiController@show');
 
-    Route::get('admin/localitati/destroy/{id}', 'AdminController\Pages\LocalitatiController@destroy');
-    Route::get('admin/localitati/{id}', 'AdminController\Pages\LocalitatiController@show');
-    
-    Route::get('admin/delimglocid/{id}','AdminController\Pages\LocalitatiController@deleteimg');
-    Route::get('admin/setimglocid/{idt}/{id}','AdminController\Pages\LocalitatiController@status');
-    
+        Route::get('delimglocid/{id}', 'AdminController\Pages\LocalitatiController@deleteimg');
+        Route::get('setimglocid/{idt}/{id}', 'AdminController\Pages\LocalitatiController@status');
+    });
+
+
     //--------------------Sectiune Pagini Hoteluri--------------------//
-    Route::get('admin/hoteluri', 'AdminController\Pages\HoteluriController@index');
-    Route::get('admin/hoteluri/create', 'AdminController\Pages\HoteluriController@create');
-    Route::post('admin/hoteluri', 'AdminController\Pages\HoteluriController@store');
 
-    Route::get('admin/hoteluri/{id}/edit', 'AdminController\Pages\HoteluriController@edit');
-    Route::PATCH('admin/hoteluri/{id}/edit', 'AdminController\Pages\HoteluriController@update');
-    Route::post('admin/hoteluri/{id}/edit', 'AdminController\Pages\HoteluriController@update');
+    Route::group(['prefix' => 'admin/hoteluri'], function() {
 
-    Route::get('admin/hoteluri/destroy/{id}', 'AdminController\Pages\HoteluriController@destroy');
-    Route::get('admin/hoteluri/{id}', 'AdminController\Pages\HoteluriController@show');
+        Route::get('/', 'AdminController\Pages\HoteluriController@index');
+        Route::get('create', 'AdminController\Pages\HoteluriController@create');
+        Route::post('/', 'AdminController\Pages\HoteluriController@store');
 
-    Route::get('admin/hoteluri', 'AdminController\Pages\HoteluriController@index');
-    Route::get('admin/hoteluri/create', 'AdminController\Pages\HoteluriController@create');
-    Route::post('admin/hoteluri', 'AdminController\Pages\HoteluriController@store');
+        Route::get('edit/{id}', 'AdminController\Pages\HoteluriController@edit');
+        Route::PATCH('edit/{id}', 'AdminController\Pages\HoteluriController@update');
+        Route::post('edit/{id}', 'AdminController\Pages\HoteluriController@update');
 
-    Route::get('admin/hoteluri/{id}/edit', 'AdminController\Pages\HoteluriController@edit');
-    Route::PATCH('admin/hoteluri/{id}/edit', 'AdminController\Pages\HoteluriController@update');
-    Route::post('admin/hoteluri/{id}/edit', 'AdminController\Pages\HoteluriController@update');
+        Route::get('destroy/{id}', 'AdminController\Pages\HoteluriController@destroy');
+        Route::get('/{id}', 'AdminController\Pages\HoteluriController@show');
 
-    Route::get('admin/hoteluri/destroy/{id}', 'AdminController\Pages\HoteluriController@destroy');
-    Route::get('admin/hoteluri/{id}', 'AdminController\Pages\HoteluriController@show');
-    
-    Route::get('admin/delimghotelid/{id}','AdminController\Pages\HoteluriController@deleteimg');
-    Route::get('admin/setimghotelid/{idt}/{id}','AdminController\Pages\HoteluriController@status');
+        Route::get('delimghotelid/{id}', 'AdminController\Pages\HoteluriController@deleteimg');
+        Route::get('setimghotelid/{idt}/{id}', 'AdminController\Pages\HoteluriController@status');
+    });
 });
 
 //--------------------Sectiune Logout--------------------//

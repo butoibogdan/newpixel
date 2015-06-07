@@ -1,3 +1,8 @@
 /vendor
 /node_modules
 .env
+
+*.jpeg
+*.jpg
+*.lock
+resources/views/administrare/dashboard_body.blade.php

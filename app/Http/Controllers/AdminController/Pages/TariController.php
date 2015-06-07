@@ -110,7 +110,7 @@ class TariController extends Controller {
      * @return Response
      */
     public function edit($id) {
-        $segment_tara = \Request::segment(3);
+        $segment_tara = \Request::segment(4);
         $tari = Taris::findOrFail($id);
         $url = TariImg::where('TaraID', $id)->get();
         return view('administrare.pages.tari.edit', compact('tari'))
