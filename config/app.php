@@ -154,7 +154,8 @@ return [
                 
                 'Laracasts\Generators\GeneratorsServiceProvider', //De scos in productie
                 'Barryvdh\Debugbar\ServiceProvider',
-                'TwigBridge\ServiceProvider'
+                'TwigBridge\ServiceProvider',
+                'Laracasts\Utilities\JavaScript\JavascriptServiceProvider'
             
 
 	],
