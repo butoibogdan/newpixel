@@ -11,7 +11,7 @@
                     <h1>Edit hoteluri</h1>
                     <hr/>
 
-                    {!! Form::model($hoteluri, ['method' => 'PATCH', 'action' => ['AdminController\Pages\HoteluriController@update', $hoteluri->id]]) !!}
+                    {!! Form::model($hoteluri, ['method' => 'PATCH','files'=>true, 'action' => ['AdminController\Pages\HoteluriController@update', $hoteluri->id]]) !!}
 
                     <div class="form-group">
                         {!! Form::label('TaraID', 'Taraid: ') !!}
@@ -30,10 +30,25 @@
                         {!! Form::text('stele', null, ['class' => 'form-control']) !!}
                     </div><div class="form-group">
                         {!! Form::label('facilitati', 'Facilitati: ') !!}
-                        {!! Form::text('facilitati', null, ['class' => 'form-control']) !!}
+                        
+                        <select name="facilitati" multiple="multiple" class="form-control" id="selectare">
+                            <?php foreach($fac as $fach){ ?>
+                            <option selected="selected" value="<?php echo($fach->facilitati); ?>">
+                                <?php echo($fach->facilitati); ?>
+                            </option>
+                            <?php } ?>
+                            <?php foreach($facunlist as $facu){ ?>
+                            <option value="<?php echo($facu->facilitati); ?>">
+                                <?php echo($facu->facilitati); ?>
+                            </option>
+                            <?php } ?>
+                        </select>
+                        
+                        <script>$('#selectare').multiSelect()</script>
                     </div><div class="form-group">
                         {!! Form::label('detalii_complete', 'Detalii Complete: ') !!}
                         {!! Form::textarea('detalii_complete', null, ['class' => 'form-control','id'=>'editorck']) !!}
+                        <script>CKEDITOR.replace('editorck');</script>
                     </div>
                     <div class="form-group">
                         {!! Form::label('poza', 'Poze: ') !!}
@@ -42,7 +57,7 @@
                             <li style="list-style-type: none;float: left;padding-right: 10px">
                                 <div align='center'>
                                     @if($poza->status==0)
-                                    <a href='{{URL::asset('admin/hoteluri/setimghotelid/'.$idloc.'/'.$poza->id)}}'>Set</a>
+                                    <a href='{{URL::asset('admin/hoteluri/setimghotelid/'.$idhotel.'/'.$poza->id)}}'>Set</a>
                                     @else
                                     <div align='center' style="color:red;font-weight: bold;">Primary</div>
                                     @endif

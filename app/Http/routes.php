@@ -33,7 +33,6 @@ Route::group(array('middleware' => 'auth'), function() {
 
         Route::get('edit/{id}', 'AdminController\Pages\ContinenteController@edit');
         Route::PATCH('edit/{id}', 'AdminController\Pages\ContinenteController@update');
-        Route::post('edit/{id}', 'AdminController\Pages\ContinenteController@update');
 
         Route::get('destroy/{id}', 'AdminController\Pages\ContinenteController@destroy');
         Route::get('/{id}', 'AdminController\Pages\ContinenteController@show');
@@ -49,7 +48,6 @@ Route::group(array('middleware' => 'auth'), function() {
 
         Route::get('edit/{id}', 'AdminController\Pages\TariController@edit');
         Route::PATCH('edit/{id}', 'AdminController\Pages\TariController@update');
-        Route::post('edit/{id}', 'AdminController\Pages\TariController@update');
 
         Route::get('destroy/{id}', 'AdminController\Pages\TariController@destroy');
         Route::get('/{id}', 'AdminController\Pages\TariController@show');
@@ -69,7 +67,6 @@ Route::group(array('middleware' => 'auth'), function() {
 
         Route::get('edit/{id}', ['as' => 'edit', 'uses' => 'AdminController\Pages\RegiuniController@edit']);
         Route::PATCH('edit/{id}', 'AdminController\Pages\RegiuniController@update');
-        Route::post('edit/{id}', 'AdminController\Pages\RegiuniController@update');
 
         Route::get('destroy/{id}', 'AdminController\Pages\RegiuniController@destroy');
         Route::get('/{id}', ['as' => 'showreg', 'uses' => 'AdminController\Pages\RegiuniController@show']);
@@ -86,7 +83,6 @@ Route::group(array('middleware' => 'auth'), function() {
 
         Route::get('edit/{id}', 'AdminController\Pages\LocalitatiController@edit');
         Route::PATCH('edit/{id}', 'AdminController\Pages\LocalitatiController@update');
-        Route::post('edit/{id}', 'AdminController\Pages\LocalitatiController@update');
 
         Route::get('destroy/{id}', 'AdminController\Pages\LocalitatiController@destroy');
         Route::get('/{id}', 'AdminController\Pages\LocalitatiController@show');
@@ -113,6 +109,22 @@ Route::group(array('middleware' => 'auth'), function() {
 
         Route::get('delimghotelid/{id}', 'AdminController\Pages\HoteluriController@deleteimg');
         Route::get('setimghotelid/{idt}/{id}', 'AdminController\Pages\HoteluriController@status');
+    });
+
+    //--------------------Sectiune Pagini Facilitati--------------------//
+
+    Route::group(['prefix' => 'admin/facilitati'], function() {
+
+        Route::get('/', 'AdminController\Pages\FacilitatiController@index');
+        
+        Route::get('create', 'AdminController\Pages\FacilitatiController@create');
+        Route::post('/', 'AdminController\Pages\FacilitatiController@store');
+
+        Route::get('edit/{id}', ['as' => 'editfacilitati', 'uses' => 'AdminController\Pages\FacilitatiController@edit']);
+        Route::PATCH('edit/{id}', 'AdminController\Pages\FacilitatiController@update');
+
+        Route::get('destroy/{id}', 'AdminController\Pages\FacilitatiController@destroy');
+        Route::get('/{id}', ['as' => 'showfacilitati', 'uses' => 'AdminController\Pages\FacilitatiController@show']);
     });
 });
 

@@ -11,7 +11,7 @@
                     <h1>Edit localitati</h1>
                     <hr/>
 
-                    {!! Form::model($localitati, ['method' => 'PATCH', 'action' => ['AdminController\Pages\LocalitatiController@update', $localitati->id]]) !!}
+                    {!! Form::model($localitati, ['method' => 'PATCH','files'=>true, 'action' => ['AdminController\Pages\LocalitatiController@update', $localitati->id]]) !!}
 
                     <div class="form-group">
                         {!! Form::label('TaraID', 'Taraid: ') !!}

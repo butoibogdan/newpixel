@@ -14,6 +14,7 @@ use Redirect;
 use Intervention\Image\Facades\Image;
 use App\HoteluriImg;
 use Illuminate\Support\Facades\File;
+use App\Facilitatis;
 
 class HoteluriController extends Controller {
 
@@ -33,7 +34,9 @@ class HoteluriController extends Controller {
      * @return Response
      */
     public function create() {
-        return view('administrare.pages.hoteluri.create');
+        $facilitatihotel = Facilitatis::lists('facilitati', 'id');
+        return view('administrare.pages.hoteluri.create')
+                        ->with('facilitati', $facilitatihotel);
     }
 
     /**
@@ -50,7 +53,7 @@ class HoteluriController extends Controller {
             'nume' => $request->nume,
             'tip' => $request->tip,
             'stele' => $request->stele,
-            'facilitati' => $request->facilitati,
+            'facilitati' => implode(",", $request->facilitati),
             'detalii_complete' => $request->detalii_complete,
             'Latitudine' => $request->Latitudine,
             'Longitudine' => $request->Longitudine,
@@ -111,12 +114,19 @@ class HoteluriController extends Controller {
      * @return Response
      */
     public function edit($id) {
+
         $segment_hotel = \Request::segment(4);
-        $hoteluri = \Hoteluris::findOrFail($id);
+        $hoteluri = Hoteluris::findOrFail($id);
         $url = HoteluriImg::where('HotelID', $id)->get();
+        $facilitatih = explode(",", $hoteluri->facilitati);
+        $fachu= Facilitatis::find($facilitatih);
+        $facunlisted=  Facilitatis::whereNotIn('id',$facilitatih)->get();
+        //dd($facunlisted);
         return view('administrare.pages.hoteluri.edit', compact('hoteluri'))
                         ->with('img', $url)
-                        ->with('idhotel', $segment_hotel);
+                        ->with('idhotel', $segment_hotel)
+                        ->with('fac', $fachu)
+                        ->with('facunlist',$facunlisted);
     }
 
     /**
@@ -127,7 +137,6 @@ class HoteluriController extends Controller {
      */
     public function update($id, Request $request) {
         if (Input::file('poza')[0] != Null) {
-
             $files = Input::file('poza');
             $file_count = count($files);
             $uploadcount = 0;
@@ -178,8 +187,9 @@ class HoteluriController extends Controller {
     public function destroy($id) {
         HoteluriImg::DeleteImg($id);
         Hoteluris::destroy($id);
+        return \Redirect::back();
     }
-    
+
     public function deleteimg($id) {
         $url = HoteluriImg::find($id);
         \File::delete($url->url);
@@ -192,6 +202,5 @@ class HoteluriController extends Controller {
         HoteluriImg::where('HotelId', $idhotel)->where('id', $id)->update(['status' => 1]);
         return \Redirect::back();
     }
-    
 
 }

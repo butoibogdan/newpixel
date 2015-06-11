@@ -6,12 +6,11 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
-
                 <div class="panel-body">
                     <h1>Create a new hoteluri</h1>
                     <hr/>
 
-                    {!! Form::open(['url' => 'hoteluri','files'=>'true']) !!}
+                    {!! Form::open(['url' => 'admin/hoteluri','files'=>'true']) !!}
 
                     <div class="form-group">
                         {!! Form::label('TaraID', 'Taraid: ') !!}
@@ -29,11 +28,16 @@
                         {!! Form::label('stele', 'Stele: ') !!}
                         {!! Form::text('stele', null, ['class' => 'form-control']) !!}
                     </div><div class="form-group">
-                        {!! Form::label('facilitati', 'Facilitati: ') !!}
-                        {!! Form::text('facilitati', null, ['class' => 'form-control']) !!}
+                        {!! Form::label('tip', 'Tip: ') !!}
+                        {!! Form::text('tip', null, ['class' => 'form-control']) !!}
+                    </div><div class="form-group"> 
+                        {!! Form::label('facilitati','Facilitati: ') !!}
+                        {!! Form::select('facilitati[]', $facilitati, null, ['multiple'=>'multiple','class' => 'form-control','id'=>'selectare']) !!}
+                    <script>$('#selectare').multiSelect()</script>
                     </div><div class="form-group">
                         {!! Form::label('detalii_complete', 'Detalii Complete: ') !!}
                         {!! Form::textarea('detalii_complete', null, ['class' => 'form-control','id'=>'editorck']) !!}
+                        <script>CKEDITOR.replace('editorck');</script>
                     </div>
                     <div class="form-group">
                         {!!Form::label('poza', 'Poza: ')!!}

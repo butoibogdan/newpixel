@@ -196,6 +196,7 @@
                             <li><a href="{{URL::asset('admin/regiuni')}}"><i class="fa fa-circle-o"></i>Regiuni</a></li>
                             <li><a href="{{URL::asset('admin/localitati')}}"><i class="fa fa-circle-o"></i>Localitati</a></li>
                             <li><a href="{{URL::asset('admin/hoteluri')}}"><i class="fa fa-circle-o"></i>Hoteluri</a></li>
+                            <li><a href="{{URL::asset('admin/facilitati')}}"><i class="fa fa-circle-o"></i>Facilitati</a></li>
                         </ul>
                     </li>
 
@@ -240,6 +241,8 @@
             @yield('localitati')
             @elseif (Request::path()=='admin/hoteluri' || Request::is('admin/hoteluri/*'))
             @yield('hoteluri')
+            @elseif (Request::path()=='admin/facilitati' || Request::is('admin/facilitati/*'))
+            @yield('facilitati')
 
             @endif
 
@@ -257,7 +260,7 @@
             
             
         </div><!-- ./wrapper -->
-        <script>CKEDITOR.replace('editorck');</script>
+        
         <script src='{{URL::asset("backend/plugins/jQuery/jQuery-2.1.4.min.js")}}'></script>
         <script src='{{URL::asset("backend/plugins/jQuery/jQuery-2.1.4.min.js")}}'></script>
         <!-- Bootstrap 3.3.2 JS -->
@@ -270,5 +273,6 @@
         <script src='{{URL::asset("backend/dist/js/app.min.js")}}' type="text/javascript"></script>
         <!-- AdminLTE for demo purposes -->
         <script src='{{URL::asset("backend/dist/js/demo.js")}}' type="text/javascript"></script>
+        
     </body>
         @endsection

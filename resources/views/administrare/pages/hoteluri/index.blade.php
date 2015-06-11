@@ -24,6 +24,7 @@
                                         <td><a href="{{ url('admin/hoteluri/edit/'.$item->id) }}">Edit</a> / <a href="{{ url('admin/hoteluri/destroy/'.$item->id) }}">Delete</a></td>
                                     </tr>
                                 @endforeach
+                                
                             </table>
                         </div>
                     </div>
