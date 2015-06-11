@@ -31,19 +31,18 @@
                     </div><div class="form-group">
                         {!! Form::label('facilitati', 'Facilitati: ') !!}
                         
-                        <select name="facilitati" multiple="multiple" class="form-control" id="selectare">
+                        <select name="facilitati[]" multiple="multiple" class="form-control" id="selectare">
                             <?php foreach($fac as $fach){ ?>
-                            <option selected="selected" value="<?php echo($fach->facilitati); ?>">
+                            <option selected="selected" value="<?php echo($fach->id); ?>">
                                 <?php echo($fach->facilitati); ?>
                             </option>
                             <?php } ?>
                             <?php foreach($facunlist as $facu){ ?>
-                            <option value="<?php echo($facu->facilitati); ?>">
+                            <option value="<?php echo($facu->id); ?>">
                                 <?php echo($facu->facilitati); ?>
                             </option>
                             <?php } ?>
                         </select>
-                        
                         <script>$('#selectare').multiSelect()</script>
                     </div><div class="form-group">
                         {!! Form::label('detalii_complete', 'Detalii Complete: ') !!}

@@ -167,7 +167,7 @@ class HoteluriController extends Controller {
             'nume' => $request->nume,
             'tip' => $request->tip,
             'stele' => $request->stele,
-            'facilitati' => $request->facilitati,
+            'facilitati' => implode(',',$request->facilitati),
             'detalii_complete' => $request->detalii_complete,
             'Latitudine' => $request->Latitudine,
             'Longitudine' => $request->Longitudine,
