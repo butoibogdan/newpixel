@@ -14,7 +14,7 @@
 		"barryvdh/laravel-debugbar": "^2.0",
 		"rcrowe/twigbridge": "0.7.x",
                 "laracasts/utilities": "~2.0",
-		"appzcoder/crud-generator": "dev-master"
+		"customappzcoder/crud-generator": "dev-master"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

@@ -148,7 +148,7 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
                 
-                'Appzcoder\CrudGenerator\CrudGeneratorServiceProvider',
+                'Customappzcoder\CrudGenerator\CrudGeneratorServiceProvider',
                 'Intervention\Image\ImageServiceProvider',
                 'DaveJamesMiller\Breadcrumbs\ServiceProvider',
                 

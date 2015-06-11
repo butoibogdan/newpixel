@@ -121,7 +121,6 @@ class HoteluriController extends Controller {
         $facilitatih = explode(",", $hoteluri->facilitati);
         $fachu= Facilitatis::find($facilitatih);
         $facunlisted=  Facilitatis::whereNotIn('id',$facilitatih)->get();
-        //dd($facunlisted);
         return view('administrare.pages.hoteluri.edit', compact('hoteluri'))
                         ->with('img', $url)
                         ->with('idhotel', $segment_hotel)
