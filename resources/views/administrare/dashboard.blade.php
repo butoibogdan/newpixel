@@ -16,18 +16,16 @@
              folder instead of downloading all of them to reduce the load. -->
         <link href="{{URL::asset('backend/dist/css/skins/_all-skins.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{URL::asset('backend/css/fileinput.min.css')}}" rel="stylesheet" type="text/css" />
-         <link href="{{URL::asset('backend/selectinput/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{URL::asset('backend/selectinput2/chosen.css')}}" rel="stylesheet" type="text/css" />
         
         <script src='{{URL::asset("backend/plugins/jQuery/jQuery-2.1.4.min.js")}}'></script>
         <!-- Bootstrap 3.3.2 JS -->
-
         <script src='{{URL::asset("backend/bootstrap/js/bootstrap.min.js")}}' type="text/javascript"></script>
+        
         <script src="{{URL::asset('backend/js/fileinput.js')}}"></script>
         <script src='{{URL::asset("backend/js/ckeditor/ckeditor.js")}}'></script>
 
-        <script src='{{URL::asset("backend/bootstrap/js/bootstrap.min.js")}}' type="text/javascript"></script>
-        <script src="{{URL::asset('backend/js/fileinput.js')}}"></script>
-        <script src='{{URL::asset("backend/selectinput/js/jquery.multi-select.js")}}' type="text/javascript"></script>
+        <script src='{{URL::asset("backend/selectinput2/chosen.jquery.min.js")}}' type="text/javascript"></script>
 
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
