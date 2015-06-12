@@ -33,7 +33,14 @@
                     </div><div class="form-group"> 
                         {!! Form::label('facilitati','Facilitati: ') !!}
                         {!! Form::select('facilitati[]', $facilitati, null, ['multiple'=>'multiple','class' => 'form-control','id'=>'selectare']) !!}
-                    <script>$('#selectare').multiSelect()</script>
+                        <script>
+                            $("#selectare").chosen({
+                                disable_search_threshold: 10,
+                                no_results_text: "Nu s-au gasit informatii !",
+                                placeholder_text_multiple: "Selectati facilitatile din lista",
+                                width: "100%"
+                            });
+                        </script>
                     </div><div class="form-group">
                         {!! Form::label('detalii_complete', 'Detalii Complete: ') !!}
                         {!! Form::textarea('detalii_complete', null, ['class' => 'form-control','id'=>'editorck']) !!}
