@@ -195,6 +195,12 @@
                             <li><a href="{{URL::asset('admin/tari')}}"><i class="fa fa-circle-o"></i>Tari</a></li>
                             <li><a href="{{URL::asset('admin/regiuni')}}"><i class="fa fa-circle-o"></i>Regiuni</a></li>
                             <li><a href="{{URL::asset('admin/localitati')}}"><i class="fa fa-circle-o"></i>Localitati</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-files-o"></i><span>Unitati cazare</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
                             <li><a href="{{URL::asset('admin/hoteluri')}}"><i class="fa fa-circle-o"></i>Hoteluri</a></li>
                             <li><a href="{{URL::asset('admin/facilitati')}}"><i class="fa fa-circle-o"></i>Facilitati</a></li>
                         </ul>

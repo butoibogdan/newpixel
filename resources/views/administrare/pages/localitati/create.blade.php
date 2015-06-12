@@ -15,12 +15,28 @@
                     {!! Form::open(['url' => 'admin/localitati','files'=>'true']) !!}
 
                     <div class="form-group">
-                        {!! Form::label('TaraID', 'Taraid: ') !!}
-                        {!! Form::text('TaraID', null, ['class' => 'form-control']) !!}
+                        {!! Form::label('TaraID', 'Tara: ') !!}
+                        {!! Form::select('TaraID',['']+$tari, null, ['id'=>'select_tari','class' => 'form-control']) !!}
+                         <script>
+                            $("#select_tari").chosen({
+                                disable_search:false,
+                                no_results_text: "Nu s-au gasit informatii !",
+                                placeholder_text_single: "Selectati tara din lista",
+                                width: "100%"
+                            });
+                        </script>
                     </div>
                     <div class="form-group">
-                        {!! Form::label('RegiuneID', 'Regiuneid: ') !!}
-                        {!! Form::text('RegiuneID', null, ['class' => 'form-control']) !!}
+                        {!! Form::label('RegiuneID', 'Regiune: ') !!}
+                        {!! Form::select('RegiuneID',['']+$regiuni, null, ['id'=>'select_regiuni','class' => 'form-control']) !!}
+                        <script>
+                            $("#select_regiuni").chosen({
+                                disable_search:false,
+                                no_results_text: "Nu s-au gasit informatii !",
+                                placeholder_text_single: "Selectati tara din lista",
+                                width: "100%"
+                            });
+                        </script>
                     </div>
                     <div class="form-group">
                         {!! Form::label('nume', 'Nume: ') !!}

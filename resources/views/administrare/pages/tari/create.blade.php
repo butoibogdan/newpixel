@@ -14,8 +14,16 @@
                     {!! Form::open(['url' => 'admin/tari','files'=>'true']) !!}
 
                     <div class="form-group">
-                        {!! Form::label('ContinentID', 'Continentid: ') !!}
-                        {!! Form::text('ContinentID', null, ['class' => 'form-control']) !!}
+                        {!! Form::label('ContinentID', 'Continent: ') !!}
+                        {!! Form::select('ContinentID',['']+$continente,null,['id'=>'select_tari','class' => 'form-control']) !!}
+                         <script>
+                            $("#select_tari").chosen({
+                                disable_search:false,
+                                no_results_text: "Nu s-au gasit informatii !",
+                                placeholder_text_single: "Selectati continetul din lista",
+                                width: "100%"
+                            });
+                        </script>
                     </div>
                     <div class="form-group">
                         {!! Form::label('nume', 'Nume: ') !!}

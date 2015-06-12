@@ -16,7 +16,15 @@
                         
                         <div class="form-group">
                         {!! Form::label('TaraID', 'Taraid: ') !!}
-                        {!! Form::text('TaraID', null, ['class' => 'form-control']) !!}
+                        {!! Form::select('TaraID',['']+$tari, null, ['id'=>'select_regiuni','class' => 'form-control']) !!}
+                        <script>
+                            $("#select_regiuni").chosen({
+                                disable_search:false,
+                                no_results_text: "Nu s-au gasit informatii !",
+                                placeholder_text_single: "Selectati tara din lista",
+                                width: "100%"
+                            });
+                        </script>
                     </div><div class="form-group">
                         {!! Form::label('nume', 'Nume: ') !!}
                         {!! Form::text('nume', null, ['class' => 'form-control']) !!}

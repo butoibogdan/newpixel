@@ -12,6 +12,8 @@ use Redirect;
 use Intervention\Image\Facades\Image;
 use App\LocalitatiImg;
 use Illuminate\Support\Facades\File;
+use App\Taris;
+use App\Regiunis;
 
 class LocalitatiController extends Controller {
 
@@ -31,7 +33,11 @@ class LocalitatiController extends Controller {
      * @return Response
      */
     public function create() {
-        return view('administrare.pages.localitati.create');
+        $tara=  Taris::lists('nume','id');
+        $regiune=  Regiunis::lists('nume','id');
+        return view('administrare.pages.localitati.create')
+                ->with('regiuni',$regiune)
+                ->with('tari',$tara);
     }
 
     /**

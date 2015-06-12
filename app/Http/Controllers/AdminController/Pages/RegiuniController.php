@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Regiunis;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Taris;
 
 class RegiuniController extends Controller {
 
@@ -27,7 +28,9 @@ class RegiuniController extends Controller {
 	 */
 	public function create()
 	{
-		return view('administrare.pages.regiuni.create');
+                $tara= Taris::lists('nume','id');
+		return view('administrare.pages.regiuni.create')
+                        ->with('tari',$tara);
 	}
 
 	/**

@@ -14,6 +14,7 @@ use Redirect;
 use Intervention\Image\Facades\Image;
 use App\TariImg;
 use Illuminate\Support\Facades\File;
+use App\Continentes;
 
 class TariController extends Controller {
 
@@ -33,7 +34,9 @@ class TariController extends Controller {
      * @return Response
      */
     public function create() {
-        return view('administrare.pages.tari.create');
+        $cont= Continentes::lists('Denumire','id');
+        return view('administrare.pages.tari.create')
+                ->with('continente',$cont);
     }
 
     /**

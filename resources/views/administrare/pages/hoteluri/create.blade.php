@@ -24,13 +24,29 @@
                     </div><div class="form-group">
                         {!! Form::label('nume', 'Nume: ') !!}
                         {!! Form::text('nume', null, ['class' => 'form-control']) !!}
-                    </div><div class="form-group">
+                    </div>
+                    <div class="form-group">
+
                         {!! Form::label('stele', 'Stele: ') !!}
-                        {!! Form::text('stele', null, ['class' => 'form-control']) !!}
-                    </div><div class="form-group">
+                        {!! Form::hidden('stele', null, ['class' => 'form-control','id'=>'star_rate']) !!} 
+                        <br/>
+                        <rate></rate>
+                        <script>
+                            $('rate').raty({
+                                path: "{{url('backend/star_rating/images')}}",
+                                target: '#star_rate',
+                                targetType: 'score',
+                                targetKeep: true,
+                                half: true,
+                                round: {down: .4999, full: .6, up: .76}
+                            });
+                        </script>
+                    </div>
+                    <div class="form-group">
                         {!! Form::label('tip', 'Tip: ') !!}
                         {!! Form::text('tip', null, ['class' => 'form-control']) !!}
-                    </div><div class="form-group"> 
+                    </div>
+                    <div class="form-group"> 
                         {!! Form::label('facilitati','Facilitati: ') !!}
                         {!! Form::select('facilitati[]', $facilitati, null, ['multiple'=>'multiple','class' => 'form-control','id'=>'selectare']) !!}
                         <script>
