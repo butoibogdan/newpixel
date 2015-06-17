@@ -197,7 +197,7 @@
                             <li><a href="{{URL::asset('admin/localitati')}}"><i class="fa fa-circle-o"></i>Localitati</a></li>
                         </ul>
                     </li>
-                    
+
                     <li class="treeview">
                         <a href="#"><i class="fa fa-files-o"></i><span>Unitati cazare</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
@@ -263,10 +263,10 @@
             <!-- Add the sidebar's background. This div must be placed
                  immediately after the control sidebar -->
             <div class='control-sidebar-bg'></div>
-            
-            
+
+
         </div><!-- ./wrapper -->
-        
+
         <script src='{{URL::asset("backend/plugins/jQuery/jQuery-2.1.4.min.js")}}'></script>
         <script src='{{URL::asset("backend/plugins/jQuery/jQuery-2.1.4.min.js")}}'></script>
         <!-- Bootstrap 3.3.2 JS -->
@@ -280,5 +280,5 @@
         <!-- AdminLTE for demo purposes -->
         <script src='{{URL::asset("backend/dist/js/demo.js")}}' type="text/javascript"></script>
         
-    </body>
-        @endsection
+</body>
+@endsection

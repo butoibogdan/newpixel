@@ -14,13 +14,21 @@
 
                     <div class="form-group">
                         {!! Form::label('TaraID', 'Taraid: ') !!}
-                        {!! Form::text('TaraID', null, ['class' => 'form-control']) !!}
+                        {!! Form::select('TaraID',['']+$tara,null,['onchange'=>'selectareloc()','id'=>'select_tara','class' => 'form-control']) !!}
+                        <script>
+                            $("#select_tara").chosen({
+                                disable_search:false,
+                                no_results_text: "Nu s-au gasit informatii !",
+                                placeholder_text_single: "Selectati tara din lista",
+                                width: "100%"
+                            });
+                        </script>
                     </div><div class="form-group">
                         {!! Form::label('RegiuneID', 'Regiuneid: ') !!}
-                        {!! Form::text('RegiuneID', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('RegiuneID',null, ['class' => 'form-control']) !!}
                     </div><div class="form-group">
                         {!! Form::label('LocalitateID', 'Localitateid: ') !!}
-                        {!! Form::text('LocalitateID', null, ['class' => 'form-control']) !!}
+                        {!! Form::select('LocalitateID',[''] , null, ['id'=>'optionloc','class' => 'form-control']) !!}
                     </div><div class="form-group">
                         {!! Form::label('nume', 'Nume: ') !!}
                         {!! Form::text('nume', null, ['class' => 'form-control']) !!}

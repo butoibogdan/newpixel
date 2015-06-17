@@ -25,9 +25,8 @@
         <script src='{{URL::asset("backend/star_rating/jquery.raty.js")}}' type="text/javascript"></script>
         <script src="{{URL::asset('backend/js/fileinput.js')}}"></script>
         <script src='{{URL::asset("backend/js/ckeditor/ckeditor.js")}}'></script>
-
         <script src='{{URL::asset("backend/selectinput2/chosen.jquery.min.js")}}' type="text/javascript"></script>
-
+        <script src='{{URL::asset("backend/ajax/ajax.js")}}'></script>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

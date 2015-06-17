@@ -12,6 +12,7 @@
  */
 //--------------------Sectiune Admin--------------------//
 //--------------------Sectiune Login--------------------//
+
 Route::get('login', 'AdminController\HomeAdmin@getLogin');
 Route::post('login', 'AdminController\HomeAdmin@postLogin');
 //--------------------Sectiune Register--------------------//
@@ -109,6 +110,8 @@ Route::group(array('middleware' => 'auth'), function() {
 
         Route::get('delimghotelid/{id}', 'AdminController\Pages\HoteluriController@deleteimg');
         Route::get('setimghotelid/{idt}/{id}', 'AdminController\Pages\HoteluriController@status');
+
+        Route:post('create/localitati', 'AdminController\Pages\HoteluriController@localitati');
     });
 
     //--------------------Sectiune Pagini Facilitati--------------------//
@@ -116,7 +119,7 @@ Route::group(array('middleware' => 'auth'), function() {
     Route::group(['prefix' => 'admin/facilitati'], function() {
 
         Route::get('/', 'AdminController\Pages\FacilitatiController@index');
-        
+
         Route::get('create', 'AdminController\Pages\FacilitatiController@create');
         Route::post('/', 'AdminController\Pages\FacilitatiController@store');
 

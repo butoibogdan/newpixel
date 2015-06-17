@@ -15,6 +15,9 @@ use Intervention\Image\Facades\Image;
 use App\HoteluriImg;
 use Illuminate\Support\Facades\File;
 use App\Facilitatis;
+use App\Localitatis;
+use App\Taris;
+use App\Regiunis;
 
 class HoteluriController extends Controller {
 
@@ -33,10 +36,20 @@ class HoteluriController extends Controller {
      *
      * @return Response
      */
+    public function localitati(Request $id) {
+        $localitati = Localitatis::where('TaraID', $id->tari)->get();
+        $count=0;
+        foreach ($localitati as $loc) {
+            echo "<option value=" . $loc['id'] . ">" . $loc['nume'] . "</option>";
+        }
+    }
+
     public function create() {
+        $tari = Taris::lists('nume', 'id');
         $facilitatihotel = Facilitatis::lists('facilitati', 'id');
         return view('administrare.pages.hoteluri.create')
-                        ->with('facilitati', $facilitatihotel);
+                        ->with('facilitati', $facilitatihotel)
+                        ->with('tara', $tari);
     }
 
     /**
@@ -119,13 +132,13 @@ class HoteluriController extends Controller {
         $hoteluri = Hoteluris::findOrFail($id);
         $url = HoteluriImg::where('HotelID', $id)->get();
         $facilitatih = explode(",", $hoteluri->facilitati);
-        $fachu= Facilitatis::find($facilitatih);
-        $facunlisted=  Facilitatis::whereNotIn('id',$facilitatih)->get();
+        $fachu = Facilitatis::find($facilitatih);
+        $facunlisted = Facilitatis::whereNotIn('id', $facilitatih)->get();
         return view('administrare.pages.hoteluri.edit', compact('hoteluri'))
                         ->with('img', $url)
                         ->with('idhotel', $segment_hotel)
                         ->with('fac', $fachu)
-                        ->with('facunlist',$facunlisted);
+                        ->with('facunlist', $facunlisted);
     }
 
     /**
@@ -166,7 +179,7 @@ class HoteluriController extends Controller {
             'nume' => $request->nume,
             'tip' => $request->tip,
             'stele' => $request->stele,
-            'facilitati' => implode(',',$request->facilitati),
+            'facilitati' => implode(',', $request->facilitati),
             'detalii_complete' => $request->detalii_complete,
             'Latitudine' => $request->Latitudine,
             'Longitudine' => $request->Longitudine,
