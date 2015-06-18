@@ -15,15 +15,13 @@
                     <div class="form-group">
                         {!! Form::label('TaraID', 'Taraid: ') !!}
                         {!! Form::select('TaraID',[''=>'']+$tara,null,['onchange'=>'selectareloc()','id'=>'select_tara','class' => 'form-control']) !!}
+                        {!! Form::hidden('RegiuneID',null, ['class' => 'form-control']) !!}
                         <script>
                             $("#select_tara").select2({
                                 placeholder: "Selectati tara",
                                 width: "100%"
                             });
                         </script>
-                    </div><div class="form-group">
-                        {!! Form::label('RegiuneID', 'Regiuneid: ') !!}
-                        {!! Form::text('RegiuneID',null, ['class' => 'form-control']) !!}
                     </div><div class="form-group">
                         {!! Form::label('LocalitateID', 'Localitateid: ') !!}
                         {!! Form::select('LocalitateID',[],null, ['id'=>'optionloc','class' => 'form-control']) !!}
