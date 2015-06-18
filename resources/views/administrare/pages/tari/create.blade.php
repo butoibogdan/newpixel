@@ -15,12 +15,10 @@
 
                     <div class="form-group">
                         {!! Form::label('ContinentID', 'Continent: ') !!}
-                        {!! Form::select('ContinentID',['']+$continente,null,['id'=>'select_tari','class' => 'form-control']) !!}
+                        {!! Form::select('ContinentID',[''=>'']+$continente,null,['id'=>'select_tari','class' => 'form-control']) !!}
                          <script>
-                            $("#select_tari").chosen({
-                                disable_search:false,
-                                no_results_text: "Nu s-au gasit informatii !",
-                                placeholder_text_single: "Selectati continetul din lista",
+                           $("#select_tari").select2({
+                                placeholder: "Selectati continentul",
                                 width: "100%"
                             });
                         </script>

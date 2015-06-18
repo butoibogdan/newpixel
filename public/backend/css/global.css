@@ -1,0 +1,11 @@
+* {
+    border-radius: 0px!important;
+}
+
+input, select, file {
+    height: 28px !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+    height:28px !important;
+}

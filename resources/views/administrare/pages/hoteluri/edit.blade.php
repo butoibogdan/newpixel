@@ -57,10 +57,8 @@
                             <?php } ?>
                         </select>
                         <script>
-                            $("#selectare").chosen({
-                                disable_search_threshold: 10,
-                                no_results_text: "Nu s-au gasit informatii !",
-                                placeholder_text_multiple: "Selectati facilitatile din lista",
+                            $("#selectare").select2({
+                                placeholder: "Selectati tara",
                                 width: "100%"
                             });
                         </script>

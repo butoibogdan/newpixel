@@ -38,7 +38,6 @@ class HoteluriController extends Controller {
      */
     public function localitati(Request $id) {
         $localitati = Localitatis::where('TaraID', $id->tari)->get();
-        $count=0;
         foreach ($localitati as $loc) {
             echo "<option value=" . $loc['id'] . ">" . $loc['nume'] . "</option>";
         }

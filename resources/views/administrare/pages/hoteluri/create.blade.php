@@ -14,12 +14,10 @@
 
                     <div class="form-group">
                         {!! Form::label('TaraID', 'Taraid: ') !!}
-                        {!! Form::select('TaraID',['']+$tara,null,['onchange'=>'selectareloc()','id'=>'select_tara','class' => 'form-control']) !!}
+                        {!! Form::select('TaraID',[''=>'']+$tara,null,['onchange'=>'selectareloc()','id'=>'select_tara','class' => 'form-control']) !!}
                         <script>
-                            $("#select_tara").chosen({
-                                disable_search:false,
-                                no_results_text: "Nu s-au gasit informatii !",
-                                placeholder_text_single: "Selectati tara din lista",
+                            $("#select_tara").select2({
+                                placeholder: "Selectati tara",
                                 width: "100%"
                             });
                         </script>
@@ -28,7 +26,13 @@
                         {!! Form::text('RegiuneID',null, ['class' => 'form-control']) !!}
                     </div><div class="form-group">
                         {!! Form::label('LocalitateID', 'Localitateid: ') !!}
-                        {!! Form::select('LocalitateID',[''] , null, ['id'=>'optionloc','class' => 'form-control']) !!}
+                        {!! Form::select('LocalitateID',[],null, ['id'=>'optionloc','class' => 'form-control']) !!}
+                        <script>
+                            $("#optionloc").select2({
+                                placeholder: "Selectati localitatea",
+                                width: "100%"
+                            });
+                        </script>
                     </div><div class="form-group">
                         {!! Form::label('nume', 'Nume: ') !!}
                         {!! Form::text('nume', null, ['class' => 'form-control']) !!}
@@ -58,10 +62,8 @@
                         {!! Form::label('facilitati','Facilitati: ') !!}
                         {!! Form::select('facilitati[]', $facilitati, null, ['multiple'=>'multiple','class' => 'form-control','id'=>'selectare']) !!}
                         <script>
-                            $("#selectare").chosen({
-                                disable_search_threshold: 10,
-                                no_results_text: "Nu s-au gasit informatii !",
-                                placeholder_text_multiple: "Selectati facilitatile din lista",
+                            $("#selectare").select2({
+                                placeholder: "Selectati facilitatile",
                                 width: "100%"
                             });
                         </script>

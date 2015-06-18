@@ -5,7 +5,7 @@
  */
 
 function selectareloc() {
-
+    
     $.ajax({
         type: 'POST',
         url: "create/localitati",
@@ -13,5 +13,5 @@ function selectareloc() {
         success: function (res) {
            $('#optionloc').html(res);
         }
-    });
+    }); 
 }

@@ -16,12 +16,10 @@
 
                     <div class="form-group">
                         {!! Form::label('TaraID', 'Tara: ') !!}
-                        {!! Form::select('TaraID',['']+$tari, null, ['id'=>'select_tari','class' => 'form-control']) !!}
+                        {!! Form::select('TaraID',[''=>'']+$tari, null, ['id'=>'select_tari','class' => 'form-control']) !!}
                          <script>
-                            $("#select_tari").chosen({
-                                disable_search:false,
-                                no_results_text: "Nu s-au gasit informatii !",
-                                placeholder_text_single: "Selectati tara din lista",
+                            $("#select_tari").select2({
+                                placeholder: "Selectati tara",
                                 width: "100%"
                             });
                         </script>
