@@ -15,7 +15,7 @@
                     <div class="form-group">
                         {!! Form::label('TaraID', 'Taraid: ') !!}
                         {!! Form::select('TaraID',[''=>'']+$tara,null,['onchange'=>'selectareloc()','id'=>'select_tara','class' => 'form-control']) !!}
-                        {!! Form::hidden('RegiuneID',null, ['class' => 'form-control']) !!}
+                        {!! Form::hidden('RegiuneID',null, ['id'=>'optionreg','class' => 'form-control']) !!}
                         <script>
                             $("#select_tara").select2({
                                 placeholder: "Selectati tara",

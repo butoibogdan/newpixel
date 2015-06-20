@@ -155,7 +155,8 @@ return [
                 'Laracasts\Generators\GeneratorsServiceProvider', //De scos in productie
                 'Barryvdh\Debugbar\ServiceProvider',
                 'TwigBridge\ServiceProvider',
-                'Laracasts\Utilities\JavaScript\JavascriptServiceProvider'
+                'Laracasts\Utilities\JavaScript\JavascriptServiceProvider',
+                'Liebig\Cron\Laravel5ServiceProvider' 
             
 
 	],
@@ -211,7 +212,8 @@ return [
                 'Breadcrumbs' => 'DaveJamesMiller\Breadcrumbs\Facade',
                 
                 'Debugbar' => 'Barryvdh\Debugbar\Facade',
-                'Twig' => 'TwigBridge\Facade\Twig',
+                'Twig' => 'TwigBridge\Facade\Twig'
+                //'Cron'=>'Liebig\Cron\Facedes\Cron' 
 
 	],
 

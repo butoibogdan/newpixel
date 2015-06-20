@@ -111,7 +111,8 @@ Route::group(array('middleware' => 'auth'), function() {
         Route::get('delimghotelid/{id}', 'AdminController\Pages\HoteluriController@deleteimg');
         Route::get('setimghotelid/{idt}/{id}', 'AdminController\Pages\HoteluriController@status');
 
-        Route:post('create/localitati', 'AdminController\Pages\HoteluriController@localitati');
+        Route::post('create/localitati', 'AdminController\Pages\HoteluriController@localitati');
+        Route::post('create/reg', 'AdminController\Pages\HoteluriController@regiuni');
     });
 
     //--------------------Sectiune Pagini Facilitati--------------------//
@@ -129,6 +130,25 @@ Route::group(array('middleware' => 'auth'), function() {
         Route::get('destroy/{id}', 'AdminController\Pages\FacilitatiController@destroy');
         Route::get('/{id}', ['as' => 'showfacilitati', 'uses' => 'AdminController\Pages\FacilitatiController@show']);
     });
+    
+     //--------------------Sectiune Pagini Oferte--------------------//
+    
+    Route::group(['prefix' => 'admin/oferte'], function() {
+
+        Route::get('/', 'AdminController\Pages\OfertestaticeController@index');
+
+        Route::get('create', 'AdminController\Pages\OfertestaticeController@create');
+        Route::post('/', 'AdminController\Pages\OfertestaticeController@store');
+
+        Route::get('edit/{id}', ['as' => 'ofertestatice', 'uses' => 'AdminController\Pages\OfertestaticeController@edit']);
+        Route::PATCH('edit/{id}', 'AdminController\Pages\OfertestaticeController@update');
+
+        Route::get('destroy/{id}', 'AdminController\Pages\OfertestaticeController@destroy');
+        Route::get('/{id}', ['as' => 'showoferte', 'uses' => 'AdminController\Pages\OfertestaticeController@show']);
+        
+        Route::get('deloferta/{id}', 'AdminController\Pages\OfertestaticeController@deloferta');
+    });
+    
 });
 
 //--------------------Sectiune Logout--------------------//

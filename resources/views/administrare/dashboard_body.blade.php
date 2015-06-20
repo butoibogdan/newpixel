@@ -191,6 +191,13 @@
                             <li><a href="{{URL::asset('admin/facilitati')}}"><i class="fa fa-circle-o"></i>Facilitati</a></li>
                         </ul>
                     </li>
+                    
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-files-o"></i><span>Oferte</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{URL::asset('admin/oferte')}}"><i class="fa fa-circle-o"></i>Oferte</a></li>
+                        </ul>
+                    </li>
 
 
                     <li><a href="../../documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
@@ -235,6 +242,8 @@
             @yield('hoteluri')
             @elseif (Request::path()=='admin/facilitati' || Request::is('admin/facilitati/*'))
             @yield('facilitati')
+            @elseif (Request::path()=='admin/oferte' || Request::is('admin/oferte/*'))
+            @yield('oferte')
 
             @endif
 

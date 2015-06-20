@@ -14,4 +14,13 @@ function selectareloc() {
            $('#optionloc').html(res);
         }
     }); 
+    
+    $.ajax({
+        type: 'POST',
+        url: "create/reg",
+        data: {'tari': $('select[name=TaraID]').val(), '_token': $('input[name=_token]').val()},
+        success: function (result) {
+           $('#optionreg').val(result);
+        }
+    }); 
 }

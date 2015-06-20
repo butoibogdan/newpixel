@@ -14,7 +14,8 @@
 		"barryvdh/laravel-debugbar": "^2.0",
 		"rcrowe/twigbridge": "0.7.x",
                 "laracasts/utilities": "~2.0",
-		"butoibogdan/crud-generator": "dev-master"
+		"butoibogdan/crud-generator": "dev-master",
+                "liebig/cron":"dev-master"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

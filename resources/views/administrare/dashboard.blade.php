@@ -19,6 +19,7 @@
         <link href="{{URL::asset('backend/css/fileinput.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{URL::asset('backend/select2/dist/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{URL::asset('backend/star_rating/jquery.raty.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{URL::asset('backend/plugins/datepicker/datepicker3.css')}}" rel="stylesheet" type="text/css" />
         
         
         <script src='{{URL::asset("backend/plugins/jQuery/jQuery-2.1.4.min.js")}}'></script>
@@ -29,6 +30,8 @@
         <script src='{{URL::asset("backend/js/ckeditor/ckeditor.js")}}'></script>
         <script src='{{URL::asset("backend/select2/dist/js/select2.full.min.js")}}' type="text/javascript"></script>
         <script src='{{URL::asset("backend/ajax/ajax.js")}}'></script>
+        <script src='{{URL::asset("backend/plugins/datepicker/bootstrap-datepicker.js")}}'></script>
+        
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

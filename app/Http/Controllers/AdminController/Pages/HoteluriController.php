@@ -42,6 +42,13 @@ class HoteluriController extends Controller {
             echo "<option value=" . $loc['id'] . ">" . $loc['nume'] . "</option>";
         }
     }
+    
+    public function regiuni(Request $id) {
+        $regiuni = Regiunis::where('TaraID', $id->tari)->get();
+        foreach ($regiuni as $reg) {
+            echo $reg['id'];
+        }
+    }
 
     public function create() {
         $tari = Taris::lists('nume', 'id');
