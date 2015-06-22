@@ -27,7 +27,7 @@
                         {!! Form::label('DetaliiScurte', 'Detaliiscurte: ', ['class' => 'col-md-12 control-label']) !!}
                         {!! Form::textarea('DetaliiScurte', null, ['class' => 'form-control','id'=>'editorck']) !!}
                         <script>CKEDITOR.replace('editorck');</script>
-                    </div>    
+                    </div>
                     <div class="form-group">
                         {!! Form::label('DetaliiComplete', 'Detaliicomplete: ', ['class' => 'col-md-12 control-label']) !!}
                         {!! Form::textarea('DetaliiComplete', null, ['class' => 'form-control','id'=>'editorck1']) !!}   
@@ -44,6 +44,12 @@
                     <div class="form-group">
                         {!! Form::label('DocOferta', 'Docoferta: ', ['class' => 'col-md-12 control-label']) !!}
                         {!! Form::file('DocOferta[]',['multiple'=>true,'id'=>'docstatice','class'=>'file','data-show-upload'=>'false']) !!}
+                        <script>
+                        $('#docstatice').fileinput({
+                            allowedFileExtensions:['pdf'],
+                            msgInvalidFileExtension:'Doar documentele cu extensia .pdf sunt acceptate'
+                        });
+                        </script>
                     </div>
                     <div class="form-group">
                         {!! Form::label('DataExpirare', 'Dataexpirare: ', ['class' => 'col-md-12 control-label']) !!}

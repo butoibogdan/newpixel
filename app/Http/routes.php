@@ -155,5 +155,3 @@ Route::group(array('middleware' => 'auth'), function() {
 Route::get('logout', 'AdminController\HomeAdmin@logout');
 
 
-
-

@@ -156,7 +156,10 @@ return [
                 'Barryvdh\Debugbar\ServiceProvider',
                 'TwigBridge\ServiceProvider',
                 'Laracasts\Utilities\JavaScript\JavascriptServiceProvider',
-                'Liebig\Cron\Laravel5ServiceProvider' 
+                'Liebig\Cron\Laravel5ServiceProvider',
+                'Laracasts\Flash\FlashServiceProvider',
+                'Mitul\Generator\GeneratorServiceProvider'
+            
             
 
 	],
@@ -210,6 +213,7 @@ return [
                 'Html'      => 'Collective\Html\HtmlFacade',
                 'Image' => 'Intervention\Image\Facades\Image',
                 'Breadcrumbs' => 'DaveJamesMiller\Breadcrumbs\Facade',
+                'Flash' => 'Laracasts\Flash\Flash',
                 
                 'Debugbar' => 'Barryvdh\Debugbar\Facade',
                 'Twig' => 'TwigBridge\Facade\Twig'
