@@ -3,11 +3,11 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Clientipjs;
+use App\Clientis;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
-class ClientipjController extends Controller {
+class ClientiController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,8 +16,8 @@ class ClientipjController extends Controller {
 	 */
 	public function index()
 	{
-		$clientipjs = Clientipjs::latest()->get();
-		return view('clientipj.index', compact('clientipjs'));
+		$clientis = Clientis::latest()->get();
+		return view('clienti.index', compact('clientis'));
 	}
 
 	/**
@@ -27,7 +27,7 @@ class ClientipjController extends Controller {
 	 */
 	public function create()
 	{
-		return view('clientipj.create');
+		return view('clienti.create');
 	}
 
 	/**
@@ -38,8 +38,8 @@ class ClientipjController extends Controller {
 	public function store(Request $request)
 	{
 		//$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
-		Clientipjs::create($request->all());
-		return redirect('clientipj');
+		Clientis::create($request->all());
+		return redirect('clienti');
 	}
 
 	/**
@@ -50,8 +50,8 @@ class ClientipjController extends Controller {
 	 */
 	public function show($id)
 	{
-		$clientipj = Clientipjs::findOrFail($id);
-		return view('clientipj.show', compact('clientipj'));
+		$clienti = Clientis::findOrFail($id);
+		return view('clienti.show', compact('clienti'));
 	}
 
 	/**
@@ -62,8 +62,8 @@ class ClientipjController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$clientipj = Clientipjs::findOrFail($id);
-		return view('clientipj.edit', compact('clientipj'));
+		$clienti = Clientis::findOrFail($id);
+		return view('clienti.edit', compact('clienti'));
 	}
 
 	/**
@@ -75,9 +75,9 @@ class ClientipjController extends Controller {
 	public function update($id, Request $request)
 	{
 		//$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
-		$clientipj = Clientipjs::findOrFail($id);
-		$clientipj->update($request->all());
-		return redirect('clientipj');
+		$clienti = Clientis::findOrFail($id);
+		$clienti->update($request->all());
+		return redirect('clienti');
 	}
 
 	/**
@@ -88,8 +88,8 @@ class ClientipjController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		Clientipjs::destroy($id);
-		return redirect('clientipj');
+		Clientis::destroy($id);
+		return redirect('clienti');
 	}
 
 }

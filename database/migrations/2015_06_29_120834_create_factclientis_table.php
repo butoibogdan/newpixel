@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFactclientipfsTable extends Migration
+class CreateFactclientisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,18 @@ class CreateFactclientipfsTable extends Migration
     public function up()
     {
         
-        Schema::create('fact__clientipfs', function(Blueprint $table)
+        Schema::create('fact__clientis', function(Blueprint $table)
         {
             $table->increments('id');
+            $table->string('tipclient');
             $table->string('nume');
-            $table->string('cnp');
+            $table->string('cui');
+            $table->string('cif');
+            $table->string('banca');
+            $table->string('iban');
             $table->string('adresa');
+            $table->string('reprezentant');
+            $table->string('cnp');
             $table->string('judet');
             $table->string('oras');
             $table->string('serieci');
@@ -38,6 +44,6 @@ class CreateFactclientipfsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('clientipfs');
+        Schema::drop('clientis');
     }
 }
