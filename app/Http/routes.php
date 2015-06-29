@@ -130,9 +130,9 @@ Route::group(array('middleware' => 'auth'), function() {
         Route::get('destroy/{id}', 'AdminController\Pages\FacilitatiController@destroy');
         Route::get('/{id}', ['as' => 'showfacilitati', 'uses' => 'AdminController\Pages\FacilitatiController@show']);
     });
-    
-     //--------------------Sectiune Pagini Oferte--------------------//
-    
+
+    //--------------------Sectiune Pagini Oferte--------------------//
+
     Route::group(['prefix' => 'admin/oferte'], function() {
 
         Route::get('/', 'AdminController\Pages\OfertestaticeController@index');
@@ -145,13 +145,19 @@ Route::group(array('middleware' => 'auth'), function() {
 
         Route::get('destroy/{id}', 'AdminController\Pages\OfertestaticeController@destroy');
         Route::get('/{id}', ['as' => 'showoferte', 'uses' => 'AdminController\Pages\OfertestaticeController@show']);
-        
+
         Route::get('deloferta/{id}', 'AdminController\Pages\OfertestaticeController@deloferta');
     });
+
     
 });
 
+
+
 //--------------------Sectiune Logout--------------------//
 Route::get('logout', 'AdminController\HomeAdmin@logout');
+
+
+
 
 

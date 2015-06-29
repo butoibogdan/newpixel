@@ -65,11 +65,14 @@
                                 width: "100%"
                             });
                         </script>
-                    </div><div class="form-group">
-                        {!! Form::label('detalii_complete', 'Detalii Complete: ') !!}
+                    </div>
+                   
+                    <div class="form-group">
+                        {!! Form::label('detalii_complete', 'Detalii Complete:') !!}
                         {!! Form::textarea('detalii_complete', null, ['class' => 'form-control','id'=>'editorck']) !!}
                         <script>CKEDITOR.replace('editorck');</script>
                     </div>
+
                     <div class="form-group">
                         {!!Form::label('poza', 'Poza: ')!!}
                         {!! Form::file('poza[]',['multiple'=>true, 'id'=>'pozahoteluri','class'=>'file','data-show-upload'=>'false']) !!}

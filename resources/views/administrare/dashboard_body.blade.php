@@ -244,6 +244,8 @@
             @yield('facilitati')
             @elseif (Request::path()=='admin/oferte' || Request::is('admin/oferte/*'))
             @yield('oferte')
+            @elseif (Request::path()=='admin/ofertefps' || Request::is('admin/ofertefps/*'))
+            @yield('ofertefp')
 
             @endif
 

@@ -1,7 +1,7 @@
 @extends('administrare.dashboard_body')
 
 @section('oferte')
-
+<div class="container">
     <h1>Ofertestatices <a href="{{ url('admin/oferte/create') }}" class="btn btn-primary pull-right btn-sm">Add New Ofertestatice</a></h1>
     <div class="table">
         <table class="table table-bordered table-striped table-hover">
@@ -24,5 +24,5 @@
             @endforeach
         </table>
     </div>
-
+</div>
 @endsection

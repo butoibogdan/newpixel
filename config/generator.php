@@ -17,11 +17,11 @@ return [
 
 	'path_repository'          => app_path('Libraries/Repositories/'),
 
-	'path_controller'          => app_path('Http/Controllers/Pages'),
+	'path_controller'          => app_path('Http/Controllers/AdminController/Pages/'),
 
 	'path_api_controller'      => app_path('Http/Controllers/API/'),
 
-	'path_views'               => base_path('resources/views'),
+	'path_views'               => base_path('resources/views/administrare/pages'),
 
 	'path_request'             => app_path('Http/Requests/'),
 
@@ -41,7 +41,7 @@ return [
 
 	'namespace_repository'     => 'App\Libraries\Repositories',
 
-	'namespace_controller'     => 'App\Http\Controllers',
+	'namespace_controller'     => 'App\Http\Controllers\AdminController\Pages',
 
 	'namespace_api_controller' => 'App\Http\Controllers\API',
 

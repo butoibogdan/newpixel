@@ -1,17 +1,17 @@
-@extends('administrare.dashboard_body')
+@extends('{!! Config::newpixel('master_layouts') !!}')
 
-@section('oferte')
-<div class="container">
-    <h1>Ofertestatice</h1>
+@section('clientipj')
+
+    <h1>Clientipf</h1>
     <div class="table-responsive">
         <table class="table table-bordered table-striped table-hover">
             <tr>
                 <th>ID.</th><th>Name</th>
             </tr>
             <tr>
-                <td>{{ $ofertestatice->id }}</td><td>{{ $ofertestatice->name }}</td>
+                <td>{{ $clientipf->id }}</td><td>{{ $clientipf->name }}</td>
             </tr>
         </table>
     </div>
-</div>
+
 @endsection

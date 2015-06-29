@@ -128,7 +128,7 @@ class OfertestaticeController extends Controller {
      */
     public function destroy($id) {
         Ofertestatices::destroy($id);
-        return redirect('oferte');
+        return redirect('admin/oferte');
     }
 
 }

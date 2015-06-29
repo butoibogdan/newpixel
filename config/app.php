@@ -158,7 +158,8 @@ return [
                 'Laracasts\Utilities\JavaScript\JavascriptServiceProvider',
                 'Liebig\Cron\Laravel5ServiceProvider',
                 'Laracasts\Flash\FlashServiceProvider',
-                'Mitul\Generator\GeneratorServiceProvider'
+                'Mitul\Generator\GeneratorServiceProvider',
+                'Barryvdh\DomPDF\ServiceProvider'
             
             
 
@@ -216,7 +217,8 @@ return [
                 'Flash' => 'Laracasts\Flash\Flash',
                 
                 'Debugbar' => 'Barryvdh\Debugbar\Facade',
-                'Twig' => 'TwigBridge\Facade\Twig'
+                'Twig' => 'TwigBridge\Facade\Twig',
+                'PDF' => 'Barryvdh\DomPDF\Facade'
                 //'Cron'=>'Liebig\Cron\Facedes\Cron' 
 
 	],
