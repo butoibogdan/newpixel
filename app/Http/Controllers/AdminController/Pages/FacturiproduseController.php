@@ -3,11 +3,11 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Clientis;
+use App\Facturiproduses;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
-class ClientiController extends Controller {
+class FacturiproduseController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,8 +16,8 @@ class ClientiController extends Controller {
 	 */
 	public function index()
 	{
-		$clientis = Clientis::latest()->get();
-		return view('administrare.pages.clienti.index', compact('clientis'));
+		$facturiproduses = Facturiproduses::latest()->get();
+		return view('administrare.pages.facturiproduse.index', compact('facturiproduses'));
 	}
 
 	/**
@@ -27,7 +27,7 @@ class ClientiController extends Controller {
 	 */
 	public function create()
 	{
-		return view('administrare.pages.clienti.create');
+		return view('administrare.pages.facturiproduse.create');
 	}
 
 	/**
@@ -38,8 +38,8 @@ class ClientiController extends Controller {
 	public function store(Request $request)
 	{
 		//$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
-		Clientis::create($request->all());
-		return redirect('admin/clienti');
+		Facturiproduses::create($request->all());
+		return redirect('admin/facturiproduse');
 	}
 
 	/**
@@ -50,8 +50,8 @@ class ClientiController extends Controller {
 	 */
 	public function show($id)
 	{
-		$clienti = Clientis::findOrFail($id);
-		return view('administrare.pages.clienti.show', compact('clienti'));
+		$facturiproduse = Facturiproduses::findOrFail($id);
+		return view('administrare.pages.facturiproduse.show', compact('facturiproduse'));
 	}
 
 	/**
@@ -62,8 +62,8 @@ class ClientiController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$clienti = Clientis::findOrFail($id);
-		return view('administrare.pages.clienti.edit', compact('clienti'));
+		$facturiproduse = Facturiproduses::findOrFail($id);
+		return view('administrare.pages.facturiproduse.edit', compact('facturiproduse'));
 	}
 
 	/**
@@ -75,9 +75,9 @@ class ClientiController extends Controller {
 	public function update($id, Request $request)
 	{
 		//$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
-		$clienti = Clientis::findOrFail($id);
-		$clienti->update($request->all());
-		return redirect('admin/clienti');
+		$facturiproduse = Facturiproduses::findOrFail($id);
+		$facturiproduse->update($request->all());
+		return redirect('admin/facturiproduse');
 	}
 
 	/**
@@ -88,8 +88,8 @@ class ClientiController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		Clientis::destroy($id);
-		return redirect('admin/clienti');
+		Facturiproduses::destroy($id);
+		return redirect('admin/facturiproduse');
 	}
 
 }

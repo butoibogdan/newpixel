@@ -1,15 +1,15 @@
-@extends('administrare.dashboard_body')
+@extends('{!! Config::newpixel('master_layouts') !!}')
 
-@section('clienti')
+@section('%%crudName%%')
 
-    <h1>Clienti</h1>
+    <h1>Facturiproduse</h1>
     <div class="table-responsive">
         <table class="table table-bordered table-striped table-hover">
             <tr>
                 <th>ID.</th><th>Name</th>
             </tr>
             <tr>
-                <td>{{ $clienti->id }}</td><td>{{ $clienti->name }}</td>
+                <td>{{ $facturiproduse->id }}</td><td>{{ $facturiproduse->name }}</td>
             </tr>
         </table>
     </div>

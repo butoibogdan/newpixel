@@ -1,6 +1,6 @@
-@extends({!!Config::newpixel('master_layouts')!!})
+@extends('administrare.dashboard_body')
 
-@section('%%CrudName%%')
+@section('clienti')
 <div class="container">
     <div class="row">
         <div class="col-md-12">

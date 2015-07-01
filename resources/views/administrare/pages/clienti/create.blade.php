@@ -1,4 +1,4 @@
-@extends({!! Config::newpixel('master_layouts') !!})
+@extends('administrare.dashboard_body')
 
 @section('clienti')
 
@@ -10,7 +10,7 @@
                 <div class="panel-body">
                     <h1>Adaugare -  Clienti</h1>
                     <hr/>
-                    {!! Form::open(['url' => 'clienti']) !!}
+                    {!! Form::open(['url' => 'admin/clienti']) !!}
                     <div class="form-group">
                         {!! Form::label('tipclient', 'Tipclient: ', ['class' => 'col-md-12 control-label']) !!}
                         {!! Form::text('tipclient', null, ['class' => 'form-control']) !!}

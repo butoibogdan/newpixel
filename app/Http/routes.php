@@ -149,13 +149,64 @@ Route::group(array('middleware' => 'auth'), function() {
         Route::get('deloferta/{id}', 'AdminController\Pages\OfertestaticeController@deloferta');
     });
 
-    
+    //--------------------Sectiune Pagini Clienti--------------------//
+
+    Route::group(['prefix' => 'admin/clienti'], function() {
+
+        Route::get('/', 'AdminController\Pages\ClientiController@index');
+
+        Route::get('create', 'AdminController\Pages\ClientiController@create');
+        Route::post('/', 'AdminController\Pages\ClientiController@store');
+
+        Route::get('edit/{id}', ['as' => 'editclienti', 'uses' => 'AdminController\Pages\ClientiController@edit']);
+        Route::PATCH('edit/{id}', 'AdminController\Pages\ClientiController@update');
+
+        Route::get('destroy/{id}', 'AdminController\Pages\ClientiController@destroy');
+        Route::get('/{id}', ['as' => 'showclienti', 'uses' => 'AdminController\Pages\ClientiController@show']);
+    });
+
+    //--------------------Sectiune Pagini Facturi--------------------//
+
+
+    Route::group(['prefix' => 'admin/facturi'], function() {
+
+        Route::get('/', 'AdminController\Pages\FacturiController@index');
+
+        Route::get('create', 'AdminController\Pages\FacturiController@create');
+        Route::post('/', 'AdminController\Pages\FacturiController@store');
+
+        Route::get('edit/{id}', ['as' => 'editfacturi', 'uses' => 'AdminController\Pages\FacturiController@edit']);
+        Route::PATCH('edit/{id}', 'AdminController\Pages\FacturiController@update');
+
+        Route::get('destroy/{id}', 'AdminController\Pages\FacturiController@destroy');
+        Route::get('/{id}', ['as' => 'showfacturi', 'uses' => 'AdminController\Pages\FacturiController@show']);
+    });
+
+    //--------------------Sectiune Pagini Facturi--------------------//
+
+    Route::group(['prefix' => 'admin/facturiproduse'], function() {
+
+        Route::get('/', 'AdminController\Pages\FacturiController@index');
+
+        Route::get('create', 'AdminController\Pages\FacturiController@create');
+        Route::post('/', 'AdminController\Pages\FacturiController@store');
+
+        Route::get('edit/{id}', ['as' => 'editfacturi', 'uses' => 'AdminController\Pages\FacturiController@edit']);
+        Route::PATCH('edit/{id}', 'AdminController\Pages\FacturiController@update');
+
+        Route::get('destroy/{id}', 'AdminController\Pages\FacturiController@destroy');
+        Route::get('/{id}', ['as' => 'showfacturi', 'uses' => 'AdminController\Pages\FacturiController@show']);
+    });
 });
 
 
 
 //--------------------Sectiune Logout--------------------//
 Route::get('logout', 'AdminController\HomeAdmin@logout');
+
+Route::get('invoice', function() {
+    return view('administrare.invoicetpl');
+});
 
 
 

@@ -1,8 +1,8 @@
-@extends('{!! Config::newpixel('master_layouts') !!}')
+@extends('administrare.dashboard_body')
 
 @section('clienti')
 
-    <h1>Clientis <a href="{{ url('/clienti/create') }}" class="btn btn-primary pull-right btn-sm">Add New Clienti</a></h1>
+    <h1>Clientis <a href="{{ url('admin/clienti/create') }}" class="btn btn-primary pull-right btn-sm">Add New Clienti</a></h1>
     <div class="table">
         <table class="table table-bordered table-striped table-hover">
             <tr>
@@ -17,8 +17,8 @@
                         <a href="{{ url('/clienti', $item->id) }}">{{ $item->name }}</a>
                     </td>
                     <td>
-                        <a href="{{ url('/clienti/edit/'.$item->id) }}"><button type="submit" class="btn btn-primary btn-xs">Edit</button></a>  
-                        <a href="{{ url('/clienti/destroy/'.$item->id) }}"><button type="submit" class="btn btn-danger btn-xs">Delete</button></a>  
+                        <a href="{{ url('admin/clienti/edit/'.$item->id) }}"><button type="submit" class="btn btn-primary btn-xs">Edit</button></a>  
+                        <a href="{{ url('admin/clienti/destroy/'.$item->id) }}"><button type="submit" class="btn btn-danger btn-xs">Delete</button></a>  
                     </td>
                 </tr>
             @endforeach

@@ -1,15 +1,15 @@
 @extends('administrare.dashboard_body')
 
-@section('clienti')
+@section('facturi')
 
-    <h1>Clienti</h1>
+    <h1>Facturi</h1>
     <div class="table-responsive">
         <table class="table table-bordered table-striped table-hover">
             <tr>
                 <th>ID.</th><th>Name</th>
             </tr>
             <tr>
-                <td>{{ $clienti->id }}</td><td>{{ $clienti->name }}</td>
+                <td>{{ $facturi->id }}</td><td>{{ $facturi->name }}</td>
             </tr>
         </table>
     </div>
