@@ -154,7 +154,6 @@ Route::group(array('middleware' => 'auth'), function() {
     Route::group(['prefix' => 'admin/clienti'], function() {
 
         Route::get('/', 'AdminController\Pages\ClientiController@index');
-
         Route::get('create', 'AdminController\Pages\ClientiController@create');
         Route::post('/', 'AdminController\Pages\ClientiController@store');
 
@@ -163,6 +162,8 @@ Route::group(array('middleware' => 'auth'), function() {
 
         Route::get('destroy/{id}', 'AdminController\Pages\ClientiController@destroy');
         Route::get('/{id}', ['as' => 'showclienti', 'uses' => 'AdminController\Pages\ClientiController@show']);
+        
+        Route::post('create/client','AdminController\Pages\ClientiController@selectare');
     });
 
     //--------------------Sectiune Pagini Facturi--------------------//

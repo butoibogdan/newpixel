@@ -1,7 +1,7 @@
 @extends('administrare.dashboard_body')
 
 @section('facturi')
-
+<div class="container">
     <h1>Facturis <a href="{{ url('/facturi/create') }}" class="btn btn-primary pull-right btn-sm">Add New Facturi</a></h1>
     <div class="table">
         <table class="table table-bordered table-striped table-hover">
@@ -24,5 +24,5 @@
             @endforeach
         </table>
     </div>
-
+</div>
 @endsection

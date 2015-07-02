@@ -24,3 +24,17 @@ function selectareloc() {
         }
     }); 
 }
+
+function selectareclient(){
+    
+    $.ajax({
+        type: 'POST',
+        url: "create/client",
+        data: {'selectareclienti': $('select[name=tipclient]').val(), '_token': $('input[name=_token]').val()},
+        success: function (result) {
+           $('#formular').html(result);
+           $('#buton').removeAttr('disabled');
+           $('#buton').val('Adauga client');
+        }
+    }); 
+}
