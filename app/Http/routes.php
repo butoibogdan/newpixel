@@ -205,7 +205,7 @@ Route::group(array('middleware' => 'auth'), function() {
 //--------------------Sectiune Logout--------------------//
 Route::get('logout', 'AdminController\HomeAdmin@logout');
 
-Route::get('invoice', function() {
+Route::get('admin/invoice', function() {
     return view('administrare.invoicetpl');
 });
 

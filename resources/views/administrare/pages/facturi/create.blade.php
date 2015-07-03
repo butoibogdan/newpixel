@@ -8,36 +8,56 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
                 <div class="panel-body">
-                    <h1>Adaugare -  Facturi</h1>
+                    <h1>Facturi</h1>
                     <hr/>
                     {!! Form::open(['url' => 'facturi']) !!}
-                    <div class="form-group">
-                        {!! Form::label('idclient', 'Idclient: ', ['class' => 'col-md-12 control-label']) !!}
-                        {!! Form::text('idclient', null, ['class' => 'form-control']) !!}
-                    </div><div class="form-group">
-                        {!! Form::label('tipfactura', 'Tipfactura: ', ['class' => 'col-md-12 control-label']) !!}
-                        {!! Form::text('tipfactura', null, ['class' => 'form-control']) !!}
-                    </div><div class="form-group">
-                        {!! Form::label('seriefactura', 'Seriefactura: ', ['class' => 'col-md-12 control-label']) !!}
-                        {!! Form::text('seriefactura', null, ['class' => 'form-control']) !!}
-                    </div><div class="form-group">
-                        {!! Form::label('numarfactura', 'Numarfactura: ', ['class' => 'col-md-12 control-label']) !!}
-                        {!! Form::text('numarfactura', null, ['class' => 'form-control']) !!}
-                    </div><div class="form-group">
-                        {!! Form::label('datafactura', 'Datafactura: ', ['class' => 'col-md-12 control-label']) !!}
-                        {!! Form::text('datafactura', null, ['class' => 'form-control']) !!}
-                    </div><div class="form-group">
-                        {!! Form::label('valoarefactura_ftva', 'Valoarefactura Ftva: ', ['class' => 'col-md-12 control-label']) !!}
-                        {!! Form::text('valoarefactura_ftva', null, ['class' => 'form-control']) !!}
-                    </div><div class="form-group">
-                        {!! Form::label('valoare_tva', 'Valoare Tva: ', ['class' => 'col-md-12 control-label']) !!}
-                        {!! Form::text('valoare_tva', null, ['class' => 'form-control']) !!}
-                    </div><div class="form-group">
-                        {!! Form::label('incasare', 'Incasare: ', ['class' => 'col-md-12 control-label']) !!}
-                        {!! Form::text('incasare', null, ['class' => 'form-control']) !!}
+
+                    <div class="col-md-6">
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Date client</h3>
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        {!! Form::text('idclient', null, ['placeholder'=>'Client','class' => 'form-control']) !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="col-md-6">
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Date Factura</h3>
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        {!! Form::text('tipfactura', null, ['placeholder'=>'Tip Factura','class' => 'form-control']) !!}
+                                    </div>
+                                    <div class="form-group">
+                                        {!! Form::text('seriefactura', null, ['placeholder'=>'Serie Factura','class' => 'form-control']) !!}
+                                    </div>
+                                    <div class="form-group">
+                                        {!! Form::text('numarfactura', null, ['placeholder'=>'Numar Factura','class' => 'form-control']) !!}
+                                    </div>
+                                    <div class="form-group">
+                                        {!! Form::text('datafactura', null, ['placeholder'=>'Data Factura','class' => 'form-control']) !!}
+                                    </div>
+                                    <div class="form-group">
+                                        {!! Form::text('valoarefactura_ftva', null, ['placeholder'=>'Valoare Factura','class' => 'form-control']) !!}
+                                    </div>
+                                    <div class="form-group">
+                                        {!! Form::text('valoare_tva', null, ['placeholder'=>'Valoare TVA','class' => 'form-control']) !!}
+                                    </div>
+                                    <div class="form-group">
+                                        {!! Form::text('incasare', null, ['placeholder'=>'Incasare','class' => 'form-control']) !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @include('administrare.invoicetpl')
                     <div class="form-group">
-                    {!! Form::submit('Adauga', ['class' => 'btn btn-primary form-control']) !!}
+                        {!! Form::submit('Adauga', ['class' => 'btn btn-primary form-control']) !!}
                     </div>
                     {!! Form::close() !!}
                     @if ($errors->any())

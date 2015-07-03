@@ -258,6 +258,8 @@
             @yield('clienti')
             @elseif (Request::path()=='admin/facturi' || Request::is('admin/facturi/*'))
             @yield('facturi')
+            @elseif (Request::path()=='admin/invoice' || Request::is('admin/invoice/*'))
+            @yield('invoice')
 
             @endif
 
