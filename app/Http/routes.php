@@ -181,23 +181,12 @@ Route::group(array('middleware' => 'auth'), function() {
 
         Route::get('destroy/{id}', 'AdminController\Pages\FacturiController@destroy');
         Route::get('/{id}', ['as' => 'showfacturi', 'uses' => 'AdminController\Pages\FacturiController@show']);
+        
+        Route::post('create/date_client','AdminController\Pages\FacturiController@dateclient');
+        
+        Route::get('pdf/{id}','AdminController\Pages\FacturiController@generarepdf');
     });
 
-    //--------------------Sectiune Pagini Facturi--------------------//
-
-    Route::group(['prefix' => 'admin/facturiproduse'], function() {
-
-        Route::get('/', 'AdminController\Pages\FacturiController@index');
-
-        Route::get('create', 'AdminController\Pages\FacturiController@create');
-        Route::post('/', 'AdminController\Pages\FacturiController@store');
-
-        Route::get('edit/{id}', ['as' => 'editfacturi', 'uses' => 'AdminController\Pages\FacturiController@edit']);
-        Route::PATCH('edit/{id}', 'AdminController\Pages\FacturiController@update');
-
-        Route::get('destroy/{id}', 'AdminController\Pages\FacturiController@destroy');
-        Route::get('/{id}', ['as' => 'showfacturi', 'uses' => 'AdminController\Pages\FacturiController@show']);
-    });
 });
 
 
@@ -205,9 +194,6 @@ Route::group(array('middleware' => 'auth'), function() {
 //--------------------Sectiune Logout--------------------//
 Route::get('logout', 'AdminController\HomeAdmin@logout');
 
-Route::get('admin/invoice', function() {
-    return view('administrare.invoicetpl');
-});
 
 
 

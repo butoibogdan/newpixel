@@ -1,6 +1,4 @@
 
-
-
 <h2>Produse Factura</h2>
 
 <div class="col-md-12">
@@ -24,10 +22,11 @@
                     <div class="col-md-1"></div>
                 </div>
             </div>
+            <button class="add_field_button btn btn-info btn-sm"><i class="fa fa-plus"></i></button>
         </div>
     </div>
 </div>
-<button class="add_field_button btn btn-info btn-sm"><i class="fa fa-plus"></i></button>
+
 
 
 

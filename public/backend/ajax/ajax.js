@@ -37,4 +37,18 @@ function selectareclient(){
            $('#buton').val('Adauga client');
         }
     }); 
+      
+}
+
+function dateclient(){
+    
+    $.ajax({
+        type: 'POST',
+        url: "create/date_client",
+        data: {'infoclienti': $('select[name=idclient]').val(), '_token': $('input[name=_token]').val()},
+        success: function (r) { 
+           $('#result').html(r);
+        }
+    }); 
+      
 }

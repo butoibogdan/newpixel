@@ -8,9 +8,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
                 <div class="panel-body">
-                    <h1>Facturi</h1>
-                    <hr/>
-                    {!! Form::open(['url' => 'facturi']) !!}
+                    <h2>Date Factura</h2>
+                    {!! Form::open(['url' => 'admin/facturi']) !!}
 
                     <div class="col-md-6">
                         <div class="box box-primary">
@@ -18,8 +17,15 @@
                                 <h3 class="box-title">Date client</h3>
                                 <div class="box-body">
                                     <div class="form-group">
-                                        {!! Form::text('idclient', null, ['placeholder'=>'Client','class' => 'form-control']) !!}
+                                        {!! Form::select('idclient',[''=>'']+$lista, null, ['onchange'=>'dateclient()','id'=>'select_client','class' => 'form-control']) !!}
+                                        <script>
+                                            $("#select_client").select2({
+                                                placeholder: "Selectati Clientul",
+                                                width: "100%"
+                                            });
+                                        </script>
                                     </div>
+                                    <div id="result"></div>
                                 </div>
                             </div>
                         </div>
@@ -31,7 +37,14 @@
                                 <h3 class="box-title">Date Factura</h3>
                                 <div class="box-body">
                                     <div class="form-group">
-                                        {!! Form::text('tipfactura', null, ['placeholder'=>'Tip Factura','class' => 'form-control']) !!}
+                                        {!! Form::select('tipfactura',[''=>'','0'=>'Factura Proforma','1'=>'Factura Fiscala'], null, ['id'=>'select_tipfactura','class' => 'form-control']) !!}
+                                        <script>
+                                            $("#select_tipfactura").select2({
+                                                placeholder: "Selectati tipul facturii",
+                                                width: "100%",
+                                                minimumResultsForSearch: Infinity
+                                            });
+                                        </script>
                                     </div>
                                     <div class="form-group">
                                         {!! Form::text('seriefactura', null, ['placeholder'=>'Serie Factura','class' => 'form-control']) !!}
@@ -40,7 +53,17 @@
                                         {!! Form::text('numarfactura', null, ['placeholder'=>'Numar Factura','class' => 'form-control']) !!}
                                     </div>
                                     <div class="form-group">
-                                        {!! Form::text('datafactura', null, ['placeholder'=>'Data Factura','class' => 'form-control']) !!}
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            {!! Form::text('datafactura', null, ['id'=>'datafactura','placeholder'=>'Data Factura','class' => 'form-control']) !!}
+                                            <script>$('#datafactura').datepicker({
+                                                    format: 'yyyy/mm/dd',
+                                                    startDate: '-3d'
+                                                });
+                                            </script>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         {!! Form::text('valoarefactura_ftva', null, ['placeholder'=>'Valoare Factura','class' => 'form-control']) !!}
@@ -55,7 +78,7 @@
                             </div>
                         </div>
                     </div>
-                    @include('administrare.invoicetpl')
+                    @include('administrare.pages.facturi.invoicetpl')
                     <br/><br/>
                     <div class="form-group">
                         {!! Form::submit('Adauga', ['class' => 'btn btn-primary form-control']) !!}
