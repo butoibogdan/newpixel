@@ -14,7 +14,7 @@
         <div class="box-body">
             <div class="input_fields_wrap">
                 <div style="padding-bottom: 5px;" class="row">
-                    <div class="col-md-1 "><div class="form-control">1</div></div>
+                    <div class="col-md-1" id="nrcrt"><div class="form-control">1</div></div>
                     <div class="col-md-7"><input class="form-control" type="text" name="denprodus[]"></div>
                     <div class="col-md-1"><input class="form-control" type="text" name="cantitate[]"></div>
                     <div class="col-md-1"><input class="form-control" type="text" name="pret[]"></div>

@@ -26,6 +26,11 @@ body {
     z-index:0;
 }
 
+.main {
+   
+    
+}
+
 header {
     padding: 10px 0;
     margin-bottom: 30px;
@@ -154,7 +159,7 @@ footer {
 
 #wattermark {
     position:absolute;
-    z-index:9999;
+    z-index:1;
     //background:white;
     display:block;
     min-height:50%; 
@@ -174,5 +179,5 @@ footer {
     margin-left:20%;
     opacity: 0.6;
     filter: alpha(opacity=60);
-    
+
 }

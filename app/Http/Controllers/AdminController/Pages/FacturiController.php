@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\Clientis;
 use App\Facturiproduses;
 use Barryvdh\DomPDF\PDF;
+use Illuminate\Support\Facades\Input;
 
 class FacturiController extends Controller {
 
@@ -78,9 +79,6 @@ class FacturiController extends Controller {
 
         $contor = count($denumireprodus);
 
-        if ($contor <= 0)
-            return false;
-
         for ($i = 0; $i < $contor; $i++) {
 
             $produsefactura = [
@@ -112,7 +110,6 @@ class FacturiController extends Controller {
         $valoare = Facturiproduses::where('idfactura', $id)->lists('valoareprodus');
         $tva = Facturiproduses::where('idfactura', $id)->lists('cotatva');
 
-
         $data = [
             'tipfactura' => $fact[0]->tipfactura,
             'seriefactura' => $fact[0]->seriefactura,
@@ -132,14 +129,13 @@ class FacturiController extends Controller {
             'oras' => $client[0]->oras,
             'serieci' => $client[0]->serieci,
             'numarci' => $client[0]->numarci,
-            'cnp'=> $client[0]->cnp,
-            'contor'=>count($produse),
+            'cnp' => $client[0]->cnp,
+            'contor' => count($produse),
             'produse' => $produse,
-            'cantitate'=>$cantitate,
-            'valoare'=>$valoare,
-            'tva'=>$tva
+            'cantitate' => $cantitate,
+            'valoare' => $valoare,
+            'tva' => $tva
         ];
-
         return \PDF::loadView('administrare.pages.facturi.invoicepdf', $data)
                         ->stream();
     }
@@ -156,8 +152,17 @@ class FacturiController extends Controller {
      * @return Response
      */
     public function edit($id) {
+
         $facturi = Facturis::findOrFail($id);
-        return view('administrare.pages.facturi.edit', compact('facturi'));
+        $cl = explode(',', $facturi->idclient);
+        $client = Clientis::where('id', $facturi->idclient)->lists('nume', 'id');
+        $clienti = Clientis::whereNotIn('id', $cl)->lists('nume', 'id');
+        $datefactura = Facturiproduses::where('idfactura', $id)->get();
+        return view('administrare.pages.facturi.edit', compact('facturi'))
+                        ->with('client', $client)
+                        ->with('clienti', $clienti)
+                        ->with('datefactura', $datefactura)
+                        ->with('count', count($datefactura));
     }
 
     /**
@@ -169,8 +174,43 @@ class FacturiController extends Controller {
     public function update($id, Request $request) {
         //$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
         $facturi = Facturis::findOrFail($id);
-        $facturi->update($request->all());
-        return redirect('admin/facturi');
+        $produse = Facturiproduses::where('idfactura', $id)->lists('id');
+
+        $den = $request->denprodus;
+        $cantitateprodus = $request->cantitate;
+        $valoareprodus = $request->pret;
+        $cotatva = $request->tva;
+
+        $countprod = count($produse);
+
+        $nrproduseform = count($den);
+
+        for ($i = 0; $i < $nrproduseform; $i++) {
+            $produsefactura = [
+                'idfactura' => $id,
+                'denumireprodus' => $den[$i],
+                'cantitateprodus' => $cantitateprodus[$i],
+                'valoareprodus' => $valoareprodus[$i],
+                'cotatva' => $cotatva[$i]
+            ];
+            if ($i < $countprod) {
+                Facturiproduses::updateOrCreate(['id' => $produse[$i]], $produsefactura);
+            } else {
+                Facturiproduses::create($produsefactura);
+            }
+        }
+        $datefact = [
+            'idclient' => $request->idclient,
+            'tipfactura' => $request->tipfactura,
+            'seriefactura' => $request->seriefactura,
+            'numarfactura' => $request->numarfactura,
+            'datafactura' => $request->datafactura,
+            'valoarefacturaf_tva' => $request->valoarefacturaf_tva,
+            'valoare_tva' => $request->valoare_tva,
+            'incasare' => $request->incasare
+        ];
+        $facturi->update($datefact);
+        Return \Redirect::back();
     }
 
     /**
@@ -182,6 +222,12 @@ class FacturiController extends Controller {
     public function destroy($id) {
         Facturis::destroy($id);
         return redirect('admin/facturi');
+    }
+
+    public function deleteprodus($id, $idp) {
+        $idprodus = \Crypt::decrypt($idp);
+        Facturiproduses::destroy($idprodus);
+        Return \Redirect::back();
     }
 
 }

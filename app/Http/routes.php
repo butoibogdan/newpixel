@@ -178,6 +178,7 @@ Route::group(array('middleware' => 'auth'), function() {
 
         Route::get('edit/{id}', ['as' => 'editfacturi', 'uses' => 'AdminController\Pages\FacturiController@edit']);
         Route::PATCH('edit/{id}', 'AdminController\Pages\FacturiController@update');
+        Route::get('edit/{id}/{idp}','AdminController\Pages\FacturiController@deleteprodus');;
 
         Route::get('destroy/{id}', 'AdminController\Pages\FacturiController@destroy');
         Route::get('/{id}', ['as' => 'showfacturi', 'uses' => 'AdminController\Pages\FacturiController@show']);
