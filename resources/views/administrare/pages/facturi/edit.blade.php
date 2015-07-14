@@ -1,4 +1,4 @@
-@extends('administrare.dashboard_body')
+@extends('administrare.dashboard')
 
 @section('facturi')
 <div class="container">
@@ -82,7 +82,7 @@
 
                     <div class="col-md-12">
                         <div class="box box-primary">
-                            <div class="box-header with-border">  
+                            <div class="box-header with-border">
                                 <div class="col-md-1"><h3 class="box-title">Nr.Crt.</h3></div>
                                 <div class="col-md-7"><h3 class="box-title">Denumire Produs</h4></div>
                                 <div class="col-md-1"><h3 class="box-title">Cant.</h3></div>
@@ -104,7 +104,7 @@
                                     </div>
                                     @endforeach
                                 </div>
-                                
+
                                 <button class="add_field_button btn btn-info btn-sm"><i class="fa fa-plus"></i></button>
                             </div>
                         </div>

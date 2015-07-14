@@ -1,4 +1,4 @@
-@extends('administrare.dashboard_body')
+@extends('administrare.dashboard')
 
 @section('hoteluri')
 <div class="content">
@@ -43,7 +43,7 @@
                         </script>
                     </div><div class="form-group">
                         {!! Form::label('facilitati', 'Facilitati: ') !!}
-                        
+
                         <select name="facilitati[]" multiple="multiple" class="form-control" id="selectare">
                             <?php foreach ($fac as $fach) { ?>
                                 <option selected="selected" value="<?php echo($fach->id); ?>">

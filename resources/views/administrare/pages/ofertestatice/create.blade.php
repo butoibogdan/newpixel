@@ -1,4 +1,4 @@
-@extends('administrare.dashboard_body')
+@extends('administrare.dashboard')
 
 @section('oferte')
 
@@ -15,7 +15,7 @@
 
                     <div class="form-group">
                         {!! Form::label('HotelID', 'Hotelid: ', ['class' => 'col-md-12 control-label']) !!}
-                        {!! Form::select('HotelID',[''=>'']+$hoteluri,null, ['id'=>'select_hotel','class' => 'form-control']) !!}   
+                        {!! Form::select('HotelID',[''=>'']+$hoteluri,null, ['id'=>'select_hotel','class' => 'form-control']) !!}
                         <script>
                             $("#select_hotel").select2({
                                 placeholder: "Selectati Hotelul",
@@ -30,16 +30,16 @@
                     </div>
                     <div class="form-group">
                         {!! Form::label('DetaliiComplete', 'Detaliicomplete: ', ['class' => 'col-md-12 control-label']) !!}
-                        {!! Form::textarea('DetaliiComplete', null, ['class' => 'form-control','id'=>'editorck1']) !!}   
+                        {!! Form::textarea('DetaliiComplete', null, ['class' => 'form-control','id'=>'editorck1']) !!}
                         <script>CKEDITOR.replace('editorck1');</script>
                     </div>
                     <div class="form-group">
                         {!! Form::label('ServiciiIncluse', 'Serviciiincluse: ', ['class' => 'col-md-12 control-label']) !!}
                         {!! Form::text('ServiciiIncluse', null, ['class' => 'form-control']) !!}
-                    </div>    
+                    </div>
                     <div class="form-group">
                         {!! Form::label('ExtraServicii', 'Extraservicii: ', ['class' => 'col-md-12 control-label']) !!}
-                        {!! Form::text('ExtraServicii', null, ['class' => 'form-control']) !!}  
+                        {!! Form::text('ExtraServicii', null, ['class' => 'form-control']) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('DocOferta', 'Docoferta: ', ['class' => 'col-md-12 control-label']) !!}

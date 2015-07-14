@@ -1,4 +1,4 @@
-@extends('administrare.dashboard_body')
+@extends('administrare.dashboard')
 
 @section('oferte')
 <div class="container">
@@ -17,8 +17,8 @@
                         <a href="{{ url('admin/oferte', $item->id) }}">{{ $item->name }}</a>
                     </td>
                     <td>
-                        <a href="{{ url('admin/oferte/edit/'.$item->id) }}"><button type="submit" class="btn btn-primary btn-xs">Edit</button></a>  
-                        <a href="{{ url('admin/oferte/destroy/'.$item->id) }}"><button type="submit" class="btn btn-danger btn-xs">Delete</button></a>  
+                        <a href="{{ url('admin/oferte/edit/'.$item->id) }}"><button type="submit" class="btn btn-primary btn-xs">Edit</button></a>
+                        <a href="{{ url('admin/oferte/destroy/'.$item->id) }}"><button type="submit" class="btn btn-danger btn-xs">Delete</button></a>
                     </td>
                 </tr>
             @endforeach

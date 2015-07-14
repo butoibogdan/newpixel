@@ -1,4 +1,4 @@
-@extends('administrare.dashboard_body')
+@extends('administrare.dashboard')
 
 @section('clienti')
 <div class="container">
@@ -63,7 +63,7 @@
                         {!! Form::textarea('observatii', null, ['class' => 'form-control','id'=>'editorck_observatii']) !!}
                         <script>CKEDITOR.replace('editorck_observatii');</script>
                     </div>
-    
+
                         <div class="form-group">
                         {!! Form::submit('Update', ['class' => 'btn btn-primary form-control']) !!}
                         </div>
