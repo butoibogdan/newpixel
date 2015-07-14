@@ -4,22 +4,27 @@
         <meta charset="UTF-8">
         <title>{{config('newpixel.numeProiect')}}</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-        <!-- Bootstrap 3.3.4 -->
+
         <link href="{{URL::asset('backend/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-        <!-- Font Awesome Icons -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <!-- Ionicons -->
         <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-        <!-- Theme style -->
         <link href="{{URL::asset('backend/dist/css/AdminLTE.min.css')}}" rel="stylesheet" type="text/css" />
-        <!-- AdminLTE Skins. Choose a skin from the css/skins
-             folder instead of downloading all of them to reduce the load. -->
         <link href="{{URL::asset('backend/css/global.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{URL::asset('backend/dist/css/skins/_all-skins.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{URL::asset('backend/dist/css/skins/skin-blue.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{URL::asset('backend/css/fileinput.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{URL::asset('backend/select2/dist/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{URL::asset('backend/star_rating/jquery.raty.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{URL::asset('backend/plugins/datepicker/datepicker3.css')}}" rel="stylesheet" type="text/css" />
+
+        <script src='{{URL::asset("backend/plugins/jQuery/jQuery-2.1.4.min.js")}}'></script>
+        <script src='{{URL::asset("backend/bootstrap/js/bootstrap.min.js")}}' type="text/javascript"></script>
+        <script src='{{URL::asset("backend/star_rating/jquery.raty.js")}}' type="text/javascript"></script>
+        <script src="{{URL::asset('backend/js/fileinput.js')}}"></script>
+        <script src='{{URL::asset("backend/js/ckeditor/ckeditor.js")}}'></script>
+        <script src='{{URL::asset("backend/select2/dist/js/select2.full.min.js")}}' type="text/javascript"></script>
+        <script src='{{URL::asset("backend/ajax/ajax.js")}}'></script>
+        <script src='{{URL::asset("backend/plugins/datepicker/bootstrap-datepicker.js")}}'></script>
+        <script src='{{URL::asset("backend/invoice/script.js")}}'></script>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -68,20 +73,11 @@
             @include('administrare/dashboard_footer')
         </div>
 
-        <script src='{{URL::asset("backend/plugins/jQuery/jQuery-2.1.4.min.js")}}'></script>
-        <!-- Bootstrap 3.3.2 JS -->
-        <script src='{{URL::asset("backend/bootstrap/js/bootstrap.min.js")}}' type="text/javascript"></script>
-        <script src='{{URL::asset("backend/star_rating/jquery.raty.js")}}' type="text/javascript"></script>
-        <script src="{{URL::asset('backend/js/fileinput.js')}}"></script>
-        <script src='{{URL::asset("backend/js/ckeditor/ckeditor.js")}}'></script>
-        <script src='{{URL::asset("backend/select2/dist/js/select2.full.min.js")}}' type="text/javascript"></script>
-        <script src='{{URL::asset("backend/ajax/ajax.js")}}'></script>
-        <script src='{{URL::asset("backend/plugins/datepicker/bootstrap-datepicker.js")}}'></script>
-        <script src='{{URL::asset("backend/invoice/script.js")}}'></script>
 
         <script src='{{URL::asset("backend/bootstrap/js/bootstrap.min.js")}}' type="text/javascript"></script>
+        <script src='{{URL::asset("backend/js/jquery.cookie.js")}}' type="text/javascript"></script>
         <script src='{{URL::asset("backend/plugins/slimScroll/jquery.slimscroll.min.js")}}' type="text/javascript"></script>
         <script src='{{URL::asset("backend/plugins/fastclick/fastclick.min.js")}}'></script>
-        <script src='{{URL::asset("backend/dist/js/app.min.js")}}' type="text/javascript"></script>
+        <script src='{{URL::asset("backend/dist/js/app.js")}}' type="text/javascript"></script>
     </body>
 </html>

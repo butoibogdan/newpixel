@@ -379,10 +379,17 @@ function _init() {
   $.AdminLTE.tree = function (menu) {
     var _this = this;
 
+    var checkCookie = $.cookie("nav-item");
+    if (checkCookie != "") {
+    $('.sidebar-menu > li:eq('+checkCookie+')').addClass('active').next().show();
+    }
+
     $("li a", $(menu)).on('click', function (e) {
       //Get the clicked link and the next element
       var $this = $(this);
       var checkElement = $this.next();
+      var navIndex = $('.sidebar-menu > li > a').index(this);
+      $.cookie("nav-item", navIndex);
 
       //Check if the next element is a menu and is visible
       if ((checkElement.is('.treeview-menu')) && (checkElement.is(':visible'))) {
@@ -458,7 +465,7 @@ function _init() {
       var bg = $(".control-sidebar-bg");
       _this._fix(bg);
 
-      //If the body has a fixed layout, make the control sidebar fixed      
+      //If the body has a fixed layout, make the control sidebar fixed
       if ($('body').hasClass('fixed')) {
         _this._fixForFixed(sidebar);
       } else {
@@ -475,7 +482,7 @@ function _init() {
       if (slide) {
         sidebar.addClass('control-sidebar-open');
       } else {
-        //Push the content by adding the open class to the body instead 
+        //Push the content by adding the open class to the body instead
         //of the sidebar itself
         $('body').addClass('control-sidebar-open');
       }
