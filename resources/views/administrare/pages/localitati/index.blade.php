@@ -1,4 +1,4 @@
-@extends('administrare.dashboard_body')
+@extends('administrare.dashboard')
 
 @section('localitati')
     <div class="content">
@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">Dashboard</div>
-                    
+
                     <div class="panel-body">
                         <h1>localitatis</h1>
                         <h2><a href="{{ url('admin/localitati/create') }}">Adauga</a></h2>

@@ -1,4 +1,4 @@
-@extends('administrare.dashboard_body')
+@extends('administrare.dashboard')
 
 @section('hoteluri')
 <div class="content">
@@ -38,7 +38,7 @@
                     <div class="form-group">
 
                         {!! Form::label('stele', 'Stele: ') !!}
-                        {!! Form::hidden('stele', null, ['class' => 'form-control','id'=>'star_rate']) !!} 
+                        {!! Form::hidden('stele', null, ['class' => 'form-control','id'=>'star_rate']) !!}
                         <br/>
                         <rate></rate>
                         <script>
@@ -56,7 +56,7 @@
                         {!! Form::label('tip', 'Tip: ') !!}
                         {!! Form::text('tip', null, ['class' => 'form-control']) !!}
                     </div>
-                    <div class="form-group"> 
+                    <div class="form-group">
                         {!! Form::label('facilitati','Facilitati: ') !!}
                         {!! Form::select('facilitati[]', $facilitati, null, ['multiple'=>'multiple','class' => 'form-control','id'=>'selectare']) !!}
                         <script>
@@ -66,7 +66,7 @@
                             });
                         </script>
                     </div>
-                   
+
                     <div class="form-group">
                         {!! Form::label('detalii_complete', 'Detalii Complete:') !!}
                         {!! Form::textarea('detalii_complete', null, ['class' => 'form-control','id'=>'editorck']) !!}

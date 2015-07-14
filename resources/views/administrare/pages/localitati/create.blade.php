@@ -1,4 +1,4 @@
-@extends('administrare.dashboard_body')
+@extends('administrare.dashboard')
 
 @section('localitati')
 

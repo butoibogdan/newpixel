@@ -1,4 +1,4 @@
-@extends('administrare.dashboard_body')
+@extends('administrare.dashboard')
 
 @section('facilitati')
 
@@ -9,11 +9,11 @@
 
     <div class="form-group">
                         {!! Form::label('facilitati', 'Facilitati: ', ['class' => 'col-sm-3 control-label']) !!}
-                        <div class="col-sm-6"> 
+                        <div class="col-sm-6">
                             {!! Form::text('facilitati', null, ['class' => 'form-control']) !!}
-                        </div>    
+                        </div>
                     </div>
-    
+
     <div class="form-group">
         <div class="col-sm-offset-3 col-sm-3">
             {!! Form::submit('Update', ['class' => 'btn btn-primary form-control']) !!}

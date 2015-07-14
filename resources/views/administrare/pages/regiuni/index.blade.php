@@ -1,4 +1,4 @@
-@extends('administrare.dashboard_body')
+@extends('administrare.dashboard')
 
 @section('regiuni')
 {!! Breadcrumbs::render('regiuni') !!}
@@ -7,7 +7,7 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">Dashboard</div>
-                    
+
                     <div class="panel-body">
                         <h1>regiunis</h1>
                         <h2><a href="{{ url('admin/regiuni/create') }}">Adauga</a></h2>

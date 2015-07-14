@@ -1,4 +1,4 @@
-@extends('administrare.dashboard_body')
+@extends('administrare.dashboard')
 
 @section('hoteluri')
     <div class="content">
@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">Dashboard</div>
-                    
+
                     <div class="panel-body">
                         <h1>hoteluris</h1>
                         <h2><a href="{{ url('admin/hoteluri/create') }}">Adauga</a></h2>
@@ -24,7 +24,7 @@
                                         <td><a href="{{ url('admin/hoteluri/edit/'.$item->id) }}">Edit</a> / <a href="{{ url('admin/hoteluri/destroy/'.$item->id) }}">Delete</a></td>
                                     </tr>
                                 @endforeach
-                                
+
                             </table>
                         </div>
                     </div>

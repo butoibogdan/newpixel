@@ -1,4 +1,4 @@
-@extends('administrare.dashboard_body')
+@extends('administrare.dashboard')
 
 @section('clienti')
 
@@ -23,7 +23,7 @@
                             });
                         </script>
                     <div id="formular"></div>
-                    
+
                     <div class="form-group">
                     {!! Form::submit('Selectati tipul clientului', ['disabled'=>'disabled','class' => 'btn btn-primary form-control','id'=>'buton']) !!}
                     </div>

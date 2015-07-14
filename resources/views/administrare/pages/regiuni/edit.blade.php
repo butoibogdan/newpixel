@@ -1,4 +1,4 @@
-@extends('administrare.dashboard_body')
+@extends('administrare.dashboard')
 
 @section('regiuni')
 {!! Breadcrumbs::render('editreg',$regiuni) !!}
@@ -33,7 +33,7 @@
                         {!! Form::label('Longitudine', 'Longitudine: ') !!}
                         {!! Form::text('Longitudine', null, ['class' => 'form-control']) !!}
                     </div>
-                        
+
                         <div class="form-group">
                             {!! Form::submit('Update', ['class' => 'btn btn-primary form-control']) !!}
                         </div>

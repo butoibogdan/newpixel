@@ -1,4 +1,4 @@
-@extends('administrare.dashboard_body')
+@extends('administrare.dashboard')
 
 @section('regiuni')
 {!! Breadcrumbs::render('createregiuni') !!}
@@ -13,7 +13,7 @@
                         <hr/>
 
                         {!! Form::open(['url' => 'admin/regiuni']) !!}
-                        
+
                         <div class="form-group">
                         {!! Form::label('TaraID', 'Taraid: ') !!}
                         {!! Form::select('TaraID',[''=>'']+$tari, null, ['id'=>'select_regiuni','class' => 'form-control']) !!}
