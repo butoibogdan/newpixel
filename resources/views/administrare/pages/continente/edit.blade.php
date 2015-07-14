@@ -4,7 +4,7 @@
     <div class="content">
 
         <div class="box box-primary">
-            <div class="box-header with-border"> <h3 class="box-title"><i class="fa fa-th"></i> Mapamond :: continente </h3> </div>
+            <div class="box-header with-border"> <h3 class="box-title"><i class="fa fa-th"></i> Mapamond :: continente :: {{$continente->Denumire}}</h3> </div>
 
             <div class="box-body">
                 <div class="row">
@@ -12,11 +12,11 @@
                         <h4>Modifica continent</h4>
                         <hr/>
 
-                        {!! Form::model($continente, array('method' => 'PATCH', 'action' => array('AdminController\Pages\ContinenteController@update', $continente->id))) !!}
+                        {!! Form::model($continente, array('method' => 'PATCH', 'action' => array('AdminController\Pages\ContinenteController@update', $continente->id), 'class' => 'form-horizontal')) !!}
 
                         <div class="form-group">
-                            {!! Form::label('Denumire', 'Denumire', ['class' => 'col-md-2 control-label']) !!}
-                            <div class="col-md-10">{!! Form::text('Denumire', null, ['class' => 'form-control']) !!}</div>
+                            {!! Form::label('Denumire', 'Denumire', ['class' => 'col-md-1 control-label']) !!}
+                            <div class="col-md-11">{!! Form::text('Denumire', null, ['class' => 'form-control']) !!}</div>
                         </div>
 
                         @if ($errors->any())

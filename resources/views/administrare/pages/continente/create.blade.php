@@ -12,11 +12,11 @@
                         <h4>Adauga continent</h4>
                         <hr/>
 
-                        {!! Form::open(['url' => 'admin/continente']) !!}
+                        {!! Form::open(['url' => 'admin/continente', 'class' => 'form-horizontal']) !!}
 
                         <div class="form-group">
-                            {!! Form::label('Denumire', 'Denumire', ['class' => 'col-md-2 control-label']) !!}
-                            <div class="col-md-10">{!! Form::text('Denumire', null, ['class' => 'form-control']) !!}</div>
+                            {!! Form::label('Denumire', 'Denumire', ['class' => 'col-md-1 control-label']) !!}
+                            <div class="col-md-11">{!! Form::text('Denumire', null, ['class' => 'form-control']) !!}</div>
                         </div>
 
                         @if ($errors->any())
