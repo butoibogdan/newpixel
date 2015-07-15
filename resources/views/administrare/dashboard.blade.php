@@ -21,11 +21,14 @@
         <script src='{{URL::asset("backend/star_rating/jquery.raty.js")}}' type="text/javascript"></script>
         <script src="{{URL::asset('backend/js/fileinput.js')}}"></script>
         <script src='{{URL::asset("backend/js/ckeditor/ckeditor.js")}}'></script>
-        <script src='{{URL::asset("backend/select2/dist/js/select2.full.min.js")}}' type="text/javascript"></script>
-        <script src='{{URL::asset("backend/ajax/ajax.js")}}'></script>
+        <script src='{{URL::asset("backend/select2/dist/js/select2.full.min.js")}}' type="text/javascript"></script>    
         <script src='{{URL::asset("backend/plugins/datepicker/bootstrap-datepicker.js")}}'></script>
-        <script src='{{URL::asset("backend/invoice/script.js")}}'></script>
+        <script src='{{URL::asset("backend/plugins/input-mask/jquery.inputmask.js")}}'></script>
+        <script src='{{URL::asset("backend/plugins/input-mask/jquery.inputmask.date.extensions.js")}}'></script>
         <script src='{{URL::asset("backend/js/moment.js")}}'></script>
+        
+        <script src='{{URL::asset("backend/invoice/script.js")}}'></script>
+        <script src='{{URL::asset("backend/ajax/ajax.js")}}'></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -81,5 +84,6 @@
         <script src='{{URL::asset("backend/plugins/slimScroll/jquery.slimscroll.min.js")}}' type="text/javascript"></script>
         <script src='{{URL::asset("backend/plugins/fastclick/fastclick.min.js")}}'></script>
         <script src='{{URL::asset("backend/dist/js/app.js")}}' type="text/javascript"></script>
+        
     </body>
 </html>

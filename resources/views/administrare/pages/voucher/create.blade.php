@@ -54,21 +54,16 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            <input onchange="schimba()"  id="datanasterii" placeholder="Data nasterii copil" type="text" name="datanasteriicopii[]" class="form-control">
+                                            <input onchange="schimba()"  id="datanasterii0" placeholder="Data nasterii" type="text" name="datanasteriicopii[]" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-2 "><input placeholder="Varsta" type="text" class="form-control" id="varsta"></div>
+                                    <div class="col-md-2 "><input placeholder="Varsta" type="text" class="form-control" id="varsta0"></div>
                                 </div>
                             </div>
                         </div>
                         <script>
 
-                            var nr = $(".input_fields_wrap_copii #copii").length;
-                            $("#datanasterii").datepicker({
-                                format: 'yyyy-mm-dd',
-                                autoclose: true
-                            });
-
+                            $("#datanasterii0").inputmask("yyyy/mm/dd", {"placeholder": "yyyy/mm/dd"});
 
                             moment.locale('en', {
                                 relativeTime: {
@@ -90,12 +85,15 @@
                             });
 
                             function schimba() {
-                                
-                                var data2 = $('#datanasterii').val();
-                                var dsplit = data2.split("-");
-                                var data = new Date(dsplit[0], dsplit[1] - 1, dsplit[2]);
-                                var data1 = moment(data).toNow(true);
-                                $('#varsta').val(data1);
+                                for (var i = 0; i <= 9; i++) {
+                                    var data2 = $('#datanasterii' + i).val();
+                                    if ($('#datanasterii'+i).length != 0) {
+                                        var dsplit = data2.split("/");
+                                        var data = new Date(dsplit[0], dsplit[1] - 1, dsplit[2]);
+                                        var data1 = moment(data).toNow(true);
+                                        $('#varsta' + i).val(data1);
+                                    }
+                                }
                             }
 
                         </script>

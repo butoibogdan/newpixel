@@ -35,18 +35,18 @@ $(document).ready(function () {
                 $(wrapper).append(
                         '<div id="sterge_copii" style="margin-top: 5px;" class="row">\n\
                             <div class="col-md-5 ">\n\
-                                <input type="text" name="copii[]" class="form-control">\n\
+                                <input placeholder="Nume copil" type="text" name="copii[]" class="form-control">\n\
                             </div>\n\
                         <div class="col-md-4 ">\n\
                             <div class="input-group">\n\
                                 <div class="input-group-addon">\n\
                                     <i class="fa fa-calendar"></i>\n\
                                 </div>\n\
-                                <input onchange="schimba()" type="text" id="datanasterii'+count+'" name="datanasteriicopii[]" class="form-control">\n\
+                                <input placeholder="Data nasterii"  onchange="schimba()" type="text" id="datanasterii'+count+'" name="datanasteriicopii[]" class="form-control">\n\
                             </div>\n\
                         </div>\n\
                         <div class="col-md-2 ">\n\
-                                <input placeholder="Varsta" type="text" class="form-control" id="varsta">\n\
+                                <input placeholder="Varsta" type="text" class="form-control" id="varsta'+count+'">\n\
                         </div>\n\
                         <div class="col-md-1 ">\n\
                             <a href="#" class="remove_field_copii btn btn-info btn-sm">\n\
@@ -54,7 +54,7 @@ $(document).ready(function () {
                             </a>\n\
                         </div>\n\
                         </div>\n\
-                        <script>$("#datanasterii'+count+'").datepicker();</script>' 
+                        <script>$("#datanasterii'+count+'").inputmask("yyyy/mm/dd", {"placeholder": "yyyy/mm/dd"});</script>' 
                         ); //add input box     
             }
         });
