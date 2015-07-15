@@ -66,6 +66,8 @@
                 @yield('facturi')
                 @elseif (Request::path()=='admin/invoice' || Request::is('admin/invoice/*'))
                 @yield('invoice')
+                @elseif (Request::path()=='admin/voucher' || Request::is('admin/voucher/*'))
+                @yield('voucher')
 
                 @endif
                 </div>

@@ -3,11 +3,12 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Continentes;
+use App\Vouchers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Facturiproduses;
 
-class ContinenteController extends Controller {
+class VoucherController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,9 +17,8 @@ class ContinenteController extends Controller {
 	 */
 	public function index()
 	{
-		$continentes = Continentes::latest()->get();
-		return view('administrare.pages.continente.index', compact('continentes'));
-
+		$vouchers = Vouchers::latest()->get();
+		return view('administrare.pages.voucher.index', compact('vouchers'));
 	}
 
 	/**
@@ -26,9 +26,14 @@ class ContinenteController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create($id)
 	{
-		return view('administrare.pages.continente.create');
+            $datacurenta=Carbon::now()->format('Y/m/d');
+            $produse=Facturiproduses::where('idfactura',$id)->get();
+		return view('administrare.pages.voucher.create')
+                        ->with('idfactura',$id)
+                        ->with('produse',$produse)
+                        ->with('datacurenta',$datacurenta);
 	}
 
 	/**
@@ -39,8 +44,8 @@ class ContinenteController extends Controller {
 	public function store(Request $request)
 	{
 		//$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
-		Continentes::create($request->all());
-		return redirect('admin/continente');
+		Vouchers::create($request->all());
+		return redirect('voucher');
 	}
 
 	/**
@@ -51,8 +56,8 @@ class ContinenteController extends Controller {
 	 */
 	public function show($id)
 	{
-		$continente = Continentes::findOrFail($id);
-		return view('administrare.pages.continente.show', compact('continente'));
+		$voucher = Vouchers::findOrFail($id);
+		return view('administrare.pages.voucher.show', compact('voucher'));
 	}
 
 	/**
@@ -63,8 +68,8 @@ class ContinenteController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$continente = Continentes::findOrFail($id);
-		return view('administrare.pages.continente.edit', compact('continente'));
+		$voucher = Vouchers::findOrFail($id);
+		return view('administrare.pages.voucher.edit', compact('voucher'));
 	}
 
 	/**
@@ -76,9 +81,9 @@ class ContinenteController extends Controller {
 	public function update($id, Request $request)
 	{
 		//$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
-		$continente = Continentes::findOrFail($id);
-		$continente->update($request->all());
-		return redirect('admin/continente');
+		$voucher = Vouchers::findOrFail($id);
+		$voucher->update($request->all());
+		return redirect('voucher');
 	}
 
 	/**
@@ -89,8 +94,8 @@ class ContinenteController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		Continentes::destroy($id);
-		return redirect('admin/continente');
+		Vouchers::destroy($id);
+		return redirect('voucher');
 	}
 
 }

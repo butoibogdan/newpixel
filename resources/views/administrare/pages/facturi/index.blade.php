@@ -20,6 +20,7 @@
                         <a href="{{ url('admin/facturi/edit/'.$item->id) }}"><button type="submit" class="btn btn-primary btn-xs">Edit</button></a>
                         <a href="{{ url('admin/facturi/destroy/'.$item->id) }}"><button type="submit" class="btn btn-danger btn-xs">Delete</button></a>
                         <a href="{{ url('admin/facturi/pdf/'.$item->id) }}"><button type="submit" class="btn btn-info btn-xs">PDF</button></a>
+                        <a href="{{ url('admin/voucher/create/'.$item->id) }}"><button type="submit" class="btn btn-info btn-xs">Voucher</button></a>
                     </td>
                 </tr>
             @endforeach
