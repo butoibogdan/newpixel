@@ -178,7 +178,7 @@ Route::group(array('middleware' => 'auth'), function() {
 
         Route::get('edit/{id}', ['as' => 'editfacturi', 'uses' => 'AdminController\Pages\FacturiController@edit']);
         Route::PATCH('edit/{id}', 'AdminController\Pages\FacturiController@update');
-        Route::get('edit/{id}/{idp}','AdminController\Pages\FacturiController@deleteprodus');;
+        Route::get('edit/{id}/{idp}','AdminController\Pages\FacturiController@deleteprodus');
 
         Route::get('destroy/{id}', 'AdminController\Pages\FacturiController@destroy');
         Route::get('/{id}', ['as' => 'showfacturi', 'uses' => 'AdminController\Pages\FacturiController@show']);
@@ -187,6 +187,27 @@ Route::group(array('middleware' => 'auth'), function() {
         
         Route::get('pdf/{id}','AdminController\Pages\FacturiController@generarepdf');
     });
+    
+    //--------------------Sectiune Pagini Voucher--------------------//
+    
+    Route::group(['prefix' => 'admin/voucher'], function() {
+
+        Route::get('/', 'AdminController\Pages\VoucherController@index');
+
+        Route::get('create/{id}', 'AdminController\Pages\VoucherController@create');
+        Route::post('/', 'AdminController\Pages\VoucherController@store');
+
+        Route::get('edit/{id}', ['as' => 'editvoucher', 'uses' => 'AdminController\Pages\VoucherController@edit']);
+        Route::PATCH('edit/{id}', 'AdminController\Pages\VoucherController@update');
+       
+        Route::get('destroy/{id}', 'AdminController\Pages\VoucherController@destroy');
+        Route::get('/{id}', ['as' => 'showfacturi', 'uses' => 'AdminController\Pages\VoucherController@show']);
+        
+        Route::post('create/date_client','AdminController\Pages\VoucherController@dateclient');
+        
+        Route::get('pdf/{id}','AdminController\Pages\VoucherController@generarepdf');
+    });
+    
 
 });
 
