@@ -10,7 +10,7 @@
                 <div class="panel-body">
                     <h1>Adaugare -  Voucher</h1>
                     <hr/>
-                    {!! Form::open(['url' => 'admin/voucher/create/$idfactura']) !!}
+                    {!! Form::open(['url' => 'admin/voucher/create/'.$idfactura]) !!}
                     <div class="form-group">
                         {!! Form::label('idfactura', 'Idfactura: ', ['class' => 'col-md-12 control-label']) !!}
                         {!! Form::text('idfactura', null, ['class' => 'form-control']) !!}

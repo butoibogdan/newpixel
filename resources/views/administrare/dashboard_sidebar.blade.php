@@ -70,6 +70,7 @@
                         <ul class="treeview-menu">
                             <li><a href="{{URL::asset('admin/clienti')}}"><i class="fa fa-circle-o"></i>Clienti</a></li>
                             <li><a href="{{URL::asset('admin/facturi')}}"><i class="fa fa-circle-o"></i>Facturi</a></li>
+                            <li><a href="{{URL::asset('admin/voucher')}}"><i class="fa fa-circle-o"></i>Vouchers</a></li>
                         </ul>
                     </li>
                 </ul>

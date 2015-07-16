@@ -9,7 +9,7 @@ class Vouchers extends Model  {
      *
      * @var string
      */
-    protected $table = 'vouchers';
+    protected $table = 'fact__vouchers';
 
     /**
      * Attributes that should be mass-assignable.

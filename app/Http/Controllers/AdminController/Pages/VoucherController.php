@@ -41,11 +41,20 @@ class VoucherController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store($id, Request $request)
 	{
 		//$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
-		Vouchers::create($request->all());
-		return redirect('voucher');
+            $datesalvare=[
+                    'idfactura'=>$id,
+                    'numar'=>$request->numar,
+                    'data'=>$request->data,
+                    'adulti'=>implode('|',$request->adulti),
+                    'copii'=>implode('|',$request->copii),
+                    'datanasteriicopii'=>implode('|',$request->datanasteriicopii),
+                    'alteservicii'=>$request->alteservicii
+                ];
+                Vouchers::create($datesalvare);
+		return redirect('admin/voucher');
 	}
 
 	/**

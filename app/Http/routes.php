@@ -195,7 +195,7 @@ Route::group(array('middleware' => 'auth'), function() {
         Route::get('/', 'AdminController\Pages\VoucherController@index');
 
         Route::get('create/{id}', 'AdminController\Pages\VoucherController@create');
-        Route::post('/', 'AdminController\Pages\VoucherController@store');
+        Route::post('/create/{id}', 'AdminController\Pages\VoucherController@store');
 
         Route::get('edit/{id}', ['as' => 'editvoucher', 'uses' => 'AdminController\Pages\VoucherController@edit']);
         Route::PATCH('edit/{id}', 'AdminController\Pages\VoucherController@update');
