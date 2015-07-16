@@ -19,7 +19,6 @@ class CreateRegiunisTable extends Migration
             $table->integer('TaraID');
             $table->string('nume');
             $table->string('descriere');
-            $table->text('poza');
             $table->string('Latitudine')->default(0);
             $table->string('Longitudine')->default(0);
             $table->timestamps();

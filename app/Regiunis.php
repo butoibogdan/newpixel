@@ -16,6 +16,6 @@ class Regiunis extends Model  {
      *
      * @var array
      */
-    protected $fillable = ['TaraID', 'nume', 'descriere', 'poza', 'Latitudine', 'Longitudine'];
+    protected $fillable = ['TaraID', 'nume', 'descriere', 'Latitudine', 'Longitudine'];
 
 }

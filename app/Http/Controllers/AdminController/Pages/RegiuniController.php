@@ -66,7 +66,15 @@ class RegiuniController extends Controller {
 	public function edit($id)
 	{
 		$regiuni = Regiunis::findOrFail($id);
-		return view('administrare.pages.regiuni.edit', compact('regiuni'));
+                $tara_select = Taris::where('id',$regiuni->TaraID)->lists('nume','id');
+                
+                $tari=explode(',',$regiuni->TaraID);
+                $listatari=Taris::whereNotIn('id',$tari)->lists('nume','id');
+                
+                return view('administrare.pages.regiuni.edit', compact('regiuni'))
+                        ->with('tara_select',$tara_select)
+                        ->with('listatari',$listatari);
+                        
 	}
 
 	/**

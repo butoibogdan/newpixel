@@ -26,12 +26,10 @@
                     </div>
                     <div class="form-group">
                         {!! Form::label('RegiuneID', 'Regiune: ') !!}
-                        {!! Form::select('RegiuneID',['']+$regiuni, null, ['id'=>'select_regiuni','class' => 'form-control']) !!}
+                        {!! Form::select('RegiuneID',[''=>'']+$regiuni, null, ['id'=>'select_regiuni','class' => 'form-control']) !!}
                         <script>
-                            $("#select_regiuni").chosen({
-                                disable_search:false,
-                                no_results_text: "Nu s-au gasit informatii !",
-                                placeholder_text_single: "Selectati tara din lista",
+                            $("#select_regiuni").select2({
+                                placeholder: "Selectati regiunea",
                                 width: "100%"
                             });
                         </script>

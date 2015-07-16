@@ -116,9 +116,14 @@ class TariController extends Controller {
         $segment_tara = \Request::segment(4);
         $tari = Taris::findOrFail($id);
         $url = TariImg::where('TaraID', $id)->get();
+        $cont=  explode(",",$tari->ContineteID);
+        $continent_selectat=  Continentes::where('id',$tari->ContinentID)->lists('Denumire','id');
+        $continente=  Continentes::whereNotIn('id',$cont)->lists('Denumire','id');
         return view('administrare.pages.tari.edit', compact('tari'))
                         ->with('img', $url)
-                        ->with('idtara', $segment_tara);
+                        ->with('idtara', $segment_tara)
+                        ->with('continent_selectat',$continent_selectat)
+                        ->with('continente',$continente);
     }
 
     /**

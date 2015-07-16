@@ -15,11 +15,26 @@
 
                     <div class="form-group">
                         {!! Form::label('TaraID', 'Taraid: ') !!}
-                        {!! Form::text('TaraID', null, ['class' => 'form-control']) !!}
-                    </div><div class="form-group">
+                        {!! Form::select('TaraID',$tara_select+$tari ,null, ['id'=>'select_tara','class' => 'form-control']) !!}
+                    </div>
+                    <script>
+                            $("#select_tara").select2({
+                                placeholder: "Alege tara",
+                                width: "100%"
+                            });
+                    </script>
+                    <div class="form-group">
                         {!! Form::label('RegiuneID', 'Regiuneid: ') !!}
-                        {!! Form::text('RegiuneID', null, ['class' => 'form-control']) !!}
-                    </div><div class="form-group">
+                        {!! Form::select('RegiuneID',$regiune_select+$regiuni ,null, ['id'=>'select_regiune','class' => 'form-control']) !!}
+                    </div>
+                    <script>
+                            $("#select_regiune").select2({
+                                placeholder: "Alege regiunea",
+                                width: "100%"
+                            });
+                    </script>
+                    
+                    <div class="form-group">
                         {!! Form::label('nume', 'Nume: ') !!}
                         {!! Form::text('nume', null, ['class' => 'form-control']) !!}
                     </div><div class="form-group">

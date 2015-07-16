@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers\AdminController\Pages;
+<?php
+
+namespace App\Http\Controllers\AdminController\Pages;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -33,11 +35,11 @@ class LocalitatiController extends Controller {
      * @return Response
      */
     public function create() {
-        $tara=  Taris::lists('nume','id');
-        $regiune=  Regiunis::lists('nume','id');
+        $tara = Taris::lists('nume', 'id');
+        $regiune = Regiunis::lists('nume', 'id');
         return view('administrare.pages.localitati.create')
-                ->with('regiuni',$regiune)
-                ->with('tari',$tara);
+                        ->with('regiuni', $regiune)
+                        ->with('tari', $tara);
     }
 
     /**
@@ -114,10 +116,18 @@ class LocalitatiController extends Controller {
     public function edit($id) {
         $segment_tara = \Request::segment(4);
         $localitati = Localitatis::findOrFail($id);
+        $tara_select = Taris::where('id', $localitati->TaraID)->lists('nume', 'id');
+        $tari = Taris::whereNotIn('id', explode(',', $localitati->TaraID))->lists('nume', 'id');
+        $regiune_select = Regiunis::where('id', $localitati->RegiuneID)->lists('nume', 'id');
+        $regiuni = Regiunis::whereNotIn('id', explode(',', $localitati->RegiuneID))->lists('nume', 'id');
         $url = LocalitatiImg::where('LocalitateID', $id)->get();
         return view('administrare.pages.localitati.edit', compact('localitati'))
                         ->with('img', $url)
-                        ->with('idloc', $segment_tara);
+                        ->with('idloc', $segment_tara)
+                        ->with('tara_select', $tara_select)
+                        ->with('tari', $tari)
+                        ->with('regiune_select', $regiune_select)
+                        ->with('regiuni', $regiuni);
     }
 
     /**
@@ -127,7 +137,7 @@ class LocalitatiController extends Controller {
      * @return Response
      */
     public function update($id, Request $request) {
-        
+
         if (Input::file('poza')[0] != Null) {
 
             $files = Input::file('poza');
@@ -174,7 +184,7 @@ class LocalitatiController extends Controller {
      * @param  int  $id
      * @return Response
      */
-     public function destroy($id) {
+    public function destroy($id) {
 
         LocalitatiImg::DeleteImg($id);
         Localitatis::destroy($id);
