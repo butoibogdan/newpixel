@@ -11,6 +11,7 @@ use App\Clientis;
 use App\Facturiproduses;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Support\Facades\Input;
+use App\Vouchers;
 
 class FacturiController extends Controller {
 
@@ -19,9 +20,15 @@ class FacturiController extends Controller {
      *
      * @return Response
      */
+   
     public function index() {
         $facturis = Facturis::latest()->get();
         return view('administrare.pages.facturi.index', compact('facturis'));
+
+    }
+    
+    public function getvoucher($idfact){
+        return Vouchers::where('idfactura',$idfact)->lists('id');
     }
 
     /*

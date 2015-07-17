@@ -159,7 +159,8 @@ return [
                 'Liebig\Cron\Laravel5ServiceProvider',
                 'Laracasts\Flash\FlashServiceProvider',
                 'Mitul\Generator\GeneratorServiceProvider',
-                'Barryvdh\DomPDF\ServiceProvider'
+                'Barryvdh\DomPDF\ServiceProvider',
+                'Sofa\Eloquence\ServiceProvider'
             
             
 

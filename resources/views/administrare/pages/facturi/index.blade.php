@@ -20,7 +20,12 @@
                         <a href="{{ url('admin/facturi/edit/'.$item->id) }}"><button type="submit" class="btn btn-primary btn-xs">Edit</button></a>
                         <a href="{{ url('admin/facturi/destroy/'.$item->id) }}"><button type="submit" class="btn btn-danger btn-xs">Delete</button></a>
                         <a href="{{ url('admin/facturi/pdf/'.$item->id) }}"><button type="submit" class="btn btn-info btn-xs">PDF</button></a>
+                        @if(voucheremis($item->id)=="")
                         <a href="{{ url('admin/voucher/create/'.$item->id) }}"><button type="submit" class="btn btn-info btn-xs">Voucher</button></a>
+                        @elseif((voucheremis($item->id)!=""))
+                        <a href="{{ url('admin/voucher/edit/'.voucheremis($item->id)) }}"><button type="submit" class="btn btn-success btn-xs">{{numarvoucher($item->id)}}</button></a>
+                        @endif
+                        
                     </td>
                 </tr>
             @endforeach

@@ -7,6 +7,7 @@ use App\Vouchers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Facturiproduses;
+use sngrl\SphinxSearch\SphinxSearch;
 
 class VoucherController extends Controller {
 
@@ -17,6 +18,9 @@ class VoucherController extends Controller {
 	 */
 	public function index()
 	{
+
+                $results=  Vouchers::search('101')->get();
+                dd($results);
 		$vouchers = Vouchers::latest()->get();
 		return view('administrare.pages.voucher.index', compact('vouchers'));
 	}
