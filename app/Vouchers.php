@@ -25,15 +25,7 @@ class Vouchers extends Model  {
     protected $searchable = ['numar','data'];
     protected $searchableColumns = ['numar'=>10];
     
-    public function profile()
-   {
-      return $this->belongsTo(Profile::class); // also Profile belongsTo Address
-   }
-
-   public function posts()
-   {
-      return $this->hasMany(Post::class); // also Post belongsToMany Categories
-   }
+   
         
     
 }
