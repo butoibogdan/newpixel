@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Facturiproduses;
 use sngrl\SphinxSearch\SphinxSearch;
+use App\Facturis; 
+use Illuminate\Pagination\PaginationServiceProvider;
 
 class VoucherController extends Controller {
 
@@ -20,7 +22,6 @@ class VoucherController extends Controller {
 	{
 
                 $results=  Vouchers::search('101')->get();
-                dd($results);
 		$vouchers = Vouchers::latest()->get();
 		return view('administrare.pages.voucher.index', compact('vouchers'));
 	}
@@ -82,7 +83,12 @@ class VoucherController extends Controller {
 	public function edit($id)
 	{
 		$voucher = Vouchers::findOrFail($id);
-		return view('administrare.pages.voucher.edit', compact('voucher'));
+                $produse = Facturiproduses::where('idfactura',$voucher->idfactura)->get();
+                $paginare = $voucher->simplePaginate(15);
+                dd($paginare);
+		return view('administrare.pages.voucher.edit', compact('voucher'))
+                        ->with('produse',$produse)
+                        ->with('paginare',$paginare);
 	}
 
 	/**

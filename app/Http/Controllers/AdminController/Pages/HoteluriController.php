@@ -164,8 +164,8 @@ class HoteluriController extends Controller {
                 $extension = $file->getClientOriginalExtension(); // getting image extension
                 $fileName = rand(11111, 99999) . '.' . $extension; // renameing image
                 $upload = $file->move($destinationPath, $fileName);
-
-                Image::make(\URL::asset('images') . "/" . $fileName)->resize(\Config::get('newpixel.width'), \Config::get('newpixel.height'))->save('images/' . $fileName);
+                $url=\URL::asset('images') . "/" . $fileName;
+                Image::make($url)->resize(\Config::get('newpixel.width'), \Config::get('newpixel.height'))->save('images/' . $fileName);
 
                 $valoripoze = array(
                     'HotelID' => $id,
