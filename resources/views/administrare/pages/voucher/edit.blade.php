@@ -50,8 +50,6 @@
                             @endforeach
                         </div>
                        
-                            {{$paginare}}
-                       
                     </div>
     
                         <div class="form-group">
@@ -70,5 +68,7 @@
             </div>
         </div>
     </div>
+
 </div>
+
 @endsection

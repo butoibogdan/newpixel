@@ -21,9 +21,11 @@ class VoucherController extends Controller {
 	public function index()
 	{
 
-                $results=  Vouchers::search('101')->get();
-		$vouchers = Vouchers::latest()->get();
+		//$vouchers = Vouchers::latest()->get();
+                $vouchers=  Vouchers::paginate(1);
+                //dd($paginare);
 		return view('administrare.pages.voucher.index', compact('vouchers'));
+                    //    ->with(compact('paginare'));
 	}
 
 	/**
@@ -83,12 +85,10 @@ class VoucherController extends Controller {
 	public function edit($id)
 	{
 		$voucher = Vouchers::findOrFail($id);
+                
                 $produse = Facturiproduses::where('idfactura',$voucher->idfactura)->get();
-                $paginare = $voucher->simplePaginate(15);
-                dd($paginare);
 		return view('administrare.pages.voucher.edit', compact('voucher'))
-                        ->with('produse',$produse)
-                        ->with('paginare',$paginare);
+                        ->with('produse',$produse);
 	}
 
 	/**
