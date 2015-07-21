@@ -71,6 +71,8 @@
                 @yield('invoice')
                 @elseif (Request::path()=='admin/voucher' || Request::is('admin/voucher/*'))
                 @yield('voucher')
+                @elseif (Request::path()=='admin/doc_number' || Request::is('admin/doc_number/*'))
+                @yield('numerefacturi')
 
                 @endif
                 </div>

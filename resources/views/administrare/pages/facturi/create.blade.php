@@ -37,7 +37,7 @@
                                 <h3 class="box-title">Date Factura</h3>
                                 <div class="box-body">
                                     <div class="form-group">
-                                        {!! Form::select('tipfactura',[''=>'','0'=>'Factura Proforma','1'=>'Factura Fiscala'], null, ['id'=>'select_tipfactura','class' => 'form-control']) !!}
+                                        {!! Form::select('tipfactura',[''=>'','0'=>'Factura Proforma','1'=>'Factura Fiscala'], null, ['onchange'=>'seriefact()','id'=>'select_tipfactura','class' => 'form-control']) !!}
                                         <script>
                                             $("#select_tipfactura").select2({
                                                 placeholder: "Selectati tipul facturii",
@@ -45,25 +45,23 @@
                                                 minimumResultsForSearch: Infinity
                                             });
                                         </script>
+                                        <div id='seriefactura'></div>
                                     </div>
                                     <div class="form-group">
-                                        {!! Form::text('seriefactura', null, ['placeholder'=>'Serie Factura','class' => 'form-control']) !!}
+                                        {!! Form::select('seriefactura',[''=>''],null, ['onchange'=>'numarff()','id'=>'serieff','placeholder'=>'Serie Factura','class' => 'form-control']) !!}
                                     </div>
                                     <div class="form-group">
-                                        {!! Form::text('numarfactura', null, ['placeholder'=>'Numar Factura','class' => 'form-control']) !!}
+                                        {!! Form::text('numarfactura', null, ['id'=>'numarfactura','placeholder'=>'Numar Factura','class' => 'form-control']) !!}
                                     </div>
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            {!! Form::text('datafactura', null, ['id'=>'datafactura','placeholder'=>'Data Factura','class' => 'form-control']) !!}
-                                            <script>$('#datafactura').datepicker({
-                                                    format: 'yyyy/mm/dd',
-                                                    startDate: '-3d'
-                                                });
-                                            </script>
+                                            {!! Form::text('datafactura',null,['id'=>'datafactura','placeholder'=>'Data Factura','class' => 'form-control']) !!}
+                                            <div id="dataselect"></div>
                                         </div>
+                                        
                                     </div>
                                     <div class="form-group">
                                         {!! Form::text('valoarefactura_ftva', null, ['placeholder'=>'Valoare Factura','class' => 'form-control']) !!}

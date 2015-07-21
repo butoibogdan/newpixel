@@ -52,3 +52,41 @@ function dateclient(){
     }); 
       
 }
+
+function seriefact(){
+    
+    $.ajax({
+        type: 'POST',
+        url: "create/serieff",
+        data: {'selectareff': $('select[name=tipfactura]').val(), '_token': $('input[name=_token]').val()},
+        success: function (result) {
+            $('#serieff').html(result);
+        }
+    }); 
+    
+}
+
+function numarff(){
+    
+    $.ajax({
+        type: 'POST',
+        url: "create/numarff",
+        data: {'numff': $('#serieff').val(), '_token': $('input[name=_token]').val()},
+        success: function (result) {
+            $('#numarfactura').val(result);
+        }
+    }); 
+    
+     $.ajax({
+        type: 'POST',
+        url: "create/datamax",
+        data: {'nrff': $('#serieff').val(), '_token': $('input[name=_token]').val()},
+        success: function (result) {
+            //$('text[name=datafactura]').val(result);
+            $('#datafactura').val(result);
+            $('#dataselect').append('<script>$("#datafactura").datepicker({format: "yyyy-mm-dd",autoclose: true, startDate:'+'"'+result+'"'+'});</script>');
+        }
+    }); 
+      
+}
+

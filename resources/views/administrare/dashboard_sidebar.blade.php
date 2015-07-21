@@ -29,7 +29,7 @@
                     {{$activeoferte=""}}
                 @endif
                 
-                @if(Request::path()=='admin/facturi' || Request::is('admin/facturi/*') || Request::path()=='admin/clienti' || Request::is('admin/clienti/*') || Request::path()=='admin/voucher' || Request::is('admin/voucher/*'))    
+                @if(Request::path()=='admin/facturi' || Request::is('admin/facturi/*') || Request::path()=='admin/clienti' || Request::is('admin/clienti/*') || Request::path()=='admin/voucher' || Request::is('admin/voucher/*') || Request::path()=='admin/numerefacturi' || Request::is('admin/numerefacturi/*'))    
                     {{$activefacturi="active"}}
                 @else
                     {{$activefacturi=""}}   
@@ -71,6 +71,7 @@
                             <li><a href="{{URL::asset('admin/clienti')}}"><i class="fa fa-circle-o"></i>Clienti</a></li>
                             <li><a href="{{URL::asset('admin/facturi')}}"><i class="fa fa-circle-o"></i>Facturi</a></li>
                             <li><a href="{{URL::asset('admin/voucher')}}"><i class="fa fa-circle-o"></i>Vouchers</a></li>
+                            <li><a href="{{URL::asset('admin/doc_number')}}"><i class="fa fa-circle-o"></i>Nr. Facturi</a></li>
                         </ul>
                     </li>
                 </ul>

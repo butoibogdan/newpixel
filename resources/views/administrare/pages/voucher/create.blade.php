@@ -18,6 +18,7 @@
                         {!! Form::label('numar', 'Numar: ', ['class' => 'col-md-12 control-label']) !!}
                         {!! Form::text('numar', null, ['class' => 'form-control']) !!}
                     </div>
+                    
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon">
@@ -27,11 +28,14 @@
                         </div>
                         <script>
                             $('#datavoucher').datepicker({
-                                format: 'yyyy/mm/dd',
-                                startDate: '-3d'
-                            });</script>
+                                format: 'yyyy-mm-dd',
+                                startDate: '-3d',
+                                autoclose:true,
+                                startDate:'today'
+                            });
+                        </script>
                     </div>
-
+                    
                     <div class="box box-primary col-md-12">
                         <div class="box-body">
                             <div class="input_fields_wrap_adulti">
@@ -63,7 +67,7 @@
                         </div>
                         <script>
 
-                            $("#datanasterii0").inputmask("yyyy/mm/dd", {"placeholder": "yyyy/mm/dd"});
+                            $("#datanasterii0").inputmask("yyyy-mm-dd", {"placeholder": "yyyy-mm-dd"});
 
                             moment.locale('en', {
                                 relativeTime: {
@@ -87,8 +91,8 @@
                             function schimba() {
                                 for (var i = 0; i <= 9; i++) {
                                     var data2 = $('#datanasterii' + i).val();
-                                    if ($('#datanasterii'+i).length != 0) {
-                                        var dsplit = data2.split("/");
+                                    if ($('#datanasterii' + i).length != 0) {
+                                        var dsplit = data2.split("-");
                                         var data = new Date(dsplit[0], dsplit[1] - 1, dsplit[2]);
                                         var data1 = moment(data).toNow(true);
                                         $('#varsta' + i).val(data1);

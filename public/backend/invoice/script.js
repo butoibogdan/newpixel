@@ -54,7 +54,7 @@ $(document).ready(function () {
                             </a>\n\
                         </div>\n\
                         </div>\n\
-                        <script>$("#datanasterii'+count+'").inputmask("yyyy/mm/dd", {"placeholder": "yyyy/mm/dd"});</script>' 
+                        <script>$("#datanasterii'+count+'").inputmask("yyyy-mm-dd", {"placeholder": "yyyy-mm-dd"});</script>' 
                         ); //add input box     
             }
         });

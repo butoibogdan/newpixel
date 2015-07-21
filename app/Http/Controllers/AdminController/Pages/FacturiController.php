@@ -12,6 +12,7 @@ use App\Facturiproduses;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Support\Facades\Input;
 use App\Vouchers;
+use App\Numeredocumentes;
 
 class FacturiController extends Controller {
 
@@ -20,15 +21,13 @@ class FacturiController extends Controller {
      *
      * @return Response
      */
-   
     public function index() {
         $facturis = Facturis::latest()->get();
         return view('administrare.pages.facturi.index', compact('facturis'));
-
     }
-    
-    public function getvoucher($idfact){
-        return Vouchers::where('idfactura',$idfact)->lists('id');
+
+    public function getvoucher($idfact) {
+        return Vouchers::where('idfactura', $idfact)->lists('id');
     }
 
     /*
@@ -50,8 +49,46 @@ class FacturiController extends Controller {
      *
      * @return Response
      */
+    public function serieff(Request $request) {
+        $numarmaxfact = Facturis::max('numarfactura');
+        $serii = Numeredocumentes::where('tipdocument', $request->selectareff)->get();
+        echo '<option value=""></option>';
+        foreach ($serii as $serie) {
+            if ($numarmaxfact == Null) {
+                echo '<option value="' . $serie->seriedocument . '">' . $serie->seriedocument . '</option>';
+            } else
+            if ($numarmaxfact != Null) {
+                echo '<option value="' . $serie->seriedocument . '">' . $serie->seriedocument . '</option>';
+            } else
+            if ($numarmaxfact == $serie->numar_max) {
+                return NULL;
+            }
+        }
+    }
+
+    public function numarff(Request $request) {
+        $numarmaxfact = Facturis::where('seriefactura', $request->numff)->max('numarfactura');
+        $serii = Numeredocumentes::where('seriedocument', $request->numff)->get();
+        foreach ($serii as $serie) {
+            if ($numarmaxfact == Null) {
+                echo $serie->numar_min;
+            } else
+            if ($numarmaxfact != Null) {
+                echo $numarmaxfact + 1;
+            } else
+            if ($numarmaxfact == $serie->numar_max) {
+                return NULL;
+            }
+        }
+    }
+
+    public function datamax(Request $request) {
+        echo Facturis::where('seriefactura', $request->nrff)->max('datafactura');
+    }
+
     public function create() {
         $clienti = Clientis::lists('nume', 'id');
+        $numarff = Numeredocumentes::latest()->get();
         return view('administrare.pages.facturi.create')
                         ->with('lista', $clienti);
     }
@@ -158,6 +195,20 @@ class FacturiController extends Controller {
      * @param  int  $id
      * @return Response
      */
+    public function showstorno($id) {
+
+        $facturi = Facturis::findOrFail($id);
+        $cl = explode(',', $facturi->idclient);
+        $client = Clientis::where('id', $facturi->idclient)->lists('nume', 'id');
+        $clienti = Clientis::whereNotIn('id', $cl)->lists('nume', 'id');
+        $datefactura = Facturiproduses::where('idfactura', $id)->get();
+        return view('administrare.pages.facturi.edit', compact('facturi'))
+                        ->with('client', $client)
+                        ->with('clienti', $clienti)
+                        ->with('datefactura', $datefactura)
+                        ->with('count', count($datefactura));
+    }
+
     public function edit($id) {
 
         $facturi = Facturis::findOrFail($id);
