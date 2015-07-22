@@ -52,7 +52,7 @@ class FacturiController extends Controller {
     public function serieff(Request $request) {
         $numarmaxfact = Facturis::max('numarfactura');
         $serii = Numeredocumentes::where('tipdocument', $request->selectareff)->get();
-        echo '<option value=""></option>';
+        echo '<option selected="true" disabled="disabled" value="">Selectati Seria</option>';
         foreach ($serii as $serie) {
             if ($numarmaxfact == Null) {
                 echo '<option value="' . $serie->seriedocument . '">' . $serie->seriedocument . '</option>';

@@ -51,14 +51,14 @@
                                         {!! Form::select('seriefactura',[''=>''],null, ['onchange'=>'numarff()','id'=>'serieff','placeholder'=>'Serie Factura','class' => 'form-control']) !!}
                                     </div>
                                     <div class="form-group">
-                                        {!! Form::text('numarfactura', null, ['id'=>'numarfactura','placeholder'=>'Numar Factura','class' => 'form-control']) !!}
+                                        {!! Form::text('numarfactura', null, ['readonly','id'=>'numarfactura','placeholder'=>'Numar Factura','class' => 'form-control']) !!}
                                     </div>
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            {!! Form::text('datafactura',null,['id'=>'datafactura','placeholder'=>'Data Factura','class' => 'form-control']) !!}
+                                            {!! Form::text('datafactura',null,['disabled'=>'disabled','id'=>'datafactura','placeholder'=>'Data Factura','class' => 'form-control']) !!}
                                             <div id="dataselect"></div>
                                         </div>
                                         

@@ -82,8 +82,8 @@ function numarff(){
         url: "create/datamax",
         data: {'nrff': $('#serieff').val(), '_token': $('input[name=_token]').val()},
         success: function (result) {
-            //$('text[name=datafactura]').val(result);
             $('#datafactura').val(result);
+            $('#datafactura').removeAttr('disabled');
             $('#dataselect').append('<script>$("#datafactura").datepicker({format: "yyyy-mm-dd",autoclose: true, startDate:'+'"'+result+'"'+'});</script>');
         }
     }); 
