@@ -17,7 +17,7 @@
                     <div class="col-md-1" id="nrcrt"><div class="form-control">1</div></div>
                     <div class="col-md-7"><input class="form-control" type="text" name="denprodus[]"></div>
                     <div class="col-md-1"><input class="form-control" type="text" name="cantitate[]"></div>
-                    <div class="col-md-1"><input class="form-control" type="text" name="pret[]"></div>
+                    <div class="col-md-1"><input id='pretftava' class="form-control" type="text" name="pret[]"></div>
                     <div class="col-md-1"><input class="form-control" type="text" name="tva[]"></div>
                     <div class="col-md-1"></div>
                 </div>

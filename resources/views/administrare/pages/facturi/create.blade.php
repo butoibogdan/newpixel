@@ -64,7 +64,7 @@
                                         
                                     </div>
                                     <div class="form-group">
-                                        {!! Form::text('valoarefactura_ftva', null, ['placeholder'=>'Valoare Factura','class' => 'form-control']) !!}
+                                        {!! Form::text('valoarefactura_ftva', null, ['id'=>'valfaratva','placeholder'=>'Valoare Factura','class' => 'form-control']) !!}
                                     </div>
                                     <div class="form-group">
                                         {!! Form::text('valoare_tva', null, ['placeholder'=>'Valoare TVA','class' => 'form-control']) !!}
@@ -76,7 +76,9 @@
                             </div>
                         </div>
                     </div>
+                    <div id='dateproduse'>
                     @include('administrare.pages.facturi.invoicetpl')
+                    </div>
                     <br/><br/>
                     <div class="form-group">
                         {!! Form::submit('Adauga', ['class' => 'btn btn-primary form-control']) !!}

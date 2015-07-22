@@ -16,7 +16,7 @@ class ContinenteController extends Controller {
 	 */
 	public function index()
 	{
-		$continentes = Continentes::latest()->get();
+		$continentes = Continentes::paginate(2);
 		return view('administrare.pages.continente.index', compact('continentes'));
 
 	}
