@@ -15,5 +15,10 @@ return [
        1=>'factura fiscala',
        2=>'chitanta',
        3=>'voucher'
-       ]
+       ],
+    'valori_tva'=>[
+       '1'=>'inclus',
+       '0.09'=>'9%',
+       '0.24'=>'24%' 
+    ]
 ];
