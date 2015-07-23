@@ -26,6 +26,7 @@
         <script src='{{URL::asset("backend/plugins/input-mask/jquery.inputmask.js")}}'></script>
         <script src='{{URL::asset("backend/plugins/input-mask/jquery.inputmask.date.extensions.js")}}'></script>
         <script src='{{URL::asset("backend/js/moment.js")}}'></script>
+        <script src='{{URL::asset("backend/js/jquery.number.min.js")}}'></script>
         
         <script src='{{URL::asset("backend/invoice/script.js")}}'></script>
         <script src='{{URL::asset("backend/ajax/ajax.js")}}'></script>

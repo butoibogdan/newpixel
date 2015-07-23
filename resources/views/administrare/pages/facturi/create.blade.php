@@ -96,19 +96,20 @@
                             $('#valfaratva').val(sum);
                         });
 
-                        $('#facturi').delegate('.tva', 'change', function () {                 
-                            var $summands = $('#facturi').find('.tva');                            
-                            var sum = 0;                            
-                            $summands.each(function ()                            {
+                        $('#facturi').delegate('.tva', 'change', function () {
+                            var $summands = $('#facturi').find('.tva');
+                            var sum = 0;
+                            $summands.each(function () {
                                 var value = Number($(this).val());
                                 if (!isNaN(value))
-                                    sum += value*$('#pretftva').val();
+                                    sum += value * $('#pretftva').val();
                             });
 
-                            $.number($('#totaltva').val(sum),2);
-                        
+                            $('#totaltva').val(sum);
+                            $('#totaltva').number(true, 2);
+
                         });
-     
+
                         $(document).ready(function () {
                             var max_fields = 10; //maximum input boxes allowed
                             var wrapper = $(".input_fields_wrap"); //Fields wrapper
