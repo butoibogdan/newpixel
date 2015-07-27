@@ -145,11 +145,25 @@
                                                       '); //add input box     
                                 }
                             });
-
+                            
                             $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
                                 e.preventDefault();
-                                $('#sterge').remove();
+                                $(this).closest('div[id="sterge"]').remove();
+                                var total = $('#valfaratva').val();
+                                var pret = $('#idpretftva').val();
+                                var totalf = total - pret;
+                                $('#valfaratva').val(totalf);
                                 x--;
+//                                var $summands = $('#facturi').find('.pretftva');
+//                                var sum = $('#valfaratva').val();
+//                                $summands.each(function ()
+//                                {
+//                                    var value = Number($(this).val());
+//                                    if (!isNaN(value))
+//                                        sum = value;
+//                                });
+//                                $('#valfaratva').val(sum);
+
                             })
                         });
                     </script>

@@ -40,7 +40,7 @@ $(document).ready(function () {
 
     $(wrapper).on("click", ".remove_field_copii", function (e) { //user click on remove text
         e.preventDefault();
-        $('#sterge_copii').remove();
+        $(this).closest('div[id="sterge_copii"]').remove();
         x--;
     })
 });
@@ -63,7 +63,7 @@ $(document).ready(function () {
 
     $(wrapper).on("click", ".remove_field_adult", function (e) { //user click on remove text
         e.preventDefault();
-        $('#sterge_adult').remove();
+        $(this).closest('div[id="sterge_adult"]').remove();      
         x--;
     })
 });
