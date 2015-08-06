@@ -15,7 +15,7 @@
         <link href="{{URL::asset('backend/select2/dist/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{URL::asset('backend/star_rating/jquery.raty.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{URL::asset('backend/plugins/datepicker/datepicker3.css')}}" rel="stylesheet" type="text/css" />
-
+        <link href="{{URL::asset('backend/plugins/check/css/checkbox-x.min.css')}}" rel="stylesheet" type="text/css" />
         <script src='{{URL::asset("backend/plugins/jQuery/jQuery-2.1.4.min.js")}}'></script>
         <script src='{{URL::asset("backend/bootstrap/js/bootstrap.min.js")}}' type="text/javascript"></script>
         <script src='{{URL::asset("backend/star_rating/jquery.raty.js")}}' type="text/javascript"></script>
@@ -27,7 +27,7 @@
         <script src='{{URL::asset("backend/plugins/input-mask/jquery.inputmask.date.extensions.js")}}'></script>
         <script src='{{URL::asset("backend/js/moment.js")}}'></script>
         <script src='{{URL::asset("backend/js/jquery.number.min.js")}}'></script>
-        
+        <script src='{{URL::asset("backend/plugins/check/js/checkbox-x.min.js")}}'></script>
         <script src='{{URL::asset("backend/invoice/script.js")}}'></script>
         <script src='{{URL::asset("backend/ajax/ajax.js")}}'></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -74,9 +74,12 @@
                 @yield('voucher')
                 @elseif (Request::path()=='admin/doc_number' || Request::is('admin/doc_number/*'))
                 @yield('numerefacturi')
+                @elseif (Request::path()=='admin/plata' || Request::is('admin/plata/*'))
+                @yield('docplata')
+                
 
                 @endif
-                </div>
+            </div>
 
             @include('administrare/dashboard_footer')
         </div>
@@ -87,6 +90,6 @@
         <script src='{{URL::asset("backend/plugins/slimScroll/jquery.slimscroll.min.js")}}' type="text/javascript"></script>
         <script src='{{URL::asset("backend/plugins/fastclick/fastclick.min.js")}}'></script>
         <script src='{{URL::asset("backend/dist/js/app.js")}}' type="text/javascript"></script>
-        
+
     </body>
 </html>

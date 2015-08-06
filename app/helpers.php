@@ -31,3 +31,26 @@ function statusfactura($id) {
         return $fact;
     }
 }
+
+function dateincasare($id, $doc) {
+    $factura = Facturis::where('id', $id)->lists('incasare');
+    foreach ($factura as $fact) {
+        $val=explode("|",$fact);
+        if ($doc == "plata") {
+            return $val[0];
+        } else
+        if ($doc == "nrdoc") {
+            return $val[1];
+        }
+    }
+}
+
+function procentplata($id){
+    $incasare = Facturis::where('id', $id)->get();
+    foreach ($incasare as $fact) {
+        $val=explode("|",$fact->incasare);
+      
+            return number_format((-1)*(1-($fact->valoarefactura_ftva+$fact->valoare_tva)/($fact->valoarefactura_ftva+$fact->valoare_tva+$val[0]))*100,2);
+    }
+}
+

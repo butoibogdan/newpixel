@@ -162,8 +162,8 @@ Route::group(array('middleware' => 'auth'), function() {
 
         Route::get('destroy/{id}', 'AdminController\Pages\ClientiController@destroy');
         Route::get('/{id}', ['as' => 'showclienti', 'uses' => 'AdminController\Pages\ClientiController@show']);
-        
-        Route::post('create/client','AdminController\Pages\ClientiController@selectare');
+
+        Route::post('create/client', 'AdminController\Pages\ClientiController@selectare');
     });
 
     //--------------------Sectiune Pagini Facturi--------------------//
@@ -175,25 +175,28 @@ Route::group(array('middleware' => 'auth'), function() {
 
         Route::get('create', 'AdminController\Pages\FacturiController@create');
         Route::post('/', 'AdminController\Pages\FacturiController@store');
+        
 
         Route::get('edit/{id}', ['as' => 'editfacturi', 'uses' => 'AdminController\Pages\FacturiController@edit']);
         Route::PATCH('edit/{id}', 'AdminController\Pages\FacturiController@update');
-        Route::get('edit/{id}/{idp}','AdminController\Pages\FacturiController@deleteprodus');
+        Route::get('edit/{id}/{idp}', 'AdminController\Pages\FacturiController@deleteprodus');
 
         Route::get('destroy/{id}', 'AdminController\Pages\FacturiController@destroy');
         Route::get('/{id}', ['as' => 'showfacturi', 'uses' => 'AdminController\Pages\FacturiController@show']);
+
+        Route::post('create/date_client', 'AdminController\Pages\FacturiController@dateclient');
+
+        Route::get('pdf/{id}', 'AdminController\Pages\FacturiController@generarepdf');
+
+        Route::post('create/serieff', 'AdminController\Pages\FacturiController@serieff');
+        Route::post('create/numarff', 'AdminController\Pages\FacturiController@numarff');
+        Route::post('create/datamax', 'AdminController\Pages\FacturiController@datamax');
         
-        Route::post('create/date_client','AdminController\Pages\FacturiController@dateclient');
         
-        Route::get('pdf/{id}','AdminController\Pages\FacturiController@generarepdf');
-        
-        Route::post('create/serieff','AdminController\Pages\FacturiController@serieff');
-        Route::post('create/numarff','AdminController\Pages\FacturiController@numarff');
-        Route::post('create/datamax','AdminController\Pages\FacturiController@datamax');
     });
-    
+
     //--------------------Sectiune Pagini Voucher--------------------//
-    
+
     Route::group(['prefix' => 'admin/voucher'], function() {
 
         Route::get('/', 'AdminController\Pages\VoucherController@index');
@@ -203,18 +206,18 @@ Route::group(array('middleware' => 'auth'), function() {
 
         Route::get('edit/{id}', ['as' => 'editvoucher', 'uses' => 'AdminController\Pages\VoucherController@edit']);
         Route::PATCH('edit/{id}', 'AdminController\Pages\VoucherController@update');
-       
+
         Route::get('destroy/{id}', 'AdminController\Pages\VoucherController@destroy');
         Route::get('/{id}', ['as' => 'showfacturi', 'uses' => 'AdminController\Pages\VoucherController@show']);
-        
-        Route::post('create/date_client','AdminController\Pages\VoucherController@dateclient');
-        
-        Route::get('pdf/{id}','AdminController\Pages\VoucherController@generarepdf');
+
+        Route::post('create/date_client', 'AdminController\Pages\VoucherController@dateclient');
+
+        Route::get('pdf/{id}', 'AdminController\Pages\VoucherController@generarepdf');
     });
-    
+
     //--------------------Sectiune Numere facturi--------------------//
-    
-     Route::group(['prefix' => 'admin/doc_number'], function() {
+
+    Route::group(['prefix' => 'admin/doc_number'], function() {
 
         Route::get('/', 'AdminController\Pages\NumeredocumeteController@index');
         Route::get('create', 'AdminController\Pages\NumeredocumeteController@create');
@@ -226,9 +229,33 @@ Route::group(array('middleware' => 'auth'), function() {
         Route::get('destroy/{id}', 'AdminController\Pages\NumeredocumeteController@destroy');
         Route::get('/{id}', ['as' => 'showreg', 'uses' => 'AdminController\Pages\NumeredocumeteControllere@show']);
     });
-    
-    
 
+    //--------------------Sectiune Pagini Documente Plata--------------------//
+
+
+    Route::group(['prefix' => 'admin/plata'], function() {
+
+        Route::get('/', 'AdminController\Pages\DocplataController@index');
+
+        Route::get('create', 'AdminController\Pages\DocplataController@create');
+        Route::PUT('create', 'AdminController\Pages\DocplataController@create');
+        Route::post('/', 'AdminController\Pages\DocplataController@store');
+
+        Route::get('edit/{id}', ['as' => 'editfacturi', 'uses' => 'AdminController\Pages\DocplataController@edit']);
+        Route::PATCH('edit/{id}', 'AdminController\Pages\DocplataController@update');
+        Route::get('edit/{id}/{idp}', 'AdminController\Pages\DocplataController@deleteprodus');
+
+        Route::get('destroy/{id}', 'AdminController\Pages\DocplataController@destroy');
+        Route::get('/{id}', ['as' => 'showfacturi', 'uses' => 'AdminController\Pages\DocplataController@show']);
+
+        Route::post('create/date_client', 'AdminController\Pages\DocplataController@dateclient');
+
+        Route::get('pdf/{id}', 'AdminController\Pages\DocplataController@generarepdf');
+
+        Route::post('create/serieff', 'AdminController\Pages\DocplataController@serieff');
+        Route::post('create/numarff', 'AdminController\Pages\DocplataController@numarff');
+        Route::post('create/datamax', 'AdminController\Pages\DocplataController@datamax');
+    });
 });
 
 

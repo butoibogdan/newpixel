@@ -34,6 +34,12 @@ class FacturiController extends Controller {
      * tip client 1 pentru PF 0 pentru PJ
      */
 
+    public function plata(){
+        return view('administrare.pages.docplata.create');
+    }
+
+
+    
     public function dateclient(Request $r) {
         $val = Clientis::where('id', $r->infoclienti)->get();
         if ($val[0]->tipclient == 1) {
