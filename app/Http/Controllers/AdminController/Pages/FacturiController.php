@@ -34,12 +34,10 @@ class FacturiController extends Controller {
      * tip client 1 pentru PF 0 pentru PJ
      */
 
-    public function plata(){
+    public function plata() {
         return view('administrare.pages.docplata.create');
     }
 
-
-    
     public function dateclient(Request $r) {
         $val = Clientis::where('id', $r->infoclienti)->get();
         if ($val[0]->tipclient == 1) {
@@ -90,6 +88,10 @@ class FacturiController extends Controller {
 
     public function datamax(Request $request) {
         echo Facturis::where('seriefactura', $request->nrff)->max('datafactura');
+    }
+
+    public function anulare() {
+        Facturis::where('id', \Request::segment(4))->update(['tipfactura' => 2]);
     }
 
     public function create() {
@@ -201,7 +203,7 @@ class FacturiController extends Controller {
      * @param  int  $id
      * @return Response
      */
-    public function showstorno($id) {
+    public function stornare($id) {
 
         $facturi = Facturis::findOrFail($id);
         $cl = explode(',', $facturi->idclient);

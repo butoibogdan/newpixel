@@ -192,6 +192,9 @@ Route::group(array('middleware' => 'auth'), function() {
         Route::post('create/numarff', 'AdminController\Pages\FacturiController@numarff');
         Route::post('create/datamax', 'AdminController\Pages\FacturiController@datamax');
         
+        Route::get('stornare/{id}', 'AdminController\Pages\FacturiController@stornare');
+        Route::get('anulare/{id}', 'AdminController\Pages\FacturiController@anulare');
+        
         
     });
 
@@ -252,9 +255,8 @@ Route::group(array('middleware' => 'auth'), function() {
 
         Route::get('pdf/{id}', 'AdminController\Pages\DocplataController@generarepdf');
 
-        Route::post('create/serieff', 'AdminController\Pages\DocplataController@serieff');
-        Route::post('create/numarff', 'AdminController\Pages\DocplataController@numarff');
-        Route::post('create/datamax', 'AdminController\Pages\DocplataController@datamax');
+        Route::post('create/serie', 'AdminController\Pages\DocplataController@serie');
+        
     });
 });
 

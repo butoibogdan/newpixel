@@ -8,6 +8,7 @@ use App\Docplatas;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Facturis;
+use App\Numeredocumentes;
 
 class DocplataController extends Controller {
 
@@ -39,6 +40,23 @@ class DocplataController extends Controller {
      *
      * @return Response
      */
+    public function serie(Request $r) {
+        $numarmaxdoc = Docplatas::where('tipdoc', $r->selectaredoc)->max('numar');
+        $data = Docplatas::where('tipdoc', $r->selectaredoc)->max('data');
+        $serii = Numeredocumentes::where('tipdocument', $r->selectaredoc)->get();
+        foreach ($serii as $serie) {
+            if ($numarmaxdoc == Null) {
+                echo json_encode(["value1" => $serie->seriedocument, "value2" => $serie->numar_min, "value3" =>date("Y-m-d")]);
+            } else
+            if ($numarmaxdoc != Null) {
+                echo json_encode(["value1" => $serie->seriedocument, "value2" => $numarmaxdoc + 1, "value3" => $data]);
+            } else
+            if ($numarmaxdoc == $serie->numar_max) {
+                return NULL;
+            }
+        }
+    }
+
     public function store(Request $request) {
         //$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed
         $doc = Docplatas::create($request->all());

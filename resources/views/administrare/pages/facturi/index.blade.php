@@ -25,28 +25,32 @@
                     <a href="{{ url('admin/facturi/edit/'.$item->id) }}"><div class="btn btn-primary btn-xs">Edit</div></a>
                     <a href="{{ url('admin/facturi/destroy/'.$item->id) }}"><div class="btn btn-danger btn-xs">Delete</div></a>
                     <a href="{{ url('admin/facturi/pdf/'.$item->id) }}"><div class="btn btn-info btn-xs">PDF</div></a>
-                    @if(voucheremis($item->id)=="")
-                    <a href="{{ url('admin/voucher/create/'.$item->id) }}"><div class="btn btn-info btn-xs">Voucher</div></a>
-                    @elseif((voucheremis($item->id)!=""))
-                    <a href="{{ url('admin/voucher/edit/'.voucheremis($item->id)) }}"><div class="btn btn-success btn-xs">{{numarvoucher($item->id)}}</div></a>
-                    @endif
+                        @if(voucheremis($item->id)=="")
+                        <a href="{{ url('admin/voucher/create/'.$item->id) }}"><div class="btn btn-info btn-xs">Voucher</div></a>
+                        @elseif((voucheremis($item->id)!=""))
+                        <a href="{{ url('admin/voucher/edit/'.voucheremis($item->id)) }}"><div class="btn btn-success btn-xs">{{numarvoucher($item->id)}}</div></a>
+                        @endif
                     @elseif(statusfactura($item->id)==1)
                     <a href="{{ url('admin/facturi/stornare/'.$item->id) }}"><div class="btn btn-primary btn-xs">Stornare</div></a>
                     <a href="{{ url('admin/facturi/anulare/'.$item->id) }}"><div class="btn btn-danger btn-xs">Anulare</div></a>
                     <a href="{{ url('admin/facturi/pdf/'.$item->id) }}"><div class="btn btn-info btn-xs">{{$item->seriefactura}}|{{$item->numarfactura}}</div></a>
-                    @if(voucheremis($item->id)=="")
-                    <a href="{{ url('admin/voucher/create/'.$item->id) }}"><div class="btn btn-info btn-xs">Voucher</div></a>
-                    @elseif((voucheremis($item->id)!=""))
-                    <a href="{{ url('admin/voucher/edit/'.voucheremis($item->id)) }}"><div class="btn btn-success btn-xs">{{numarvoucher($item->id)}}</div></a>
-                    @endif
+                        @if(voucheremis($item->id)=="")
+                        <a href="{{ url('admin/voucher/create/'.$item->id) }}"><div class="btn btn-info btn-xs">Voucher</div></a>
+                        @elseif((voucheremis($item->id)!=""))
+                        <a href="{{ url('admin/voucher/edit/'.voucheremis($item->id)) }}"><div class="btn btn-success btn-xs">{{numarvoucher($item->id)}}</div></a>
+                        @endif
+                    @elseif(statusfactura($item->id)==2)
+                    <a href="{{ url('admin/facturi/pdf/'.$item->id) }}"><div class="btn btn-danger btn-xs">Anulata|{{$item->seriefactura}}|{{$item->numarfactura}}</div></a>
                     @endif
                 </td>
                 <td align="left">
                     <label class="cbx-label">
-                        @if(dateincasare($item->id,'plata')<0 || dateincasare($item->id,'plata')==NULL)
-                        {!!Form::checkbox('idfactura['.$item->id.']',$item->id,[],['data-three-state'=>false, 'data-toggle'=>'checkbox-x','data-enclosed-label'=>true])!!}
-                        @else
-                        Incasat cu: {{dateincasare($item->id,'nrdoc')}}
+                        @if(statusfactura($item->id)!=2)
+                            @if(dateincasare($item->id,'plata')<0 || dateincasare($item->id,'plata')==NULL)
+                            {!!Form::checkbox('idfactura['.$item->id.']',$item->id,[],['data-three-state'=>false, 'data-toggle'=>'checkbox-x','data-enclosed-label'=>true])!!}
+                            @elseif(dateincasare($item->id,'plata')>=0)
+                            Incasat cu: {{dateincasare($item->id,'nrdoc')}}
+                            @endif
                         @endif
                     </label>
 
